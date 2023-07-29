@@ -12,7 +12,6 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloDisciplina
         {            
             //arrange
             var disciplina = Builder<Disciplina>.CreateNew().Build();
-
             //action
             repositorioDisciplina.Inserir(disciplina);
 

@@ -14,7 +14,6 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
 
         public TestesIntegracaoBase()
         {
-            LimparTabelas();
 
             var connectionString = ObterConnectionString();
 
@@ -31,32 +30,21 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
                 dbContext.Database.Migrate();
             }
 
-            IRepositorioDisciplina repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
+            repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
 
+            LimparTabelas(dbContext);
+
+            BuilderSetup.DisablePropertyNamingFor<Disciplina, int>(d => d.Id);
 
             BuilderSetup.SetCreatePersistenceMethod<Disciplina>(repositorioDisciplina.Inserir);
 
         }
 
-        protected static void LimparTabelas()
+        protected static void LimparTabelas(LocadorAutomoveisDbContext dbContext)
         {
-            string? connectionString = ObterConnectionString();
-
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
-
-            string sqlLimpezaTabela =
-                @"
-
-                DELETE FROM [DBO].[TBDISCIPLINA]
-                DBCC CHECKIDENT ('[TBDISCIPLINA]', RESEED, 0);";
-
-            SqlCommand comando = new SqlCommand(sqlLimpezaTabela, sqlConnection);
-
-            sqlConnection.Open();
-
-            comando.ExecuteNonQuery();
-
-            sqlConnection.Close();
+           var disciplinas = dbContext.Set<Disciplina>();
+           disciplinas.RemoveRange(disciplinas);
+           dbContext.SaveChanges();
         }
 
         protected static string ObterConnectionString()
