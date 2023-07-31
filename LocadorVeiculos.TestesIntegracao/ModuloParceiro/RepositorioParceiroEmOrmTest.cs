@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LocadorAutomoveis.TestesIntegracao.ModuloParceiro
 {
-    internal class RepositorioParceiroEmOrmTest
+    public class RepositorioParceiroEmOrmTest
     {
+
     }
 }
