@@ -48,7 +48,7 @@ namespace LocadorAutomoveis.Infra.Orm.Compartilhado
 
         public List<T> SelecionarTodos()
         {
-            return registros.ToList();
+           return registros.ToList();
         }
     }
 }

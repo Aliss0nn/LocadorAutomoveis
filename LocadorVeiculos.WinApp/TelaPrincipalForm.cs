@@ -1,11 +1,15 @@
 ﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
+using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
+using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
+using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloDisciplina;
+using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -55,6 +59,7 @@ namespace LocadorAutomoveis.WinApp
             }
 
             IRepositorioDisciplina repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
+            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmSql(dbContext);
 
             ValidadorDisciplina validadorDisciplina = new ValidadorDisciplina();
 
@@ -65,10 +70,16 @@ namespace LocadorAutomoveis.WinApp
             IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
 
             ValidadorGrupoAutomoveis validadorGrupoAutomoveis = new ValidadorGrupoAutomoveis();
-            
+
             ServicoGrupoAutomoveis servicoGrupoAutomoveis = new ServicoGrupoAutomoveis(repositorioGrupoAutomoveis, validadorGrupoAutomoveis);
 
             controladores.Add("ControladorGrupoAutomoveis", new ControladorGrupoAutomoveis(repositorioGrupoAutomoveis, servicoGrupoAutomoveis));
+            ValidadorFuncionario validadorFuncionario = new ValidadorFuncionario();
+
+            ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
+
+            controladores.Add("ControladorGrupoFuncionarios", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
+
         }
 
         public static TelaPrincipalForm Instancia
@@ -168,6 +179,11 @@ namespace LocadorAutomoveis.WinApp
             listagemControl.Dock = DockStyle.Fill;
 
             panelRegistros.Controls.Add(listagemControl);
+        }
+
+        private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoFuncionarios"]);
         }
     }
 }
