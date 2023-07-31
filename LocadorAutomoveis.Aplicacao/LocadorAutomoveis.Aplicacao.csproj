@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LocadorVeiculos.Dominio\LocadorVeiculos.Dominio.csproj" />
-    <ProjectReference Include="..\LocadorVeiculos.Infra.Orm\LocadorVeiculos.Infra.Orm.csproj" />
+    <ProjectReference Include="..\LocadorVeiculos.Dominio\LocadorAutomoveis.Dominio.csproj" />
+    <ProjectReference Include="..\LocadorVeiculos.Infra.Orm\LocadorAutomoveis.Infra.Orm.csproj" />
   </ItemGroup>
 
 </Project>

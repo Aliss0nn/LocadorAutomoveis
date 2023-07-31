@@ -23,19 +23,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 IntegrationTests", "5.2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orm", "Orm", "{826C7B40-71E7-4807-AE4E-328DCED3BA48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorVeiculos.Dominio", "LocadorVeiculos.Dominio\LocadorVeiculos.Dominio.csproj", "{10888A82-0026-4AF7-9668-98FCC60BB280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadorAutomoveis.Dominio", "LocadorVeiculos.Dominio\LocadorAutomoveis.Dominio.csproj", "{10888A82-0026-4AF7-9668-98FCC60BB280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorVeiculos.ConsoleApp", "LocadorVeiculos.ConsoleApp\LocadorVeiculos.ConsoleApp.csproj", "{D1C7C904-00F6-4DDB-BE0E-26D12370E228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadorAutomoveis.ConsoleApp", "LocadorVeiculos.ConsoleApp\LocadorAutomoveis.ConsoleApp.csproj", "{D1C7C904-00F6-4DDB-BE0E-26D12370E228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorVeiculos.WinApp", "LocadorVeiculos.WinApp\LocadorVeiculos.WinApp.csproj", "{D4BAA4B3-C290-4748-AD46-36855A1F2FCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadorAutomoveis.WinApp", "LocadorVeiculos.WinApp\LocadorAutomoveis.WinApp.csproj", "{D4BAA4B3-C290-4748-AD46-36855A1F2FCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorAutomoveis.Aplicacao", "LocadorAutomoveis.Aplicacao\LocadorAutomoveis.Aplicacao.csproj", "{EFC7F400-24F7-4C05-9311-3A4C25B74463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadorAutomoveis.Aplicacao", "LocadorAutomoveis.Aplicacao\LocadorAutomoveis.Aplicacao.csproj", "{EFC7F400-24F7-4C05-9311-3A4C25B74463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorVeiculos.Infra.Orm", "LocadorVeiculos.Infra.Orm\LocadorVeiculos.Infra.Orm.csproj", "{50326556-CD72-4B89-A227-14D4D8209D93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadorAutomoveis.Infra.Orm", "LocadorVeiculos.Infra.Orm\LocadorAutomoveis.Infra.Orm.csproj", "{50326556-CD72-4B89-A227-14D4D8209D93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorVeiculos.TestesUnitarios", "LocadorVeiculos.TestesUnitarios\LocadorVeiculos.TestesUnitarios.csproj", "{49BDF8AB-F702-4236-B7B4-5E91D0C87CCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadorAutomoveisTestesUnitarios", "LocadorVeiculos.TestesUnitarios\LocadorAutomoveisTestesUnitarios.csproj", "{49BDF8AB-F702-4236-B7B4-5E91D0C87CCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorVeiculos.TestesIntegracao", "LocadorVeiculos.TestesIntegracao\LocadorVeiculos.TestesIntegracao.csproj", "{BD9CDFE6-4726-49CC-AE11-9B1E90955F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadorAutomoveis.TestesIntegracao", "LocadorVeiculos.TestesIntegracao\LocadorAutomoveis.TestesIntegracao.csproj", "{BD9CDFE6-4726-49CC-AE11-9B1E90955F70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
