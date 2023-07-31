@@ -5,7 +5,7 @@
     {
         public ValidadorGrupoAutomoveis()
         {
-            RuleFor(x => x.Tipo)
+            RuleFor(x => x.Nome)
                 .NotEmpty()
                 .NotNull()
                 .MinimumLength(5)

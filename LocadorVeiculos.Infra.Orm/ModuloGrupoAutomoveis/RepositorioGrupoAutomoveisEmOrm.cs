@@ -10,9 +10,9 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis
         {           
         }
       
-        public GrupoAutomoveis SelecionarPorTipo(string tipo)
+        public GrupoAutomoveis SelecionarPorNome(string nome)
         {
-            return registros.FirstOrDefault(x => x.Tipo == tipo);
+            return registros.FirstOrDefault(x => x.Nome == nome);
         }
 
     }

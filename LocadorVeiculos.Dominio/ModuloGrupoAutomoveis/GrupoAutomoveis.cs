@@ -6,38 +6,38 @@
         {
         }
 
-        public GrupoAutomoveis(string tipo) : this()
+        public GrupoAutomoveis(string nome) : this()
         {
-            Tipo = tipo;
+            Nome = nome;
         }
 
-        public GrupoAutomoveis(int id, string tipo) : this(tipo)        
+        public GrupoAutomoveis(int id, string nome) : this(nome)        
         {
             Id = id;
         }
 
-        public string Tipo { get; set; }
+        public string Nome { get; set; }
 
         public override string ToString()
         {
-            return Tipo;
+            return Nome;
         }
 
         public override void Atualizar(GrupoAutomoveis grupo)
         {
-            Tipo = grupo.Tipo;
+            Nome = grupo.Nome;
         }
 
         public override bool Equals(object obj)
         {
             return obj is GrupoAutomoveis grupo &&
                    Id == grupo.Id &&
-                   Tipo == grupo.Tipo;
+                   Nome == grupo.Nome;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Tipo);
+            return HashCode.Combine(Id, Nome);
         }       
     }
 }

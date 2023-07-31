@@ -2,6 +2,6 @@
 {
     public interface IRepositorioGrupoAutomoveis : IRepositorio<GrupoAutomoveis>
     {        
-        GrupoAutomoveis SelecionarPorTipo(string tipo);
+        GrupoAutomoveis SelecionarPorNome(string nome);
     }
 }

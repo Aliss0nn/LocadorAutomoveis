@@ -26,7 +26,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloGrupoAutomoveis
             var grupoId = Builder<GrupoAutomoveis>.CreateNew().Persist().Id;            
 
             var grupo = repositorioGrupoAutomoveis.SelecionarPorId(grupoId);
-            grupo.Tipo = "Esportivo";
+            grupo.Nome = "Esportivo";
 
             //action
             repositorioGrupoAutomoveis.Editar(grupo);
@@ -66,13 +66,13 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloGrupoAutomoveis
 
 
         [TestMethod]
-        public void Deve_selecionar_grupoAutomoveis_por_tipo()
+        public void Deve_selecionar_grupoAutomoveis_por_nome()
         {
             //arrange
             var grupo = Builder<GrupoAutomoveis>.CreateNew().Persist();
 
             //action
-            var grupoEncontrado = repositorioGrupoAutomoveis.SelecionarPorTipo(grupo.Tipo);
+            var grupoEncontrado = repositorioGrupoAutomoveis.SelecionarPorNome(grupo.Nome);
 
             //assert
             grupoEncontrado.Should().Be(grupo);

@@ -116,8 +116,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis
             if (resultadoValidacao != null)
                 erros.AddRange(resultadoValidacao.Errors.Select(x => x.ErrorMessage));
 
-            if (TipoDuplicado(grupo))
-                erros.Add($"Este tipo '{grupo.Tipo}' já está sendo utilizado");
+            if (NomeDuplicado(grupo))
+                erros.Add($"Este nome '{grupo.Nome}' já está sendo utilizado");
 
             foreach (string erro in erros)
             {
@@ -127,13 +127,13 @@ namespace LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis
             return erros;
         }
 
-        private bool TipoDuplicado(GrupoAutomoveis grupo)
+        private bool NomeDuplicado(GrupoAutomoveis grupo)
         {
-            GrupoAutomoveis grupoEncontrado = repositorioGrupoAutomoveis.SelecionarPorTipo(grupo.Tipo);
+            GrupoAutomoveis grupoEncontrado = repositorioGrupoAutomoveis.SelecionarPorNome(grupo.Nome);
 
             if (grupoEncontrado != null &&
                 grupoEncontrado.Id != grupo.Id &&
-                grupoEncontrado.Tipo == grupo.Tipo)
+                grupoEncontrado.Nome == grupo.Nome)
             {
                 return true;
             }

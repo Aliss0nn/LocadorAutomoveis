@@ -21,7 +21,7 @@ namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
         {
             grupo.Id = Convert.ToInt32(txtId.Text);
 
-            grupo.Tipo = txtTipo.Text;
+            grupo.Nome = txtNome.Text;
 
             return grupo;
         }
@@ -31,7 +31,7 @@ namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
             this.grupo = grupo;
 
             txtId.Text = grupo.Id.ToString();
-            txtTipo.Text = grupo.Tipo;
+            txtNome.Text = grupo.Nome;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

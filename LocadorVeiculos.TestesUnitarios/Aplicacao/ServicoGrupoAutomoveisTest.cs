@@ -49,7 +49,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
                 .Returns(() =>
                 {
                     var resultado = new ValidationResult();
-                    resultado.Errors.Add(new ValidationFailure("Tipo", "Tipo não pode ter caracteres especiais"));
+                    resultado.Errors.Add(new ValidationFailure("Nome", "Nome não pode ter caracteres especiais"));
                     return resultado;
                 });
 
@@ -62,14 +62,14 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         }
 
         [TestMethod]
-        public void Nao_deve_inserir_grupoAutomoveis_caso_o_tipo_ja_esteja_cadastrado() //cenário 3
+        public void Nao_deve_inserir_grupoAutomoveis_caso_o_nome_ja_esteja_cadastrado() //cenário 3
         {
             //arrange
-            string tipoGrupoAutomoveis = "Esportivo";
-            repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorTipo(tipoGrupoAutomoveis))
+            string nomeGrupoAutomoveis = "Esportivo";
+            repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorNome(nomeGrupoAutomoveis))
                 .Returns(() =>
                 {
-                    return new GrupoAutomoveis(2, tipoGrupoAutomoveis);
+                    return new GrupoAutomoveis(2, nomeGrupoAutomoveis);
                 });
           
             //action
@@ -77,7 +77,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
 
             //assert 
             resultado.Should().BeFailure();
-            resultado.Reasons[0].Message.Should().Be($"Este tipo '{tipoGrupoAutomoveis}' já está sendo utilizado");
+            resultado.Reasons[0].Message.Should().Be($"Este nome '{nomeGrupoAutomoveis}' já está sendo utilizado");
             repositorioGrupoAutomoveisMoq.Verify(x => x.Inserir(grupo), Times.Never());
         }
 
@@ -121,7 +121,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
                 .Returns(() =>
                 {
                     var resultado = new ValidationResult();
-                    resultado.Errors.Add(new ValidationFailure("Tipo", "Tipo não pode ter caracteres especiais"));
+                    resultado.Errors.Add(new ValidationFailure("Nome", "Nome não pode ter caracteres especiais"));
                     return resultado;
                 });
 
@@ -134,10 +134,10 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         }
 
         [TestMethod]
-        public void Deve_editar_grupoAutomoveis_com_o_mesmo_tipo()
+        public void Deve_editar_grupoAutomoveis_com_o_mesmo_nome()
         {
             //arrange
-            repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorTipo("Esportivo"))
+            repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorNome("Esportivo"))
                  .Returns(() =>
                  {
                      return new GrupoAutomoveis(1, "Esportivo");
@@ -155,10 +155,10 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         }
 
         [TestMethod]
-        public void Nao_deve_editar_grupoAutomoveis_caso_o_tipo_ja_esteja_cadastrado()
+        public void Nao_deve_editar_grupoAutomoveis_caso_o_nome_ja_esteja_cadastrado()
         {
             //arrange
-            repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorTipo("Esportivo"))
+            repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorNome("Esportivo"))
                  .Returns(() =>
                  {
                      return new GrupoAutomoveis(1, "Esportivo");

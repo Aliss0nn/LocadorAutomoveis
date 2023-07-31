@@ -10,7 +10,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis
 
             grupoBuilder.Property(g => g.Id).IsRequired().ValueGeneratedOnAdd();
 
-            grupoBuilder.Property(g => g.Tipo).HasColumnType("varchar(200)").IsRequired();
+            grupoBuilder.Property(g => g.Nome).HasColumnType("varchar(200)").IsRequired();
         }
     }
 }

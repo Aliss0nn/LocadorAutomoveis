@@ -32,7 +32,7 @@
             label1 = new Label();
             btnCancelar = new Button();
             btnGravar = new Button();
-            txtTipo = new TextBox();
+            txtNome = new TextBox();
             label2 = new Label();
             SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(285, 102);
+            btnCancelar.Location = new Point(270, 102);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
             btnCancelar.TabIndex = 3;
@@ -67,7 +67,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(204, 102);
+            btnGravar.Location = new Point(189, 102);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
             btnGravar.TabIndex = 2;
@@ -75,32 +75,32 @@
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
             // 
-            // txtTipo
+            // txtNome
             // 
-            txtTipo.Location = new Point(76, 46);
-            txtTipo.Name = "txtTipo";
-            txtTipo.Size = new Size(253, 23);
-            txtTipo.TabIndex = 1;
+            txtNome.Location = new Point(76, 46);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(253, 23);
+            txtNome.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(37, 49);
+            label2.Location = new Point(27, 49);
             label2.Name = "label2";
-            label2.Size = new Size(33, 15);
+            label2.Size = new Size(43, 15);
             label2.TabIndex = 6;
-            label2.Text = "Tipo:";
+            label2.Text = "Nome:";
             // 
             // TelaGrupoAutomoveisForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(372, 159);
+            ClientSize = new Size(357, 159);
             Controls.Add(txtId);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
-            Controls.Add(txtTipo);
+            Controls.Add(txtNome);
             Controls.Add(label2);
             Name = "TelaGrupoAutomoveisForm";
             Text = "Cadastro de Grupos de Automoveis";
@@ -114,7 +114,7 @@
         private Label label1;
         private Button btnCancelar;
         private Button btnGravar;
-        private TextBox txtTipo;
+        private TextBox txtNome;
         private Label label2;
     }
 }

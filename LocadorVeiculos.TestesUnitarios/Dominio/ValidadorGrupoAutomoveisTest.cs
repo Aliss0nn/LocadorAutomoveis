@@ -20,40 +20,40 @@ namespace LocadorAutomoveis.TestesUnitarios.Dominio
         }
 
         [TestMethod]
-        public void Tipo_grupoAutomoveis_nao_deve_ser_nulo_ou_vazio()
+        public void Nome_grupoAutomoveis_nao_deve_ser_nulo_ou_vazio()
         {
             //action
             var resultado = validador.TestValidate(grupo);
 
             //assert
-            resultado.ShouldHaveValidationErrorFor(x => x.Tipo);
+            resultado.ShouldHaveValidationErrorFor(x => x.Nome);
         }
 
         [TestMethod]
-        public void Tipo_grupoAutomoveis_deve_ter_no_minimo_5_caracteres()
+        public void Nome_grupoAutomoveis_deve_ter_no_minimo_5_caracteres()
         {
             //arrange
-            grupo.Tipo = "abcd";
+            grupo.Nome = "abcd";
 
             //action
             var resultado = validador.TestValidate(grupo);
 
             //assert
-            resultado.ShouldHaveValidationErrorFor(x => x.Tipo);
+            resultado.ShouldHaveValidationErrorFor(x => x.Nome);
         }
 
         [TestMethod]
-        public void Tipo_grupoAutomoveis_deve_ser_composto_por_letras_e_numeros()
+        public void Nome_grupoAutomoveis_deve_ser_composto_por_letras_e_numeros()
         {
             //arrange
-            grupo.Tipo = "Esportivo @";
+            grupo.Nome = "Esportivo @";
 
             //action
             var resultado = validador.TestValidate(grupo);
 
             //assert
-            resultado.ShouldHaveValidationErrorFor(x => x.Tipo)
-                .WithErrorMessage("'Tipo' deve ser composto por letras e números.");
+            resultado.ShouldHaveValidationErrorFor(x => x.Nome)
+                .WithErrorMessage("'Nome' deve ser composto por letras e números.");
         }
     }
 }
