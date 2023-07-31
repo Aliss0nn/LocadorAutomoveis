@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace LocadorVeiculos.Infra.Orm.Migrations
+namespace LocadorAutomoveis.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadorAutomoveisDbContext))]
     [Migration("20230728230631_add-inicial")]

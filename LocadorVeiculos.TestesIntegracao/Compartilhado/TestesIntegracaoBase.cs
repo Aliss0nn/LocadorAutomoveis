@@ -1,7 +1,10 @@
 ﻿using FizzWare.NBuilder;
+using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
+using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
+using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +14,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
     public class TestesIntegracaoBase
     {
         protected IRepositorioDisciplina repositorioDisciplina;
+        protected IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis;
 
         public TestesIntegracaoBase()
         {
@@ -28,23 +32,38 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             if (migracoesPendentes.Count() > 0)
             {
                 dbContext.Database.Migrate();
-            }
-
-            repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
+            }           
 
             LimparTabelas(dbContext);
+
+            //Disciplina
+            repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
 
             BuilderSetup.DisablePropertyNamingFor<Disciplina, int>(d => d.Id);
 
             BuilderSetup.SetCreatePersistenceMethod<Disciplina>(repositorioDisciplina.Inserir);
 
+            //GrupoAutomoveis
+            repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
+
+            BuilderSetup.DisablePropertyNamingFor<GrupoAutomoveis, int>(g => g.Id);
+
+            BuilderSetup.SetCreatePersistenceMethod<GrupoAutomoveis>(repositorioGrupoAutomoveis.Inserir);
+
         }
 
         protected static void LimparTabelas(LocadorAutomoveisDbContext dbContext)
         {
-           var disciplinas = dbContext.Set<Disciplina>();
-           disciplinas.RemoveRange(disciplinas);
-           dbContext.SaveChanges();
+            LimparLista<Disciplina>(dbContext);
+            LimparLista<GrupoAutomoveis>(dbContext);
+        }
+
+        private static void LimparLista<T>(LocadorAutomoveisDbContext dbContext)
+        where T : EntidadeBase<T>
+        {
+            var registros = dbContext.Set<T>();
+            registros.RemoveRange(registros);
+            dbContext.SaveChanges();
         }
 
         protected static string ObterConnectionString()

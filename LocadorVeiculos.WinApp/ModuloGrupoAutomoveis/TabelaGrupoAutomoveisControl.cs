@@ -1,10 +1,10 @@
-﻿using LocadorAutomoveis.Dominio.ModuloDisciplina;
+﻿using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 
-namespace LocadorAutomoveis.WinApp.ModuloDisciplina
+namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
 {
-    public partial class TabelaDisciplinaControl : UserControl
+    public partial class TabelaGrupoAutomoveisControl : UserControl
     {
-        public TabelaDisciplinaControl()
+        public TabelaGrupoAutomoveisControl()
         {
             InitializeComponent();
             grid.ConfigurarGridZebrado();
@@ -18,7 +18,7 @@ namespace LocadorAutomoveis.WinApp.ModuloDisciplina
             {
                 new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F },
 
-                new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=85F }
+                new DataGridViewTextBoxColumn { Name = "Tipo", HeaderText = "Tipo", FillWeight=85F }
             };
 
             return colunas;
@@ -29,13 +29,13 @@ namespace LocadorAutomoveis.WinApp.ModuloDisciplina
             return grid.SelecionarId();
         }
 
-        public void AtualizarRegistros(List<Disciplina> disciplinas)
+        public void AtualizarRegistros(List<GrupoAutomoveis> grupos)
         {
             grid.Rows.Clear();
 
-            foreach (Disciplina disciplina in disciplinas)
+            foreach (GrupoAutomoveis grupo in grupos)
             {
-                grid.Rows.Add(disciplina.Id, disciplina.Nome);
+                grid.Rows.Add(grupo.Id, grupo.Tipo);
             }
         }
     }

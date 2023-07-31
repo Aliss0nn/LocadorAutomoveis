@@ -5,22 +5,22 @@
 namespace LocadorAutomoveis.Infra.Orm.Migrations
 {
     /// <inheritdoc />
-    public partial class addinicial : Migration
+    public partial class AddGrupoAutomoveis_inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TBDisciplina",
+                name: "TBGrupoAutomoveis",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "varchar(100)", nullable: false)
+                    Tipo = table.Column<string>(type: "varchar(200)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TBDisciplina", x => x.Id);
+                    table.PrimaryKey("PK_TBGrupoAutomoveis", x => x.Id);
                 });
         }
 
@@ -28,7 +28,7 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TBDisciplina");
+                name: "TBGrupoAutomoveis");
         }
     }
 }

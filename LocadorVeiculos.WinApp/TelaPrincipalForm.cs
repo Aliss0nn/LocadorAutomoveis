@@ -1,18 +1,14 @@
 ﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
-
+using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
-
+using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
-
+using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloDisciplina;
-
+using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -64,7 +60,15 @@ namespace LocadorAutomoveis.WinApp
 
             ServicoDisciplina servicoDisciplina = new ServicoDisciplina(repositorioDisciplina, validadorDisciplina);
 
-            controladores.Add("ControladorDisciplina", new ControladorDisciplina(repositorioDisciplina, servicoDisciplina));
+            controladores.Add("ControladorGrupoDisciplina", new ControladorDisciplina(repositorioDisciplina, servicoDisciplina));
+
+            IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
+
+            ValidadorGrupoAutomoveis validadorGrupoAutomoveis = new ValidadorGrupoAutomoveis();
+            
+            ServicoGrupoAutomoveis servicoGrupoAutomoveis = new ServicoGrupoAutomoveis(repositorioGrupoAutomoveis, validadorGrupoAutomoveis);
+
+            controladores.Add("ControladorGrupoAutomoveis", new ControladorGrupoAutomoveis(repositorioGrupoAutomoveis, servicoGrupoAutomoveis));
         }
 
         public static TelaPrincipalForm Instancia
@@ -90,6 +94,11 @@ namespace LocadorAutomoveis.WinApp
             ConfigurarTelaPrincipal(controladores["ControladorDisciplina"]);
         }
 
+        private void gruposDeAutomóveisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoAutomoveis"]);
+        }
+
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -103,7 +112,7 @@ namespace LocadorAutomoveis.WinApp
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             controlador.Excluir();
-        }     
+        }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
         {
@@ -160,7 +169,5 @@ namespace LocadorAutomoveis.WinApp
 
             panelRegistros.Controls.Add(listagemControl);
         }
-
-
     }
 }

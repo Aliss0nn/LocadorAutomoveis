@@ -30,21 +30,22 @@ namespace LocadorAutomoveis.WinApp
         /// </summary>
         private void InitializeComponent()
         {
-            menu = new System.Windows.Forms.MenuStrip();
-            cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            disciplinaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            toolbox = new System.Windows.Forms.ToolStrip();
-            btnInserir = new System.Windows.Forms.ToolStripButton();
-            btnEditar = new System.Windows.Forms.ToolStripButton();
-            btnExcluir = new System.Windows.Forms.ToolStripButton();
-            toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            statusStrip1 = new System.Windows.Forms.StatusStrip();
-            labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
-            panelRegistros = new System.Windows.Forms.Panel();
+            menu = new MenuStrip();
+            cadastrosToolStripMenuItem = new ToolStripMenuItem();
+            disciplinaMenuItem = new ToolStripMenuItem();
+            toolbox = new ToolStrip();
+            btnInserir = new ToolStripButton();
+            btnEditar = new ToolStripButton();
+            btnExcluir = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripSeparator4 = new ToolStripSeparator();
+            labelTipoCadastro = new ToolStripLabel();
+            statusStrip1 = new StatusStrip();
+            labelRodape = new ToolStripStatusLabel();
+            panelRegistros = new Panel();
+            gruposDeAutomóveisToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -52,140 +53,147 @@ namespace LocadorAutomoveis.WinApp
             // 
             // menu
             // 
-            menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { cadastrosToolStripMenuItem });
-            menu.Location = new System.Drawing.Point(0, 0);
+            menu.ImageScalingSize = new Size(20, 20);
+            menu.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
+            menu.Location = new Point(0, 0);
             menu.Name = "menu";
-            menu.Size = new System.Drawing.Size(686, 24);
+            menu.Size = new Size(686, 24);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { disciplinaMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // disciplinaMenuItem
             // 
             disciplinaMenuItem.Name = "disciplinaMenuItem";
-            disciplinaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            disciplinaMenuItem.Size = new System.Drawing.Size(180, 22);
+            disciplinaMenuItem.ShortcutKeys = Keys.F1;
+            disciplinaMenuItem.Size = new Size(196, 22);
             disciplinaMenuItem.Text = "Disciplinas";
             disciplinaMenuItem.Click += disciplinasMenuItem_Click;
             // 
             // toolbox
             // 
             toolbox.Enabled = false;
-            toolbox.ImageScalingSize = new System.Drawing.Size(20, 20);
-            toolbox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, toolStripSeparator3, toolStripSeparator1, toolStripSeparator4, labelTipoCadastro });
-            toolbox.Location = new System.Drawing.Point(0, 24);
+            toolbox.ImageScalingSize = new Size(20, 20);
+            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, toolStripSeparator3, toolStripSeparator1, toolStripSeparator4, labelTipoCadastro });
+            toolbox.Location = new Point(0, 24);
             toolbox.Name = "toolbox";
-            toolbox.Size = new System.Drawing.Size(686, 32);
+            toolbox.Size = new Size(686, 32);
             toolbox.TabIndex = 1;
             toolbox.Text = "toolStrip1";
             // 
             // btnInserir
             // 
-            btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            btnInserir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            btnInserir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnInserir.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnInserir.ImageScaling = ToolStripItemImageScaling.None;
+            btnInserir.ImageTransparentColor = Color.Magenta;
             btnInserir.Name = "btnInserir";
-            btnInserir.Padding = new System.Windows.Forms.Padding(5);
-            btnInserir.Size = new System.Drawing.Size(72, 29);
+            btnInserir.Padding = new Padding(5);
+            btnInserir.Size = new Size(72, 29);
             btnInserir.Text = "Adicionar";
             btnInserir.Click += btnInserir_Click;
             // 
             // btnEditar
             // 
-            btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnEditar.ImageScaling = ToolStripItemImageScaling.None;
+            btnEditar.ImageTransparentColor = Color.Magenta;
             btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new System.Windows.Forms.Padding(5);
-            btnEditar.Size = new System.Drawing.Size(51, 29);
+            btnEditar.Padding = new Padding(5);
+            btnEditar.Size = new Size(51, 29);
             btnEditar.Text = "Editar";
             btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
             // 
-            btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnExcluir.ImageScaling = ToolStripItemImageScaling.None;
+            btnExcluir.ImageTransparentColor = Color.Magenta;
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Padding = new System.Windows.Forms.Padding(5);
-            btnExcluir.Size = new System.Drawing.Size(56, 29);
+            btnExcluir.Padding = new Padding(5);
+            btnExcluir.Size = new Size(56, 29);
             btnExcluir.Text = "Excluir";
             btnExcluir.Click += btnExcluir_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
+            toolStripSeparator2.Size = new Size(6, 32);
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new System.Drawing.Size(6, 32);
+            toolStripSeparator3.Size = new Size(6, 32);
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
+            toolStripSeparator1.Size = new Size(6, 32);
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new System.Drawing.Size(6, 32);
+            toolStripSeparator4.Size = new Size(6, 32);
             // 
             // labelTipoCadastro
             // 
-            labelTipoCadastro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            labelTipoCadastro.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             labelTipoCadastro.Name = "labelTipoCadastro";
-            labelTipoCadastro.Size = new System.Drawing.Size(90, 29);
+            labelTipoCadastro.Size = new Size(90, 29);
             labelTipoCadastro.Text = "[tipoCadastro]";
             // 
             // statusStrip1
             // 
-            statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new System.Drawing.Point(0, 399);
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
+            statusStrip1.Location = new Point(0, 399);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new System.Drawing.Size(686, 22);
+            statusStrip1.Size = new Size(686, 22);
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
             // 
             // labelRodape
             // 
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new System.Drawing.Size(52, 17);
+            labelRodape.Size = new Size(52, 17);
             labelRodape.Text = "[rodapé]";
             // 
             // panelRegistros
             // 
-            panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelRegistros.Location = new System.Drawing.Point(0, 56);
+            panelRegistros.Dock = DockStyle.Fill;
+            panelRegistros.Location = new Point(0, 56);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new System.Drawing.Size(686, 343);
+            panelRegistros.Size = new Size(686, 343);
             panelRegistros.TabIndex = 3;
+            // 
+            // gruposDeAutomóveisToolStripMenuItem
+            // 
+            gruposDeAutomóveisToolStripMenuItem.Name = "gruposDeAutomóveisToolStripMenuItem";
+            gruposDeAutomóveisToolStripMenuItem.Size = new Size(196, 22);
+            gruposDeAutomóveisToolStripMenuItem.Text = "Grupos De Automóveis";
+            gruposDeAutomóveisToolStripMenuItem.Click += gruposDeAutomóveisToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(686, 421);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(686, 421);
             Controls.Add(panelRegistros);
             Controls.Add(statusStrip1);
             Controls.Add(toolbox);
             Controls.Add(menu);
             MainMenuStrip = menu;
-            MinimumSize = new System.Drawing.Size(702, 458);
+            MinimumSize = new Size(702, 458);
             Name = "TelaPrincipalForm";
             ShowIcon = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Gerador de Testes 1.0";
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized;
             menu.ResumeLayout(false);
             menu.PerformLayout();
             toolbox.ResumeLayout(false);
@@ -213,5 +221,6 @@ namespace LocadorAutomoveis.WinApp
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem gruposDeAutomóveisToolStripMenuItem;
     }
 }
