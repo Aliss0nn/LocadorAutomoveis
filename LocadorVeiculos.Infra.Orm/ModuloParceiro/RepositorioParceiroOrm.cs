@@ -15,7 +15,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloParceiro
 
         public Parceiro SelecionarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return registros.FirstOrDefault(x => x.Nome == nome);
         }
     }
 }
