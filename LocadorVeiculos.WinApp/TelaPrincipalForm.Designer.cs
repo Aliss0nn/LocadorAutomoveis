@@ -46,7 +46,7 @@ namespace LocadorAutomoveis.WinApp
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
-            funcionariosToolStripMenuItem = new ToolStripMenuItem();
+            parceirosToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -64,7 +64,7 @@ namespace LocadorAutomoveis.WinApp
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, funcionariosToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -179,12 +179,12 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.Size = new Size(686, 343);
             panelRegistros.TabIndex = 3;
             // 
-            // funcionariosToolStripMenuItem
+            // parceirosToolStripMenuItem
             // 
-            funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            funcionariosToolStripMenuItem.Size = new Size(196, 22);
-            funcionariosToolStripMenuItem.Text = "Funcionarios";
-            funcionariosToolStripMenuItem.Click += funcionariosToolStripMenuItem_Click;
+            parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
+            parceirosToolStripMenuItem.Size = new Size(196, 22);
+            parceirosToolStripMenuItem.Text = "Parceiros";
+            parceirosToolStripMenuItem.Click += parceirosToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -214,22 +214,22 @@ namespace LocadorAutomoveis.WinApp
 
         #endregion
 
-        private MenuStrip menu;
-        private ToolStripMenuItem cadastrosToolStripMenuItem;
-        private ToolStripMenuItem disciplinaMenuItem;
-        private ToolStrip toolbox;
-        private StatusStrip statusStrip1;
-        private Panel panelRegistros;
-        private ToolStripButton btnInserir;
-        private ToolStripButton btnEditar;
-        private ToolStripButton btnExcluir;
-        private ToolStripStatusLabel labelRodape;
-        private ToolStripSeparator toolStripSeparator2;
-        private ToolStripLabel labelTipoCadastro;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem disciplinaMenuItem;
+        private System.Windows.Forms.ToolStrip toolbox;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Panel panelRegistros;
+        private System.Windows.Forms.ToolStripButton btnInserir;
+        private System.Windows.Forms.ToolStripButton btnEditar;
+        private System.Windows.Forms.ToolStripButton btnExcluir;
+        private System.Windows.Forms.ToolStripStatusLabel labelRodape;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel labelTipoCadastro;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem gruposDeAutomóveisToolStripMenuItem;
-        private ToolStripMenuItem funcionariosToolStripMenuItem;
+        private ToolStripMenuItem parceirosToolStripMenuItem;
     }
 }
