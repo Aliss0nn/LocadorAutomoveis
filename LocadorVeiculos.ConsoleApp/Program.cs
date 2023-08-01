@@ -35,7 +35,7 @@ namespace LocadorAutomoveis.ConsoleApp
                 dbContext.Database.Migrate();
             }
 
-            IRepositorioDisciplina repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
+            //IRepositorioDisciplina repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
 
             //GeradorMassaDados geradorMassa = new GeradorMassaDados(repositorioDisciplina);
 
