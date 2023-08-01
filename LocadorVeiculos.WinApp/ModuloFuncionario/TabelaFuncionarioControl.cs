@@ -28,7 +28,11 @@ namespace LocadorAutomoveis.WinApp.ModuloFuncionario
             {
                 new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F },
 
-                new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=85F }
+                new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { Name = "Salario", HeaderText = "Salario", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { Name = "DataAdmissao", HeaderText = "DataAdmissao", FillWeight=85F },
             };
 
             return colunas;

@@ -2,7 +2,7 @@
 {
     public abstract class EntidadeBase<T>
     {
-        public int Id { get; set; }        
+        public Gint Id { get; set; }        
 
         public abstract void Atualizar(T registro);
     }
