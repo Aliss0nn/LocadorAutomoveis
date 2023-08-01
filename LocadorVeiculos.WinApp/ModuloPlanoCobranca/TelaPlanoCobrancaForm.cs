@@ -36,7 +36,7 @@ namespace LocadorAutomoveis.WinApp.ModuloPlanoCobranca
 
         public PlanoCobranca ObterPlanoCobranca()
         {
-            plano.Id = Convert.ToInt32(txtId.Text);
+            plano.Id = Guid.Parse(txtId.Text);
             plano.Grupo = (GrupoAutomoveis)cmbGrupo.SelectedItem;
             plano.TipoPlano = (TipoPlanoEnum)cmbTipo.SelectedItem;
             plano.PrecoDiario = txtPrecoDiario.Value;

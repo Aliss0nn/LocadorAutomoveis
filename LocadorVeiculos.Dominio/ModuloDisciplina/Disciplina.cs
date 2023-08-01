@@ -11,7 +11,7 @@
             Nome = nome;
         }
 
-        public Disciplina(int id, string nome) : this(nome)        
+        public Disciplina(Guid id, string nome) : this(nome)        
         {
             Id = id;
         }

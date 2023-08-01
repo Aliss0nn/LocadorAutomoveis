@@ -8,7 +8,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca
         {
             planoBuilder.ToTable("TBPlanoCobranca");
 
-            planoBuilder.Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            planoBuilder.Property(p => p.Id).IsRequired().ValueGeneratedNever();
 
             planoBuilder.Property(p => p.TipoPlano).IsRequired();
 

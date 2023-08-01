@@ -27,9 +27,10 @@ namespace LocadorAutomoveis.Dominio.ModuloFuncionario
 
         }
 
-        public Funcionario(int id, string nome, DateTime dataAdmissao) : this(nome, dataAdmissao, id)
+        public Funcionario(Guid id, string nome, DateTime dataAdmissao, int salario) : this(nome, dataAdmissao, salario)
         {
             Id = id;
+
         }
         public override string ToString()
         {

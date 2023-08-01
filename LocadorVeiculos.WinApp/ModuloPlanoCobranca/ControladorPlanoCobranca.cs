@@ -46,7 +46,7 @@ namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
 
         public override void Editar()
         {
-            int id = tabelaPlanoCobranca.ObtemIdSelecionado();
+            Guid id = tabelaPlanoCobranca.ObtemIdSelecionado();
 
             PlanoCobranca planoSelecionado = repositorioPlanoCobranca.SelecionarPorId(id);
 
@@ -74,7 +74,7 @@ namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
 
         public override void Excluir()
         {
-            int id = tabelaPlanoCobranca.ObtemIdSelecionado();
+            Guid id = tabelaPlanoCobranca.ObtemIdSelecionado();
 
             PlanoCobranca planoSelecionado = repositorioPlanoCobranca.SelecionarPorId(id);
 

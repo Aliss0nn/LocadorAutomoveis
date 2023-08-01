@@ -19,7 +19,7 @@ namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
 
         public GrupoAutomoveis ObterGrupoAutomoveis()
         {
-            grupo.Id = Convert.ToInt32(txtId.Text);
+            grupo.Id = Guid.Parse(txtId.Text);
 
             grupo.Nome = txtNome.Text;
 

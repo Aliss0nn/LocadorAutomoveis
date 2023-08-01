@@ -21,7 +21,7 @@ namespace LocadorAutomoveis.Dominio.ModuloPlanoCobranca
             KmLivre = kmLivre;
         }
 
-        public PlanoCobranca(int id, 
+        public PlanoCobranca(Guid id, 
             GrupoAutomoveis grupo,
             TipoPlanoEnum tipoPlano,
             decimal precoDiario,

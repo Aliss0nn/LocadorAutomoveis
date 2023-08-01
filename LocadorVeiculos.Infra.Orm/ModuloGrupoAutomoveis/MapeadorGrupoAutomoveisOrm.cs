@@ -8,7 +8,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis
         {
             grupoBuilder.ToTable("TBGrupoAutomoveis");
 
-            grupoBuilder.Property(g => g.Id).IsRequired().ValueGeneratedOnAdd();
+            grupoBuilder.Property(g => g.Id).IsRequired().ValueGeneratedNever();
 
             grupoBuilder.Property(g => g.Nome).HasColumnType("varchar(200)").IsRequired();
         }

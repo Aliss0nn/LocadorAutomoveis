@@ -69,7 +69,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
             repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorNome(nomeGrupoAutomoveis))
                 .Returns(() =>
                 {
-                    return new GrupoAutomoveis(2, nomeGrupoAutomoveis);
+                    return new GrupoAutomoveis(nomeGrupoAutomoveis);
                 });
           
             //action
@@ -103,7 +103,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Deve_editar_grupoAutomoveis_caso_ele_for_valido() 
         {
             //arrange           
-            grupo = new GrupoAutomoveis(1, "Utilitário");
+            grupo = new GrupoAutomoveis( "Utilitário");
 
             //action
             Result resultado = servicoGrupoAutomoveis.Editar(grupo);
@@ -140,10 +140,10 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
             repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorNome("Esportivo"))
                  .Returns(() =>
                  {
-                     return new GrupoAutomoveis(1, "Esportivo");
+                     return new GrupoAutomoveis( "Esportivo");
                  });
 
-            GrupoAutomoveis outroGrupo = new GrupoAutomoveis(1, "Esportivo");
+            GrupoAutomoveis outroGrupo = new GrupoAutomoveis( "Esportivo");
 
             //action
             var resultado = servicoGrupoAutomoveis.Editar(outroGrupo);
@@ -161,7 +161,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
             repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorNome("Esportivo"))
                  .Returns(() =>
                  {
-                     return new GrupoAutomoveis(1, "Esportivo");
+                     return new GrupoAutomoveis( "Esportivo");
                  });
 
             GrupoAutomoveis novoGrupo = new GrupoAutomoveis("Esportivo");
@@ -197,7 +197,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Deve_excluir_grupoAutomoveis_caso_ela_esteja_cadastrado()
         {
             //arrange
-            var disciplina = new Disciplina(1, "Esportivo");
+            var disciplina = new Disciplina( "Esportivo");
 
             repositorioGrupoAutomoveisMoq.Setup(x => x.Existe(grupo))
                .Returns(() =>
@@ -218,7 +218,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             //arrange
 
-            var grupo = new GrupoAutomoveis(1, "Esportivo");
+            var grupo = new GrupoAutomoveis( "Esportivo");
 
             repositorioGrupoAutomoveisMoq.Setup(x => x.Existe(grupo))
                .Returns(() =>
@@ -237,7 +237,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         [TestMethod]
         public void Deve_tratar_erro_caso_ocorra_falha_ao_tentar_excluir_grupoAutomoveis()
         {
-            var grupo = new GrupoAutomoveis(1, "Esportivo");
+            var grupo = new GrupoAutomoveis( "Esportivo");
 
             repositorioGrupoAutomoveisMoq.Setup(x => x.Existe(grupo))
               .Throws(() =>

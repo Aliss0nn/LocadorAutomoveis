@@ -27,7 +27,7 @@ namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
             this.planoDeCalculo = planoDeCalculo;
         }
 
-        public TaxasEServico(int id, string nome,decimal preco,EnumPlanoDeCalculo planoDeCalculo) : this(nome,preco,planoDeCalculo)
+        public TaxasEServico(Guid id, string nome,decimal preco,EnumPlanoDeCalculo planoDeCalculo) : this(nome,preco,planoDeCalculo)
         {
             Id = id;
         }

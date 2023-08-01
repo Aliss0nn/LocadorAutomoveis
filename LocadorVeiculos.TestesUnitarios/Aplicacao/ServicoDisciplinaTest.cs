@@ -68,7 +68,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
             repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome(nomeDisciplina))
                 .Returns(() =>
                 {
-                    return new Disciplina(2, nomeDisciplina);
+                    return new Disciplina(nomeDisciplina);
                 });
           
             //action
@@ -102,7 +102,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Deve_editar_disciplina_caso_ela_for_valida() //cenário 1
         {
             //arrange           
-            disciplina = new Disciplina(1, "Artes");
+            disciplina = new Disciplina("Artes");
 
             //action
             Result resultado = servicoDisciplina.Editar(disciplina);
@@ -139,10 +139,10 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
             repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome("Educação Física"))
                  .Returns(() =>
                  {
-                     return new Disciplina(1, "Educação Física");
+                     return new Disciplina( "Educação Física");
                  });
 
-            Disciplina outraDisciplina = new Disciplina(1, "Educação Física");
+            Disciplina outraDisciplina = new Disciplina( "Educação Física");
 
             //action
             var resultado = servicoDisciplina.Editar(outraDisciplina);
@@ -160,7 +160,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
             repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome("Educação Física"))
                  .Returns(() =>
                  {
-                     return new Disciplina(1, "Educação Física");
+                     return new Disciplina( "Educação Física");
                  });
 
             Disciplina novaDisciplina = new Disciplina("Educação Física");
@@ -196,7 +196,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Deve_excluir_disciplina_caso_ela_esteja_cadastrada() //cenário 1
         {
             //arrange
-            var disciplina = new Disciplina(1, "Matemática");
+            var disciplina = new Disciplina( "Matemática");
 
             repositorioDisciplinaMoq.Setup(x => x.Existe(disciplina))
                .Returns(() =>
@@ -217,7 +217,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             //arrange
 
-            var disciplina = new Disciplina(1, "Matemática");
+            var disciplina = new Disciplina("Matemática");
 
             repositorioDisciplinaMoq.Setup(x => x.Existe(disciplina))
                .Returns(() =>
@@ -236,7 +236,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         [TestMethod]
         public void Deve_tratar_erro_caso_ocorra_falha_ao_tentar_excluir_disciplina() //cenário 4
         {
-            var disciplina = new Disciplina(1, "Matemática");
+            var disciplina = new Disciplina( "Matemática");
 
             repositorioDisciplinaMoq.Setup(x => x.Existe(disciplina))
               .Throws(() =>

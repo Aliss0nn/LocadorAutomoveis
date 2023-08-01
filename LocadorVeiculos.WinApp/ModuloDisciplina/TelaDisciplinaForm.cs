@@ -20,7 +20,7 @@ namespace LocadorAutomoveis.WinApp.ModuloDisciplina
 
         public Disciplina ObterDisciplina()
         {
-            disciplina.Id = Convert.ToInt32(txtId.Text);
+            disciplina.Id = Guid.Parse(txtId.Text);
             disciplina.Nome = txtNome.Text;
 
             return disciplina;

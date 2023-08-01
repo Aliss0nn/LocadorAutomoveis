@@ -27,7 +27,7 @@ namespace LocadorAutomoveis.Dominio.ModuloParceiro
             return HashCode.Combine(Id, Nome);
         }
 
-        public Parceiro(int id, string nome) : this(nome)
+        public Parceiro(Guid id, string nome) : this(nome)
         {
             Id = id;
         }

@@ -35,7 +35,7 @@ namespace LocadorAutomoveis.WinApp.ModuloParceiro
             return colunas;
         }
 
-        public int ObtemIdSelecionado()
+        public Guid ObtemIdSelecionado()
         {
             return gridParceiro.SelecionarId();
         }

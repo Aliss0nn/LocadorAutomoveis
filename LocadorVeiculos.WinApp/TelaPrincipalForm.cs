@@ -1,14 +1,18 @@
 ﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
+using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Aplicacao.ModuloParceiro;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
+using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
+using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
 using LocadorAutomoveis.WinApp.ModuloDisciplina;
+using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
@@ -81,6 +85,17 @@ namespace LocadorAutomoveis.WinApp
             ServicoParceiro servicoParceiro = new ServicoParceiro(repositorioParceiro, validadorParceiro);
 
             controladores.Add("ControladorParceiro", new ControladorParceiro(servicoParceiro, repositorioParceiro));
+
+            // ControladorGrupoFuncionario
+
+            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmOrm(dbContext);
+
+            ValidadorFuncionario validadorFuncionario = new ValidadorFuncionario();
+
+            ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
+
+            controladores.Add("ControladorGrupoFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
+
 
         }
 
@@ -188,6 +203,9 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.Controls.Add(listagemControl);
         }
 
-      
+        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoFuncionario"]);
+        }
     }
 }

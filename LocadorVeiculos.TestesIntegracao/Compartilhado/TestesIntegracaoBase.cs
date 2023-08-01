@@ -39,14 +39,14 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             //Disciplina
             repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
 
-            BuilderSetup.DisablePropertyNamingFor<Disciplina, int>(d => d.Id);
+           // BuilderSetup.DisablePropertyNamingFor<Disciplina, int>(d => d.Id);
 
             BuilderSetup.SetCreatePersistenceMethod<Disciplina>(repositorioDisciplina.Inserir);
 
             //GrupoAutomoveis
             repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
 
-            BuilderSetup.DisablePropertyNamingFor<GrupoAutomoveis, int>(g => g.Id);
+         //   BuilderSetup.DisablePropertyNamingFor<GrupoAutomoveis, int>(g => g.Id);
 
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomoveis>(repositorioGrupoAutomoveis.Inserir);
 

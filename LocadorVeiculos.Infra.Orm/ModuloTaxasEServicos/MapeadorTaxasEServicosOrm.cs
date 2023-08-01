@@ -13,7 +13,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos
         {
             taxasServicoBuilder.ToTable("TBTaxasEServico");
 
-            taxasServicoBuilder.Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();
+            taxasServicoBuilder.Property(x => x.Id).IsRequired().ValueGeneratedNever();
             taxasServicoBuilder.Property(x => x.Preco).HasColumnType("decimal(18,0)").IsRequired();
             taxasServicoBuilder.Property(x => x.planoDeCalculo).HasConversion<int>().IsRequired();
         }

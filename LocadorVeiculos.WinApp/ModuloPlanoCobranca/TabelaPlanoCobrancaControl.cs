@@ -33,7 +33,7 @@ namespace LocadorAutomoveis.WinApp.ModuloPlanoCobranca
             return colunas;
         }
 
-        public int ObtemIdSelecionado()
+        public Guid ObtemIdSelecionado()
         {
             return grid.SelecionarId();
         }

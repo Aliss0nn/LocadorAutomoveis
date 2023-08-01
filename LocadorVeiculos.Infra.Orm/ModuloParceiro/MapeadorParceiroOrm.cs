@@ -13,7 +13,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloParceiro
         {
             parceiroBuilder.ToTable("TBParceiro");
 
-            parceiroBuilder.Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            parceiroBuilder.Property(p => p.Id).IsRequired().ValueGeneratedNever();
 
             parceiroBuilder.Property(p => p.Nome).HasColumnType("varchar(200)").IsRequired();
         }

@@ -11,7 +11,7 @@
             Nome = nome;
         }
 
-        public GrupoAutomoveis(int id, string nome) : this(nome)        
+        public GrupoAutomoveis(Guid id, string nome) : this(nome)        
         {
             Id = id;
         }
