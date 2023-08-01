@@ -1,12 +1,16 @@
 ﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
+using LocadorAutomoveis.Aplicacao.ModuloParceiro;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
+using LocadorAutomoveis.Dominio.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
+using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
 using LocadorAutomoveis.WinApp.ModuloDisciplina;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
+using LocadorAutomoveis.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -65,10 +69,19 @@ namespace LocadorAutomoveis.WinApp
             IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
 
             ValidadorGrupoAutomoveis validadorGrupoAutomoveis = new ValidadorGrupoAutomoveis();
-            
+
             ServicoGrupoAutomoveis servicoGrupoAutomoveis = new ServicoGrupoAutomoveis(repositorioGrupoAutomoveis, validadorGrupoAutomoveis);
 
             controladores.Add("ControladorGrupoAutomoveis", new ControladorGrupoAutomoveis(repositorioGrupoAutomoveis, servicoGrupoAutomoveis));
+
+            IRepositorioParceiro repositorioParceiro = new RepositorioParceiroOrm(dbContext);
+
+            ValidadorParceiro validadorParceiro = new ValidadorParceiro();
+
+            ServicoParceiro servicoParceiro = new ServicoParceiro(repositorioParceiro, validadorParceiro);
+
+            controladores.Add("ControladorParceiro", new ControladorParceiro(servicoParceiro, repositorioParceiro));
+
         }
 
         public static TelaPrincipalForm Instancia
@@ -97,6 +110,11 @@ namespace LocadorAutomoveis.WinApp
         private void gruposDeAutomóveisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorGrupoAutomoveis"]);
+        }
+
+        private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -169,5 +187,7 @@ namespace LocadorAutomoveis.WinApp
 
             panelRegistros.Controls.Add(listagemControl);
         }
+
+      
     }
 }
