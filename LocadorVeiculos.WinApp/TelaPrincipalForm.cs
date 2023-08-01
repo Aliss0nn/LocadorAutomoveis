@@ -59,7 +59,7 @@ namespace LocadorAutomoveis.WinApp
             }
 
             IRepositorioDisciplina repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
-            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmSql(dbContext);
+            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmOrm(dbContext);
 
             ValidadorDisciplina validadorDisciplina = new ValidadorDisciplina();
 

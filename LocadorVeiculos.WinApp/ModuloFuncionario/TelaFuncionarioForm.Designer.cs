@@ -34,21 +34,25 @@
             label2 = new Label();
             label3 = new Label();
             txt_Nome = new TextBox();
-            txt_dataAdmissao = new TextBox();
-            txt_Salario = new TextBox();
+            txt_dataAdmissao = new DateTimePicker();
+            txt_Salario = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)txt_Salario).BeginInit();
             SuspendLayout();
             // 
             // btnInserir
             // 
+            btnInserir.DialogResult = DialogResult.OK;
             btnInserir.Location = new Point(195, 162);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(75, 40);
             btnInserir.TabIndex = 0;
             btnInserir.Text = "Gravar";
             btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
             // 
             // button2
             // 
+            button2.DialogResult = DialogResult.Cancel;
             button2.Location = new Point(276, 162);
             button2.Name = "button2";
             button2.Size = new Size(75, 40);
@@ -77,7 +81,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(25, 135);
+            label3.Location = new Point(34, 130);
             label3.Name = "label3";
             label3.Size = new Size(45, 15);
             label3.TabIndex = 4;
@@ -92,17 +96,22 @@
             // 
             // txt_dataAdmissao
             // 
-            txt_dataAdmissao.Location = new Point(85, 90);
+            txt_dataAdmissao.Format = DateTimePickerFormat.Short;
+            txt_dataAdmissao.Location = new Point(85, 87);
+            txt_dataAdmissao.MinDate = new DateTime(2023, 12, 25, 23, 59, 59, 0);
             txt_dataAdmissao.Name = "txt_dataAdmissao";
-            txt_dataAdmissao.Size = new Size(100, 23);
-            txt_dataAdmissao.TabIndex = 6;
+            txt_dataAdmissao.Size = new Size(200, 23);
+            txt_dataAdmissao.TabIndex = 8;
+            txt_dataAdmissao.Value = new DateTime(2023, 12, 25, 23, 59, 59, 0);
             // 
             // txt_Salario
             // 
-            txt_Salario.Location = new Point(85, 132);
+            txt_Salario.DecimalPlaces = 2;
+            txt_Salario.Location = new Point(85, 128);
+            txt_Salario.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             txt_Salario.Name = "txt_Salario";
-            txt_Salario.Size = new Size(109, 23);
-            txt_Salario.TabIndex = 7;
+            txt_Salario.Size = new Size(120, 23);
+            txt_Salario.TabIndex = 9;
             // 
             // TelaFuncionarioForm
             // 
@@ -119,6 +128,7 @@
             Controls.Add(btnInserir);
             Name = "TelaFuncionarioForm";
             Text = "TelaFuncionarioForm";
+            ((System.ComponentModel.ISupportInitialize)txt_Salario).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,7 +141,7 @@
         private Label label2;
         private Label label3;
         private TextBox txt_Nome;
-        private TextBox txt_dataAdmissao;
-        private TextBox txt_Salario;
+        private DateTimePicker txt_dataAdmissao;
+        private NumericUpDown txt_Salario;
     }
 }

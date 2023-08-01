@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LocadorAutomoveis.Infra.Orm.ModiuloFuncionario
 {
-    public interface MapeadorFuncionario : IEntityTypeConfiguration<Funcionario>
+    public class MapeadorFuncionario : IEntityTypeConfiguration<Funcionario>
     {
         public void Configure(EntityTypeBuilder<Funcionario> funcionarioBuilder)
         {

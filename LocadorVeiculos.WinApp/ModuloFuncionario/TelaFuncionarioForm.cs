@@ -28,8 +28,8 @@ namespace LocadorAutomoveis.WinApp.ModuloFuncionario
         public Funcionario ObterFuncionario()
         {
             funcionario.Nome = txt_Nome.Text;
-            funcionario.Salario = Convert.ToInt32(txt_Salario.Text);
-            funcionario.DataAdmissao = Convert.ToDateTime(txt_dataAdmissao.Text);
+            funcionario.Salario = txt_Salario.Value;
+            funcionario.DataAdmissao = txt_dataAdmissao.Value;
             return funcionario;
         }
 
@@ -38,11 +38,15 @@ namespace LocadorAutomoveis.WinApp.ModuloFuncionario
             this.funcionario = funcionario;
 
             txt_Nome.Text = funcionario.Nome;
-            txt_Salario.Text = funcionario.Salario.ToString();
-            txt_dataAdmissao.Text = funcionario.DataAdmissao.ToString();
+            txt_Salario.Value = funcionario.Salario;
+
+            if(funcionario.DataAdmissao > new DateTime())
+            txt_dataAdmissao.Value = funcionario.DataAdmissao;
         }
 
-        private void btnGravar_Click(object sender, EventArgs e)
+
+
+        private void btnInserir_Click(object sender, EventArgs e)
         {
             this.funcionario = ObterFuncionario();
 
@@ -57,6 +61,5 @@ namespace LocadorAutomoveis.WinApp.ModuloFuncionario
                 DialogResult = DialogResult.None;
             }
         }
-
     }
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace LocadorAutomoveis.Infra.Orm.ModiuloFuncionario
 {
-    public class RepositorioFuncionarioEmSql : RepositorioBaseEmOrm<Funcionario>, IRepositorioFuncionario
+    public class RepositorioFuncionarioEmOrm : RepositorioBaseEmOrm<Funcionario>, IRepositorioFuncionario
     {
-        public RepositorioFuncionarioEmSql(LocadorAutomoveisDbContext dbContext) : base(dbContext)
+        public RepositorioFuncionarioEmOrm(LocadorAutomoveisDbContext dbContext) : base(dbContext)
         {
         }
 

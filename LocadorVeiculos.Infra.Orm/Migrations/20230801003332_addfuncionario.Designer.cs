@@ -3,6 +3,7 @@ using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadorAutomoveis.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadorAutomoveisDbContext))]
-    partial class LocadorAutomoveisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230801003332_addfuncionario")]
+    partial class addfuncionario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

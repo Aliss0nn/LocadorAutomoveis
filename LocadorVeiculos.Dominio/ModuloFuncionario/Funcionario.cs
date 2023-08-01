@@ -11,7 +11,7 @@ namespace LocadorAutomoveis.Dominio.ModuloFuncionario
     public class Funcionario : EntidadeBase<Funcionario>
     {
         public string Nome { get; set; }
-        public int Salario { get; set; }
+        public decimal Salario { get; set; }
         public DateTime DataAdmissao { get; set; }
 
         public Funcionario()
@@ -41,19 +41,21 @@ namespace LocadorAutomoveis.Dominio.ModuloFuncionario
             Nome = grupo.Nome;
         }
 
-       // public override bool Equals(object obj)
-       // {
-      //      return obj isFunionario grupo &&
-       //            Id == grupo.Id &&
-       //            Nome == grupo.Nome;
-     //   }
+      
 
         public override int GetHashCode()
         {
             return HashCode.Combine(Id, Nome);
         }
 
-       
+        public override bool Equals(object? obj)
+        {
+            return obj is Funcionario funcionario &&
+                   Id == funcionario.Id &&
+                   Nome == funcionario.Nome &&
+                   Salario == funcionario.Salario &&
+                   DataAdmissao == funcionario.DataAdmissao;
+        }
     }
 
    
