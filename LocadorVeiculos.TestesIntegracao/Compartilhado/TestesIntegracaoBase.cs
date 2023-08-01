@@ -1,10 +1,14 @@
 ﻿using FizzWare.NBuilder;
 using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
+using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
+using LocadorAutomoveis.Dominio.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
+using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
+using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +19,8 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
     {
         protected IRepositorioDisciplina repositorioDisciplina;
         protected IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis;
-
+        protected IRepositorioFuncionario repositorioFuncionario;
+        protected IRepositorioParceiro repositorioParceiro;
         public TestesIntegracaoBase()
         {
 
@@ -46,9 +51,20 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             //GrupoAutomoveis
             repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
 
-         //   BuilderSetup.DisablePropertyNamingFor<GrupoAutomoveis, int>(g => g.Id);
+       
 
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomoveis>(repositorioGrupoAutomoveis.Inserir);
+            
+            repositorioFuncionario = new RepositorioFuncionarioEmOrm(dbContext);
+
+            BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
+
+            repositorioParceiro = new RepositorioParceiroOrm(dbContext);
+
+            BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
+
+
+
 
         }
 
@@ -56,6 +72,8 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         {
             LimparLista<Disciplina>(dbContext);
             LimparLista<GrupoAutomoveis>(dbContext);
+            LimparLista<Parceiro>(dbContext);
+            LimparLista<Funcionario>(dbContext);
         }
 
         private static void LimparLista<T>(LocadorAutomoveisDbContext dbContext)
