@@ -50,7 +50,7 @@
             txtNome.Location = new Point(97, 60);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(208, 23);
-            txtNome.TabIndex = 1;
+            txtNome.TabIndex = 2;
             // 
             // btnGravar
             // 
@@ -58,7 +58,7 @@
             btnGravar.Location = new Point(155, 113);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(90, 40);
-            btnGravar.TabIndex = 2;
+            btnGravar.TabIndex = 3;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -69,7 +69,7 @@
             btnCancelar.Location = new Point(251, 113);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(84, 40);
-            btnCancelar.TabIndex = 3;
+            btnCancelar.TabIndex = 4;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -88,7 +88,7 @@
             txtId.Location = new Point(97, 24);
             txtId.Name = "txtId";
             txtId.Size = new Size(29, 23);
-            txtId.TabIndex = 5;
+            txtId.TabIndex = 1;
             // 
             // TelaParceiroForm
             // 

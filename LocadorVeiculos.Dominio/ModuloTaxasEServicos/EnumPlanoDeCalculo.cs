@@ -13,9 +13,9 @@ namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
         Nenhum = 0,
 
         [Description("Preço Fixo")]
-        PrimeiraSerie = 1,
+        PrimeiraTaxa = 1,
 
         [Description("Cobrança Diária")]
-        SegundaSerie = 2
+        SegundaTaxa = 2
     }
 }

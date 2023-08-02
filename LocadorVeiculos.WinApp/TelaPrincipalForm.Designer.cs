@@ -35,6 +35,7 @@ namespace LocadorAutomoveis.WinApp
             disciplinaMenuItem = new ToolStripMenuItem();
             gruposDeAutomóveisToolStripMenuItem = new ToolStripMenuItem();
             parceirosToolStripMenuItem = new ToolStripMenuItem();
+            funcionáriosToolStripMenuItem = new ToolStripMenuItem();
             toolbox = new ToolStrip();
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
@@ -47,7 +48,7 @@ namespace LocadorAutomoveis.WinApp
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
-            funcionáriosToolStripMenuItem = new ToolStripMenuItem();
+            taxasEServiçosToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -65,7 +66,7 @@ namespace LocadorAutomoveis.WinApp
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, taxasEServiçosToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -91,6 +92,13 @@ namespace LocadorAutomoveis.WinApp
             parceirosToolStripMenuItem.Size = new Size(196, 22);
             parceirosToolStripMenuItem.Text = "Parceiros";
             parceirosToolStripMenuItem.Click += parceirosToolStripMenuItem_Click;
+            // 
+            // funcionáriosToolStripMenuItem
+            // 
+            funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
+            funcionáriosToolStripMenuItem.Size = new Size(196, 22);
+            funcionáriosToolStripMenuItem.Text = "Funcionários";
+            funcionáriosToolStripMenuItem.Click += funcionáriosToolStripMenuItem_Click;
             // 
             // toolbox
             // 
@@ -187,12 +195,12 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.Size = new Size(686, 343);
             panelRegistros.TabIndex = 3;
             // 
-            // funcionáriosToolStripMenuItem
+            // taxasEServiçosToolStripMenuItem
             // 
-            funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            funcionáriosToolStripMenuItem.Size = new Size(196, 22);
-            funcionáriosToolStripMenuItem.Text = "Funcionários";
-            funcionáriosToolStripMenuItem.Click += funcionáriosToolStripMenuItem_Click;
+            taxasEServiçosToolStripMenuItem.Name = "taxasEServiçosToolStripMenuItem";
+            taxasEServiçosToolStripMenuItem.Size = new Size(196, 22);
+            taxasEServiçosToolStripMenuItem.Text = "Taxas e Serviços";
+            taxasEServiçosToolStripMenuItem.Click += taxasEServiçosToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -240,5 +248,6 @@ namespace LocadorAutomoveis.WinApp
         private ToolStripMenuItem gruposDeAutomóveisToolStripMenuItem;
         private ToolStripMenuItem parceirosToolStripMenuItem;
         private ToolStripMenuItem funcionáriosToolStripMenuItem;
+        private ToolStripMenuItem taxasEServiçosToolStripMenuItem;
     }
 }

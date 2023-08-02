@@ -4,11 +4,13 @@ using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
+using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
+using LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         protected IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis;
         protected IRepositorioFuncionario repositorioFuncionario;
         protected IRepositorioParceiro repositorioParceiro;
+        protected IRepositorioTaxasServico repositorioTaxasServico;
         public TestesIntegracaoBase()
         {
 
@@ -44,26 +47,29 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             //Disciplina
             repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
 
-           // BuilderSetup.DisablePropertyNamingFor<Disciplina, int>(d => d.Id);
+            //BuilderSetup.DisablePropertyNamingFor<Disciplina, int>(d => d.Id);
 
             BuilderSetup.SetCreatePersistenceMethod<Disciplina>(repositorioDisciplina.Inserir);
 
             //GrupoAutomoveis
             repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
-
-       
-
+      
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomoveis>(repositorioGrupoAutomoveis.Inserir);
-            
+
+            //Funcionario
             repositorioFuncionario = new RepositorioFuncionarioEmOrm(dbContext);
 
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
 
+            //Parceiro
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
 
+            //Taxa e Serviço
+            repositorioTaxasServico = new RepositorioTaxasEServicosOrm(dbContext);
 
+            BuilderSetup.SetCreatePersistenceMethod<TaxasEServico>(repositorioTaxasServico.Inserir);
 
 
         }
@@ -74,6 +80,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             LimparLista<GrupoAutomoveis>(dbContext);
             LimparLista<Parceiro>(dbContext);
             LimparLista<Funcionario>(dbContext);
+            LimparLista<TaxasEServico>(dbContext);
         }
 
         private static void LimparLista<T>(LocadorAutomoveisDbContext dbContext)

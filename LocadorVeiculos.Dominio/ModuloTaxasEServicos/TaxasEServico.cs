@@ -13,21 +13,23 @@ namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
 
         public decimal Preco { get; set; }
 
-        public EnumPlanoDeCalculo planoDeCalculo { get; set; }
+        //public EnumPlanoDeCalculo planoDeCalculo { get; set; }
+
+        public string PlanoDeCalculo { get; set; }
 
         public TaxasEServico()
         {
 
         }
 
-        public TaxasEServico(string nome, decimal preco, EnumPlanoDeCalculo planoDeCalculo)
+        public TaxasEServico(string nome, decimal preco, string planoDeCalculo)
         {
             Nome = nome;
             Preco = preco;
-            this.planoDeCalculo = planoDeCalculo;
+            this.PlanoDeCalculo = planoDeCalculo;
         }
 
-        public TaxasEServico(Guid id, string nome,decimal preco,EnumPlanoDeCalculo planoDeCalculo) : this(nome,preco,planoDeCalculo)
+        public TaxasEServico(Guid id, string nome,decimal preco,string planoDeCalculo) : this(nome,preco,planoDeCalculo)
         {
             Id = id;
         }
@@ -36,7 +38,7 @@ namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
         {
             this.Nome = registro.Nome;
             this.Preco = registro.Preco;
-            this.planoDeCalculo = registro.planoDeCalculo;
+            this.PlanoDeCalculo = registro.PlanoDeCalculo;
         }
 
         public override bool Equals(object? obj)
@@ -45,12 +47,12 @@ namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
                    Id == servico.Id &&
                    Nome == servico.Nome &&
                    Preco == servico.Preco &&
-                   planoDeCalculo == servico.planoDeCalculo;
+                   PlanoDeCalculo == servico.PlanoDeCalculo;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Nome, Preco, planoDeCalculo);
+            return HashCode.Combine(Id, Nome, Preco, PlanoDeCalculo);
         }
 
         

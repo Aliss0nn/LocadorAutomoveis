@@ -15,7 +15,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos
 
             taxasServicoBuilder.Property(x => x.Id).IsRequired().ValueGeneratedNever();
             taxasServicoBuilder.Property(x => x.Preco).HasColumnType("decimal(18,0)").IsRequired();
-            taxasServicoBuilder.Property(x => x.planoDeCalculo).HasConversion<int>().IsRequired();
+            taxasServicoBuilder.Property(x => x.PlanoDeCalculo).HasColumnType("varchar(200)").IsRequired();
         }
     }
 }
