@@ -3,7 +3,6 @@ using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using FluentValidation.Results;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using Moq;
 
@@ -137,13 +136,14 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Deve_editar_grupoAutomoveis_com_o_mesmo_nome()
         {
             //arrange
+            GrupoAutomoveis outroGrupo = new GrupoAutomoveis("Esportivo");
+            Guid id = outroGrupo.Id;
+
             repositorioGrupoAutomoveisMoq.Setup(x => x.SelecionarPorNome("Esportivo"))
                  .Returns(() =>
                  {
-                     return new GrupoAutomoveis( "Esportivo");
+                     return new GrupoAutomoveis(id, "Esportivo");
                  });
-
-            GrupoAutomoveis outroGrupo = new GrupoAutomoveis( "Esportivo");
 
             //action
             var resultado = servicoGrupoAutomoveis.Editar(outroGrupo);
@@ -196,9 +196,6 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         [TestMethod]
         public void Deve_excluir_grupoAutomoveis_caso_ela_esteja_cadastrado()
         {
-            //arrange
-            var disciplina = new Disciplina( "Esportivo");
-
             repositorioGrupoAutomoveisMoq.Setup(x => x.Existe(grupo))
                .Returns(() =>
                {

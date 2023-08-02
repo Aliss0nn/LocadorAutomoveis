@@ -61,7 +61,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
             }
             catch (Exception exc)
             {
-                string msgErro = "Falha ao tentar editar plano de Cobrança.";
+                string msgErro = "Falha ao tentar editar plano de cobrança.";
 
                 Log.Error(exc, msgErro + "{@p}", planoCobranca);
 

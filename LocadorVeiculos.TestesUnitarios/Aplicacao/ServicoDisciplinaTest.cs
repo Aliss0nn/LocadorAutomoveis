@@ -136,13 +136,15 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Deve_editar_disciplina_com_o_mesmo_nome() //cenário 3
         {
             //arrange
+            Disciplina outraDisciplina = new Disciplina("Educação Física");
+
+            Guid id = outraDisciplina.Id;
+
             repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome("Educação Física"))
                  .Returns(() =>
                  {
-                     return new Disciplina( "Educação Física");
+                     return new Disciplina(id,"Educação Física");
                  });
-
-            Disciplina outraDisciplina = new Disciplina( "Educação Física");
 
             //action
             var resultado = servicoDisciplina.Editar(outraDisciplina);
