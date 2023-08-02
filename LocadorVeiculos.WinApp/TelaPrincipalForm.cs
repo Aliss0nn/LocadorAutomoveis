@@ -2,15 +2,18 @@
 using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Aplicacao.ModuloParceiro;
+using LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
+using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
+using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
 using LocadorAutomoveis.WinApp.ModuloDisciplina;
 using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
@@ -97,6 +100,15 @@ namespace LocadorAutomoveis.WinApp
             controladores.Add("ControladorGrupoFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
 
 
+            // ControladorPlanoCobranca
+
+            IRepositorioPlanoCobranca repositorioPlanoCobranca = new RepositorioPlanoCobrancaEmOrm(dbContext);
+
+            ValidadorPlanoCobranca validadorPlanoCobranca = new ValidadorPlanoCobranca();
+
+            ServicoPlanoCobranca servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobranca, validadorPlanoCobranca);
+
+            controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, repositorioGrupoAutomoveis, servicoPlanoCobranca));
         }
 
         public static TelaPrincipalForm Instancia
@@ -206,6 +218,11 @@ namespace LocadorAutomoveis.WinApp
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorGrupoFuncionario"]);
+        }
+
+        private void planosDeCobrançaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
         }
     }
 }
