@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadorAutomoveis.Dominio.ModuloCupom;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,16 @@ namespace LocadorAutomoveis.Dominio.ModuloParceiro
     {
         public string Nome { get; set; }
 
+        public List<Cupom> Cupons { get; set; }
+
         public override void Atualizar(Parceiro registro)
         {
            this.Nome = registro.Nome;
+        }
+
+        public Parceiro(List<Cupom> cupoms)
+        {
+            Cupons = cupoms;
         }
 
         public override bool Equals(object? obj)
