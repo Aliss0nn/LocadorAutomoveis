@@ -40,8 +40,8 @@ namespace LocadorAutomoveis.WinApp.ModuloFuncionario
             txt_Nome.Text = funcionario.Nome;
             txt_Salario.Value = funcionario.Salario;
 
-            if(funcionario.DataAdmissao > new DateTime())
-            txt_dataAdmissao.Value = funcionario.DataAdmissao;
+            if (funcionario.DataAdmissao > new DateTime())
+                txt_dataAdmissao.Value = funcionario.DataAdmissao;
         }
 
 

@@ -63,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(36, 56);
+            label1.Location = new Point(34, 59);
             label1.Name = "label1";
             label1.Size = new Size(43, 15);
             label1.TabIndex = 2;
@@ -72,7 +72,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(17, 93);
+            label2.Location = new Point(17, 99);
             label2.Name = "label2";
             label2.Size = new Size(62, 15);
             label2.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             // txt_Nome
             // 
-            txt_Nome.Location = new Point(85, 53);
+            txt_Nome.Location = new Point(85, 56);
             txt_Nome.Name = "txt_Nome";
             txt_Nome.Size = new Size(172, 23);
             txt_Nome.TabIndex = 5;
@@ -97,12 +97,12 @@
             // txt_dataAdmissao
             // 
             txt_dataAdmissao.Format = DateTimePickerFormat.Short;
-            txt_dataAdmissao.Location = new Point(85, 87);
-            txt_dataAdmissao.MinDate = new DateTime(2023, 12, 25, 23, 59, 59, 0);
+            txt_dataAdmissao.Location = new Point(85, 93);
+            txt_dataAdmissao.MinDate = new DateTime(2023, 6, 15, 0, 0, 0, 0);
             txt_dataAdmissao.Name = "txt_dataAdmissao";
             txt_dataAdmissao.Size = new Size(200, 23);
             txt_dataAdmissao.TabIndex = 8;
-            txt_dataAdmissao.Value = new DateTime(2023, 12, 25, 23, 59, 59, 0);
+            txt_dataAdmissao.Value = new DateTime(2023, 6, 24, 0, 0, 0, 0);
             // 
             // txt_Salario
             // 

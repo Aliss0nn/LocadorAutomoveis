@@ -124,6 +124,21 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
 
             if (NomeDuplicado(Funcionario))
                 erros.Add($"Este nome '{Funcionario.Nome}' já está sendo utilizado");
+           
+            if (Funcionario.Nome.Count() < 4)
+            {
+                erros.Add($"Este nome ' {Funcionario.Nome}' Não tem valor mínimo de Caracteres");
+            }
+
+            if(Funcionario.DataAdmissao < DateTime.Now)
+            {
+                erros.Add($"Está data '{Funcionario.DataAdmissao} É menor que a data atual '{DateTime.Now}' ");
+            }
+
+            if(Funcionario.Salario < 250 )
+            {
+                erros.Add($"Este nome '{Funcionario.Salario}' Não contem o valor mínimo 250$");
+            }
 
             foreach (string erro in erros)
             {
