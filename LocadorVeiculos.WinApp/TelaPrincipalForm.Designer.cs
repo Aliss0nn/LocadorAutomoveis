@@ -48,6 +48,7 @@ namespace LocadorAutomoveis.WinApp
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
+            taxasEServiçosToolStripMenuItem = new ToolStripMenuItem();
             planosDeCobrançaToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
@@ -66,6 +67,7 @@ namespace LocadorAutomoveis.WinApp
             // 
             // cadastrosToolStripMenuItem
             // 
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, taxasEServiçosToolStripMenuItem });
             cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
@@ -196,11 +198,16 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.TabIndex = 3;
             // 
             // planosDeCobrançaToolStripMenuItem
+            // taxasEServiçosToolStripMenuItem
             // 
             planosDeCobrançaToolStripMenuItem.Name = "planosDeCobrançaToolStripMenuItem";
             planosDeCobrançaToolStripMenuItem.Size = new Size(196, 22);
             planosDeCobrançaToolStripMenuItem.Text = "Planos de Cobrança";
             planosDeCobrançaToolStripMenuItem.Click += planosDeCobrançaToolStripMenuItem_Click;
+            taxasEServiçosToolStripMenuItem.Name = "taxasEServiçosToolStripMenuItem";
+            taxasEServiçosToolStripMenuItem.Size = new Size(196, 22);
+            taxasEServiçosToolStripMenuItem.Text = "Taxas e Serviços";
+            taxasEServiçosToolStripMenuItem.Click += taxasEServiçosToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -248,6 +255,7 @@ namespace LocadorAutomoveis.WinApp
         private ToolStripMenuItem gruposDeAutomóveisToolStripMenuItem;
         private ToolStripMenuItem parceirosToolStripMenuItem;
         private ToolStripMenuItem funcionáriosToolStripMenuItem;
+        private ToolStripMenuItem taxasEServiçosToolStripMenuItem;
         private ToolStripMenuItem planosDeCobrançaToolStripMenuItem;
     }
 }

@@ -20,7 +20,7 @@ namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
                 .NotNull()
                 .NotEmpty();
                 
-            RuleFor(x => x.planoDeCalculo)
+            RuleFor(x => x.PlanoDeCalculo)
                 .NotNull()
                 .NotEmpty();
         }
