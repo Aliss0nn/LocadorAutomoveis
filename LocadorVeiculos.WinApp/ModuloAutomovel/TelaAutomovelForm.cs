@@ -57,7 +57,7 @@ namespace LocadorAutomoveis.WinApp.ModuloAutomovel
             automovel.Grupo = (GrupoAutomoveis)cmbGrupo.SelectedItem;
             automovel.TipoCombustivel = (TipoCombustivelEnum)cmbCombustivel.SelectedItem;
 
-            automovel.Imagem = automovel.ConverterImagemParaArrayBytes(lbImagem.Image);
+            automovel.Imagem = automovel.ConverterImagemParaArrayBytes(txtFoto.Image);
 
             return automovel;
         }
@@ -83,28 +83,26 @@ namespace LocadorAutomoveis.WinApp.ModuloAutomovel
             cmbCombustivel.SelectedItem = automovel.TipoCombustivel;
 
             if (automovel.Imagem != null)
-                lbImagem.Image = automovel.ConverterArrayBytesParaImagem();
+                txtFoto.Image = automovel.ConverterArrayBytesParaImagem();
 
             ConfigurarComboBoxes();
         }
 
         private void btnImagem_Click(object sender, EventArgs e)
-        {          
-                if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+        {
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                string caminho = openFileDialog1.FileName;
+                try
                 {
-                    string caminho = openFileDialog1.FileName;
-                    try
-                    {
-                        lbImagem.Image = Image.FromFile(caminho);
-                        automovel.Imagem = automovel.ConverterImagemParaArrayBytes(lbImagem.Image);
-                        lbImagem.Image = automovel.ConverterArrayBytesParaImagem();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Arquivo inválido", "Cadastro de Imagem",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    txtFoto.Image = Image.FromFile(caminho);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Arquivo inválido, selecione uma imagem em fortmato png", "Cadastro de Imagem",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

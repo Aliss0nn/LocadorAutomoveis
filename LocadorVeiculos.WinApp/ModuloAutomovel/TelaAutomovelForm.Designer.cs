@@ -32,7 +32,6 @@
             btnGravar = new Button();
             txtModelo = new TextBox();
             label2 = new Label();
-            lbImagem = new Label();
             btnImagem = new Button();
             label3 = new Label();
             cmbGrupo = new ComboBox();
@@ -53,9 +52,11 @@
             txtPlaca = new MaskedTextBox();
             folderBrowserDialog1 = new FolderBrowserDialog();
             openFileDialog1 = new OpenFileDialog();
+            txtFoto = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)txtAno).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCapacidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtQuilometragem).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtFoto).BeginInit();
             SuspendLayout();
             // 
             // btnCancelar
@@ -94,15 +95,6 @@
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
             label2.Text = "Grupo de Automóveis:";
-            // 
-            // lbImagem
-            // 
-            lbImagem.BorderStyle = BorderStyle.FixedSingle;
-            lbImagem.Image = Properties.Resources.local_shipping_FILL0_wght400_GRAD0_opsz48;
-            lbImagem.Location = new Point(139, 23);
-            lbImagem.Name = "lbImagem";
-            lbImagem.Size = new Size(125, 72);
-            lbImagem.TabIndex = 9;
             // 
             // btnImagem
             // 
@@ -274,11 +266,23 @@
             openFileDialog1.FileName = "openFileDialog1";
             openFileDialog1.InitialDirectory = "C:";
             // 
+            // txtFoto
+            // 
+            txtFoto.BorderStyle = BorderStyle.FixedSingle;
+            txtFoto.Image = Properties.Resources.local_shipping_FILL0_wght400_GRAD0_opsz48;
+            txtFoto.Location = new Point(139, 20);
+            txtFoto.Name = "txtFoto";
+            txtFoto.Size = new Size(138, 72);
+            txtFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            txtFoto.TabIndex = 29;
+            txtFoto.TabStop = false;
+            // 
             // TelaAutomovelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(481, 418);
+            Controls.Add(txtFoto);
             Controls.Add(txtPlaca);
             Controls.Add(txtQuilometragem);
             Controls.Add(label11);
@@ -297,7 +301,6 @@
             Controls.Add(cmbGrupo);
             Controls.Add(label3);
             Controls.Add(btnImagem);
-            Controls.Add(lbImagem);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(txtModelo);
@@ -307,6 +310,7 @@
             ((System.ComponentModel.ISupportInitialize)txtAno).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCapacidade).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtQuilometragem).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtFoto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -317,7 +321,7 @@
         private Button btnGravar;
         private TextBox txtModelo;
         private Label label2;
-        private Label lbImagem;
+        private Label txtImagem;
         private Button btnImagem;
         private Label label3;
         private ComboBox cmbGrupo;
@@ -338,5 +342,6 @@
         private MaskedTextBox txtPlaca;
         private FolderBrowserDialog folderBrowserDialog1;
         private OpenFileDialog openFileDialog1;
+        private PictureBox txtFoto;
     }
 }
