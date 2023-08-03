@@ -32,14 +32,12 @@
             txtNome = new TextBox();
             btnGravar = new Button();
             btnCancelar = new Button();
-            lbID = new Label();
-            txtId = new TextBox();
             SuspendLayout();
             // 
             // lbNome
             // 
             lbNome.AutoSize = true;
-            lbNome.Location = new Point(39, 68);
+            lbNome.Location = new Point(27, 45);
             lbNome.Name = "lbNome";
             lbNome.Size = new Size(43, 15);
             lbNome.TabIndex = 0;
@@ -47,15 +45,15 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(97, 60);
+            txtNome.Location = new Point(76, 37);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(208, 23);
+            txtNome.Size = new Size(234, 23);
             txtNome.TabIndex = 2;
             // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(155, 113);
+            btnGravar.Location = new Point(133, 111);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(90, 40);
             btnGravar.TabIndex = 3;
@@ -66,37 +64,18 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(251, 113);
+            btnCancelar.Location = new Point(229, 111);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(84, 40);
             btnCancelar.TabIndex = 4;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lbID
-            // 
-            lbID.AutoSize = true;
-            lbID.Location = new Point(62, 32);
-            lbID.Name = "lbID";
-            lbID.Size = new Size(20, 15);
-            lbID.TabIndex = 4;
-            lbID.Text = "Id:";
-            // 
-            // txtId
-            // 
-            txtId.Enabled = false;
-            txtId.Location = new Point(97, 24);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(29, 23);
-            txtId.TabIndex = 1;
-            // 
             // TelaParceiroForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(347, 165);
-            Controls.Add(txtId);
-            Controls.Add(lbID);
+            ClientSize = new Size(359, 167);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(txtNome);
@@ -114,7 +93,5 @@
         private TextBox txtNome;
         private Button btnGravar;
         private Button btnCancelar;
-        private Label lbID;
-        private TextBox txtId;
     }
 }

@@ -26,7 +26,7 @@ namespace LocadorAutomoveis.WinApp.ModuloParceiro
         }
         public Parceiro ObterParceiro()
         {
-            parceiro.Id = Guid.Parse(txtId.Text);
+            //parceiro.Id = Guid.Parse(txtId.Text);
 
             parceiro.Nome = txtNome.Text;
 
@@ -37,7 +37,7 @@ namespace LocadorAutomoveis.WinApp.ModuloParceiro
         {
             this.parceiro = parceiro;
 
-            txtId.Text = parceiro.Id.ToString();
+            //txtId.Text = parceiro.Id.ToString();
             txtNome.Text = parceiro.Nome;
         }
 
