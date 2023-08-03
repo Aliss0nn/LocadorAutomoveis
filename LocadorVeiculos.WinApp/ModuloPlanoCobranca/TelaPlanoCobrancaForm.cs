@@ -22,6 +22,9 @@ namespace LocadorAutomoveis.WinApp.ModuloPlanoCobranca
 
         private void CarregarComboBox()
         {
+            cmbTipo.Items.Clear();
+            cmbGrupo.Items.Clear();
+
             cmbTipo.Items.Add(TipoPlanoEnum.Diario);
             cmbTipo.Items.Add(TipoPlanoEnum.Controlado);
             cmbTipo.Items.Add(TipoPlanoEnum.Livre);

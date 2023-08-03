@@ -36,6 +36,8 @@ namespace LocadorAutomoveis.WinApp
             gruposDeAutomóveisToolStripMenuItem = new ToolStripMenuItem();
             parceirosToolStripMenuItem = new ToolStripMenuItem();
             funcionáriosToolStripMenuItem = new ToolStripMenuItem();
+            planosDeCobrançaToolStripMenuItem = new ToolStripMenuItem();
+            automóveisToolStripMenuItem = new ToolStripMenuItem();
             toolbox = new ToolStrip();
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
@@ -48,7 +50,6 @@ namespace LocadorAutomoveis.WinApp
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
-            planosDeCobrançaToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -66,7 +67,7 @@ namespace LocadorAutomoveis.WinApp
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem, automóveisToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -99,6 +100,20 @@ namespace LocadorAutomoveis.WinApp
             funcionáriosToolStripMenuItem.Size = new Size(196, 22);
             funcionáriosToolStripMenuItem.Text = "Funcionários";
             funcionáriosToolStripMenuItem.Click += funcionáriosToolStripMenuItem_Click;
+            // 
+            // planosDeCobrançaToolStripMenuItem
+            // 
+            planosDeCobrançaToolStripMenuItem.Name = "planosDeCobrançaToolStripMenuItem";
+            planosDeCobrançaToolStripMenuItem.Size = new Size(196, 22);
+            planosDeCobrançaToolStripMenuItem.Text = "Planos de Cobrança";
+            planosDeCobrançaToolStripMenuItem.Click += planosDeCobrançaToolStripMenuItem_Click;
+            // 
+            // automóveisToolStripMenuItem
+            // 
+            automóveisToolStripMenuItem.Name = "automóveisToolStripMenuItem";
+            automóveisToolStripMenuItem.Size = new Size(196, 22);
+            automóveisToolStripMenuItem.Text = "Automóveis";
+            automóveisToolStripMenuItem.Click += automóveisToolStripMenuItem_Click;
             // 
             // toolbox
             // 
@@ -195,13 +210,6 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.Size = new Size(686, 343);
             panelRegistros.TabIndex = 3;
             // 
-            // planosDeCobrançaToolStripMenuItem
-            // 
-            planosDeCobrançaToolStripMenuItem.Name = "planosDeCobrançaToolStripMenuItem";
-            planosDeCobrançaToolStripMenuItem.Size = new Size(196, 22);
-            planosDeCobrançaToolStripMenuItem.Text = "Planos de Cobrança";
-            planosDeCobrançaToolStripMenuItem.Click += planosDeCobrançaToolStripMenuItem_Click;
-            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -216,7 +224,7 @@ namespace LocadorAutomoveis.WinApp
             Name = "TelaPrincipalForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Gerador de Testes 1.0";
+            Text = "Locador de Automóveis";
             WindowState = FormWindowState.Maximized;
             menu.ResumeLayout(false);
             menu.PerformLayout();
@@ -249,5 +257,6 @@ namespace LocadorAutomoveis.WinApp
         private ToolStripMenuItem parceirosToolStripMenuItem;
         private ToolStripMenuItem funcionáriosToolStripMenuItem;
         private ToolStripMenuItem planosDeCobrançaToolStripMenuItem;
+        private ToolStripMenuItem automóveisToolStripMenuItem;
     }
 }

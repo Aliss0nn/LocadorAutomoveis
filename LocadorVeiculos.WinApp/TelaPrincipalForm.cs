@@ -1,8 +1,10 @@
-﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
+﻿using LocadorAutomoveis.Aplicacao.ModuloAutomovel;
+using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
 using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Aplicacao.ModuloParceiro;
 using LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca;
+using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
@@ -109,6 +111,16 @@ namespace LocadorAutomoveis.WinApp
             ServicoPlanoCobranca servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobranca, validadorPlanoCobranca);
 
             controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, repositorioGrupoAutomoveis, servicoPlanoCobranca));
+
+            // ControladorAutomovel
+
+            IRepositorioAutomovel repositorioAutomovel = new RepositorioAutomovelEmOrm(dbContext);
+
+            ValidadorAutomovel validadorAutomovel = new ValidadorAutomovel();
+
+            ServicoAutomovel servicoAutomovel = new ServicoAutomovel(repositorioAutomovel, validadorAutomovel);
+
+            controladores.Add("ControladorAutomovel", new ControladorAutomovel(repositorioAutomovel, repositorioGrupoAutomoveis, servicoAutomovel));
         }
 
         public static TelaPrincipalForm Instancia
@@ -223,6 +235,11 @@ namespace LocadorAutomoveis.WinApp
         private void planosDeCobrançaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
+        }
+
+        private void automóveisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorAutomovel"]);
         }
     }
 }
