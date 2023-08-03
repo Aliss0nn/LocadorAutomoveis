@@ -52,6 +52,7 @@
             label11 = new Label();
             txtPlaca = new MaskedTextBox();
             folderBrowserDialog1 = new FolderBrowserDialog();
+            openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)txtAno).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCapacidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtQuilometragem).BeginInit();
@@ -268,6 +269,11 @@
             folderBrowserDialog1.InitialDirectory = "C:";
             folderBrowserDialog1.SelectedPath = "C:";
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.InitialDirectory = "C:";
+            // 
             // TelaAutomovelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -331,5 +337,6 @@
         private Label label11;
         private MaskedTextBox txtPlaca;
         private FolderBrowserDialog folderBrowserDialog1;
+        private OpenFileDialog openFileDialog1;
     }
 }

@@ -71,38 +71,40 @@ namespace LocadorAutomoveis.WinApp.ModuloAutomovel
             txtCor.Text = automovel.Cor;
             txtPlaca.Text = automovel.Placa;
 
-            if(automovel.Ano > 0)
-            txtAno.Value = automovel.Ano;
+            if (automovel.Ano > 0)
+                txtAno.Value = automovel.Ano;
 
             txtQuilometragem.Value = automovel.Quilometragem;
 
-            if(automovel.Capacidade > 0)
-            txtCapacidade.Value = automovel.Capacidade;
+            if (automovel.Capacidade > 0)
+                txtCapacidade.Value = automovel.Capacidade;
 
             cmbGrupo.SelectedItem = automovel.Grupo;
             cmbCombustivel.SelectedItem = automovel.TipoCombustivel;
 
-            if(automovel.Imagem != null)
-            lbImagem.Image = automovel.ConverterArrayBytesParaImagem();
+            if (automovel.Imagem != null)
+                lbImagem.Image = automovel.ConverterArrayBytesParaImagem();
 
             ConfigurarComboBoxes();
         }
 
         private void btnImagem_Click(object sender, EventArgs e)
-        {
-            if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
-            {
-                string caminho = folderBrowserDialog1.SelectedPath;
-                try
+        {          
+                if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
                 {
-                    lbImagem.Image = Image.FromFile(caminho);
+                    string caminho = openFileDialog1.FileName;
+                    try
+                    {
+                        lbImagem.Image = Image.FromFile(caminho);
+                        automovel.Imagem = automovel.ConverterImagemParaArrayBytes(lbImagem.Image);
+                        lbImagem.Image = automovel.ConverterArrayBytesParaImagem();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Arquivo inválido", "Cadastro de Imagem",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Arquivo inválido", "Cadastro de Imagem",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

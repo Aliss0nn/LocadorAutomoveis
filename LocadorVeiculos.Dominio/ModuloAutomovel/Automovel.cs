@@ -68,7 +68,7 @@ namespace LocadorAutomoveis.Dominio.ModuloAutomovel
         {
             using (var imagemStream = new MemoryStream())
             {
-                imagem.Save(imagemStream, System.Drawing.Imaging.ImageFormat.Gif);
+                imagem.Save(imagemStream, System.Drawing.Imaging.ImageFormat.Png);
 
                 return imagemStream.ToArray();
             }
@@ -83,7 +83,7 @@ namespace LocadorAutomoveis.Dominio.ModuloAutomovel
         {
             using (var imagemStream = new MemoryStream(imagemBytes))
             {
-                var imagem = Image.FromStream(imagemStream);
+                Image imagem = Image.FromStream(imagemStream);
 
                 return imagem;
             }

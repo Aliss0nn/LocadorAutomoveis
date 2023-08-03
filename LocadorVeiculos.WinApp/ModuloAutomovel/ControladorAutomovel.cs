@@ -119,7 +119,7 @@ namespace LocadorAutomoveis.WinApp.ModuloDisciplina
 
         private void CarregarAutomoveis()
         {
-            List<Automovel> automoveis = repositorioAutomovel.SelecionarTodos();
+            List<Automovel> automoveis = repositorioAutomovel.SelecionarTodos(true);
 
             tabelaAutomovel.AtualizarRegistros(automoveis);
 
