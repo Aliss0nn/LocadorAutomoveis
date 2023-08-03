@@ -18,5 +18,13 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloCupom
         {
            return registros.FirstOrDefault(x => x.Nome == nome);
         }
+
+        public List<Cupom> SelecionarTodos(bool incluirParceiros = false)
+        {
+            if (incluirParceiros)
+                return registros.Include(x => x.Parceiro).ToList();
+
+            return registros.ToList();
+        }
     }
 }

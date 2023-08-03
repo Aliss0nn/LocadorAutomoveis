@@ -24,6 +24,10 @@ using LocadorAutomoveis.WinApp.ModuloParceiro;
 using LocadorAutomoveis.WinApp.ModuloTaxasEServicos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadorAutomoveis.Dominio.ModuloCupom;
+using LocadorAutomoveis.Infra.Orm.ModuloCupom;
+using LocadorAutomoveis.Aplicacao.ModuloCupom;
+using LocadorAutomoveis.WinApp.ModuloCupom;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -115,13 +119,23 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorTaxasServico validadorTaxaServico = new ValidadorTaxasServico();
 
-            ServicoTaxasEServicos servicoTaxasEServicos = new ServicoTaxasEServicos(repositorioTaxasServico,validadorTaxaServico);
+            ServicoTaxasEServicos servicoTaxasEServicos = new ServicoTaxasEServicos(repositorioTaxasServico, validadorTaxaServico);
 
-            controladores.Add("ControladorTaxaServico", new ControladorTaxaServico(repositorioTaxasServico,servicoTaxasEServicos));
+            controladores.Add("ControladorTaxaServico", new ControladorTaxaServico(repositorioTaxasServico, servicoTaxasEServicos));
 
             ServicoPlanoCobranca servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobranca, validadorPlanoCobranca);
 
             controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, repositorioGrupoAutomoveis, servicoPlanoCobranca));
+
+            //ControladorCupom
+
+            IRepositorioCupom repositorioCupom = new RepositorioCupomEmOrm(dbContext);
+
+            ValidadorCupom validadorCupom = new ValidadorCupom();
+
+            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom,validadorCupom);
+
+            controladores.Add("ControladorCupom", new ControladorCupom(servicoCupom, repositorioCupom, repositorioParceiro));
         }
 
         public static TelaPrincipalForm Instancia
@@ -240,6 +254,11 @@ namespace LocadorAutomoveis.WinApp
         private void planosDeCobrançaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
+        }
+
+        private void cupomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
         }
     }
 }
