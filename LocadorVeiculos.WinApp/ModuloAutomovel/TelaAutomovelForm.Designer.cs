@@ -252,6 +252,7 @@
             // txtPlaca
             // 
             txtPlaca.Location = new Point(140, 243);
+            txtPlaca.Mask = "aaa-0000";
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(120, 23);
             txtPlaca.TabIndex = 28;

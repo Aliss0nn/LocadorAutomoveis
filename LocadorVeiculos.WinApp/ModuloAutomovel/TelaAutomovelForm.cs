@@ -1,5 +1,4 @@
 ﻿using LocadorAutomoveis.Dominio.ModuloAutomovel;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.Compartilhado;
 using System;
@@ -84,8 +83,6 @@ namespace LocadorAutomoveis.WinApp.ModuloAutomovel
 
             if (automovel.Imagem != null)
                 txtFoto.Image = automovel.ConverterArrayBytesParaImagem();
-
-            ConfigurarComboBoxes();
         }
 
         private void btnImagem_Click(object sender, EventArgs e)
