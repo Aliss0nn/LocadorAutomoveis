@@ -4,25 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
+namespace LocadorAutomoveis.Dominio.ModuloCupom
 {
-    public class ValidadorTaxasServico : AbstractValidator<TaxasEServico>, IValidadorTaxasServico
+    public class ValidadorCupom : AbstractValidator<Cupom>, IValidadorCupom
     {
-        public ValidadorTaxasServico()
+        public ValidadorCupom()
         {
             RuleFor(x => x.Nome)
-                .NotNull()
                 .NotEmpty()
+                .NotNull()
                 .MinimumLength(5)
                 .NaoPodeCaracteresEspeciais();
 
-            RuleFor(x => x.Preco)
+            RuleFor(x => x.Valor)
                 .NotNull()
                 .NotEmpty();
-                
-            RuleFor(x => x.PlanoDeCalculo)
+
+            RuleFor(x => x.DataValidade)
+                .NotEmpty()
+                .NotNull();
+
+            RuleFor(x => x.Parceiro)
                 .NotNull()
                 .NotEmpty();
+
         }
     }
 }

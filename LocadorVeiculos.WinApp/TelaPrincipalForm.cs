@@ -1,27 +1,33 @@
-﻿using LocadorAutomoveis.Aplicacao.ModuloAutomovel;
-using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
+﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
 using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Aplicacao.ModuloParceiro;
+using LocadorAutomoveis.Aplicacao.ModuloTaxasEServicos;
 using LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca;
-using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
+using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
+using LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
 using LocadorAutomoveis.WinApp.ModuloDisciplina;
 using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloParceiro;
+using LocadorAutomoveis.WinApp.ModuloTaxasEServicos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadorAutomoveis.Dominio.ModuloCupom;
+using LocadorAutomoveis.Infra.Orm.ModuloCupom;
+using LocadorAutomoveis.Aplicacao.ModuloCupom;
+using LocadorAutomoveis.WinApp.ModuloCupom;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -101,6 +107,9 @@ namespace LocadorAutomoveis.WinApp
 
             controladores.Add("ControladorGrupoFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
 
+            // Controlador Taxas e Serviços
+
+            IRepositorioTaxasServico repositorioTaxasServico = new RepositorioTaxasEServicosOrm(dbContext);
 
             // ControladorPlanoCobranca
 
@@ -108,19 +117,25 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorPlanoCobranca validadorPlanoCobranca = new ValidadorPlanoCobranca();
 
+            ValidadorTaxasServico validadorTaxaServico = new ValidadorTaxasServico();
+
+            ServicoTaxasEServicos servicoTaxasEServicos = new ServicoTaxasEServicos(repositorioTaxasServico, validadorTaxaServico);
+
+            controladores.Add("ControladorTaxaServico", new ControladorTaxaServico(repositorioTaxasServico, servicoTaxasEServicos));
+
             ServicoPlanoCobranca servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobranca, validadorPlanoCobranca);
 
             controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, repositorioGrupoAutomoveis, servicoPlanoCobranca));
 
-            // ControladorAutomovel
+            //ControladorCupom
 
-            IRepositorioAutomovel repositorioAutomovel = new RepositorioAutomovelEmOrm(dbContext);
+            IRepositorioCupom repositorioCupom = new RepositorioCupomEmOrm(dbContext);
 
-            ValidadorAutomovel validadorAutomovel = new ValidadorAutomovel();
+            ValidadorCupom validadorCupom = new ValidadorCupom();
 
-            ServicoAutomovel servicoAutomovel = new ServicoAutomovel(repositorioAutomovel, validadorAutomovel);
+            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom,validadorCupom);
 
-            controladores.Add("ControladorAutomovel", new ControladorAutomovel(repositorioAutomovel, repositorioGrupoAutomoveis, servicoAutomovel));
+            controladores.Add("ControladorCupom", new ControladorCupom(servicoCupom, repositorioCupom, repositorioParceiro));
         }
 
         public static TelaPrincipalForm Instancia
@@ -156,6 +171,10 @@ namespace LocadorAutomoveis.WinApp
             ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);
         }
 
+        private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorTaxaServico"]);
+        }
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -237,9 +256,9 @@ namespace LocadorAutomoveis.WinApp
             ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
         }
 
-        private void automóveisToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cupomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurarTelaPrincipal(controladores["ControladorAutomovel"]);
+            ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
         }
     }
 }
