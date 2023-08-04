@@ -1,10 +1,8 @@
-﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
-using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
+﻿using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Aplicacao.ModuloParceiro;
 using LocadorAutomoveis.Aplicacao.ModuloTaxasEServicos;
 using LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
@@ -12,12 +10,10 @@ using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
-using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
-using LocadorAutomoveis.WinApp.ModuloDisciplina;
 using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloParceiro;
@@ -34,6 +30,8 @@ using LocadorAutomoveis.Aplicacao.ModuloClientes;
 using LocadorAutomoveis.WinApp.ModuloClientes;
 using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Aplicacao.ModuloAutomovel;
+using LocadorAutomoveis.Infra.Orm.ModuloAutomovel;
+using LocadorAutomoveis.WinApp.ModuloAutomovel;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -78,14 +76,6 @@ namespace LocadorAutomoveis.WinApp
             {
                 dbContext.Database.Migrate();
             }
-
-            IRepositorioDisciplina repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
-
-            ValidadorDisciplina validadorDisciplina = new ValidadorDisciplina();
-
-            ServicoDisciplina servicoDisciplina = new ServicoDisciplina(repositorioDisciplina, validadorDisciplina);
-
-            controladores.Add("ControladorGrupoDisciplina", new ControladorDisciplina(repositorioDisciplina, servicoDisciplina));
 
             IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
 
@@ -178,11 +168,6 @@ namespace LocadorAutomoveis.WinApp
         public void AtualizarRodape(string mensagem)
         {
             labelRodape.Text = mensagem;
-        }
-
-        private void disciplinasMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfigurarTelaPrincipal(controladores["ControladorDisciplina"]);
         }
 
         private void gruposDeAutomóveisToolStripMenuItem_Click(object sender, EventArgs e)

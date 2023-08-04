@@ -5,7 +5,7 @@ using LocadorAutomoveis.WinApp.ModuloAutomovel;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace LocadorAutomoveis.WinApp.ModuloDisciplina
+namespace LocadorAutomoveis.WinApp.ModuloAutomovel
 {
     public class ControladorAutomovel : ControladorBase
     {

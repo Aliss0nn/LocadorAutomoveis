@@ -62,7 +62,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(394, 361);
+            btnCancelar.Location = new Point(356, 373);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
             btnCancelar.TabIndex = 8;
@@ -72,7 +72,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(313, 361);
+            btnGravar.Location = new Point(275, 373);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
             btnGravar.TabIndex = 7;
@@ -82,7 +82,7 @@
             // 
             // txtModelo
             // 
-            txtModelo.Location = new Point(139, 127);
+            txtModelo.Location = new Point(159, 129);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(253, 23);
             txtModelo.TabIndex = 6;
@@ -90,7 +90,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(7, 101);
+            label2.Location = new Point(27, 103);
             label2.Name = "label2";
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
@@ -98,7 +98,7 @@
             // 
             // btnImagem
             // 
-            btnImagem.Location = new Point(284, 38);
+            btnImagem.Location = new Point(304, 40);
             btnImagem.Name = "btnImagem";
             btnImagem.Size = new Size(108, 37);
             btnImagem.TabIndex = 10;
@@ -109,7 +109,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(99, 49);
+            label3.Location = new Point(119, 51);
             label3.Name = "label3";
             label3.Size = new Size(34, 15);
             label3.TabIndex = 11;
@@ -119,7 +119,7 @@
             // 
             cmbGrupo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbGrupo.FormattingEnabled = true;
-            cmbGrupo.Location = new Point(139, 98);
+            cmbGrupo.Location = new Point(159, 100);
             cmbGrupo.Name = "cmbGrupo";
             cmbGrupo.Size = new Size(253, 23);
             cmbGrupo.TabIndex = 12;
@@ -127,7 +127,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(82, 130);
+            label4.Location = new Point(102, 132);
             label4.Name = "label4";
             label4.Size = new Size(51, 15);
             label4.TabIndex = 13;
@@ -136,7 +136,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(90, 159);
+            label5.Location = new Point(110, 161);
             label5.Name = "label5";
             label5.Size = new Size(43, 15);
             label5.TabIndex = 15;
@@ -144,7 +144,7 @@
             // 
             // txtMarca
             // 
-            txtMarca.Location = new Point(139, 156);
+            txtMarca.Location = new Point(159, 158);
             txtMarca.Name = "txtMarca";
             txtMarca.Size = new Size(253, 23);
             txtMarca.TabIndex = 14;
@@ -152,7 +152,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(104, 188);
+            label6.Location = new Point(124, 193);
             label6.Name = "label6";
             label6.Size = new Size(29, 15);
             label6.TabIndex = 16;
@@ -160,7 +160,7 @@
             // 
             // txtCor
             // 
-            txtCor.Location = new Point(139, 185);
+            txtCor.Location = new Point(159, 190);
             txtCor.Name = "txtCor";
             txtCor.Size = new Size(253, 23);
             txtCor.TabIndex = 17;
@@ -169,7 +169,7 @@
             // 
             cmbCombustivel.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCombustivel.FormattingEnabled = true;
-            cmbCombustivel.Location = new Point(139, 272);
+            cmbCombustivel.Location = new Point(156, 272);
             cmbCombustivel.Name = "cmbCombustivel";
             cmbCombustivel.Size = new Size(253, 23);
             cmbCombustivel.TabIndex = 18;
@@ -177,7 +177,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(14, 280);
+            label7.Location = new Point(31, 280);
             label7.Name = "label7";
             label7.Size = new Size(119, 15);
             label7.TabIndex = 19;
@@ -186,7 +186,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(104, 217);
+            label8.Location = new Point(121, 217);
             label8.Name = "label8";
             label8.Size = new Size(32, 15);
             label8.TabIndex = 20;
@@ -194,7 +194,7 @@
             // 
             // txtAno
             // 
-            txtAno.Location = new Point(139, 214);
+            txtAno.Location = new Point(156, 214);
             txtAno.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             txtAno.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtAno.Name = "txtAno";
@@ -205,7 +205,7 @@
             // txtCapacidade
             // 
             txtCapacidade.DecimalPlaces = 2;
-            txtCapacidade.Location = new Point(140, 306);
+            txtCapacidade.Location = new Point(157, 306);
             txtCapacidade.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             txtCapacidade.Minimum = new decimal(new int[] { 1, 0, 0, 131072 });
             txtCapacidade.Name = "txtCapacidade";
@@ -216,7 +216,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(13, 308);
+            label9.Location = new Point(30, 308);
             label9.Name = "label9";
             label9.Size = new Size(124, 15);
             label9.TabIndex = 23;
@@ -225,7 +225,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(101, 246);
+            label10.Location = new Point(118, 246);
             label10.Name = "label10";
             label10.Size = new Size(38, 15);
             label10.TabIndex = 25;
@@ -233,7 +233,7 @@
             // 
             // txtQuilometragem
             // 
-            txtQuilometragem.Location = new Point(139, 335);
+            txtQuilometragem.Location = new Point(156, 335);
             txtQuilometragem.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             txtQuilometragem.Name = "txtQuilometragem";
             txtQuilometragem.Size = new Size(120, 23);
@@ -243,7 +243,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(39, 337);
+            label11.Location = new Point(56, 337);
             label11.Name = "label11";
             label11.Size = new Size(94, 15);
             label11.TabIndex = 26;
@@ -251,7 +251,7 @@
             // 
             // txtPlaca
             // 
-            txtPlaca.Location = new Point(140, 243);
+            txtPlaca.Location = new Point(157, 243);
             txtPlaca.Mask = "aaa-0000";
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(120, 23);
@@ -271,7 +271,7 @@
             // 
             txtFoto.BorderStyle = BorderStyle.FixedSingle;
             txtFoto.Image = Properties.Resources.local_shipping_FILL0_wght400_GRAD0_opsz48;
-            txtFoto.Location = new Point(139, 20);
+            txtFoto.Location = new Point(159, 22);
             txtFoto.Name = "txtFoto";
             txtFoto.Size = new Size(138, 72);
             txtFoto.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -282,7 +282,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(481, 418);
+            ClientSize = new Size(443, 430);
             Controls.Add(txtFoto);
             Controls.Add(txtPlaca);
             Controls.Add(txtQuilometragem);
