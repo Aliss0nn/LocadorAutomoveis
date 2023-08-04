@@ -32,6 +32,8 @@ using LocadorAutomoveis.Dominio.ModuloClientes;
 using LocadorAutomoveis.Infra.Orm.ModuloClientes;
 using LocadorAutomoveis.Aplicacao.ModuloClientes;
 using LocadorAutomoveis.WinApp.ModuloClientes;
+using LocadorAutomoveis.Dominio.ModuloAutomovel;
+using LocadorAutomoveis.Aplicacao.ModuloAutomovel;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -115,17 +117,17 @@ namespace LocadorAutomoveis.WinApp
 
             IRepositorioTaxasServico repositorioTaxasServico = new RepositorioTaxasEServicosOrm(dbContext);
 
-            // ControladorPlanoCobranca
-
-            IRepositorioPlanoCobranca repositorioPlanoCobranca = new RepositorioPlanoCobrancaEmOrm(dbContext);
-
-            ValidadorPlanoCobranca validadorPlanoCobranca = new ValidadorPlanoCobranca();
-
             ValidadorTaxasServico validadorTaxaServico = new ValidadorTaxasServico();
 
             ServicoTaxasEServicos servicoTaxasEServicos = new ServicoTaxasEServicos(repositorioTaxasServico, validadorTaxaServico);
 
             controladores.Add("ControladorTaxaServico", new ControladorTaxaServico(repositorioTaxasServico, servicoTaxasEServicos));
+
+            // ControladorPlanoCobranca
+
+            IRepositorioPlanoCobranca repositorioPlanoCobranca = new RepositorioPlanoCobrancaEmOrm(dbContext);
+
+            ValidadorPlanoCobranca validadorPlanoCobranca = new ValidadorPlanoCobranca();
 
             ServicoPlanoCobranca servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobranca, validadorPlanoCobranca);
 
@@ -146,7 +148,17 @@ namespace LocadorAutomoveis.WinApp
             ValidadorClientes validadorClientes = new ValidadorClientes();
 
             ServicoClientes servicoClientes = new ServicoClientes(repositorioClientes, validadorClientes);
-            controladores.Add("ControladorGrupoClientes", new ControladorClientes(repositorioClientes, servicoClientes)); 
+            controladores.Add("ControladorGrupoClientes", new ControladorClientes(repositorioClientes, servicoClientes));
+
+            //ControladorAutomovel
+
+            IRepositorioAutomovel repositorioAutomovel = new RepositorioAutomovelEmOrm(dbContext);
+
+            ValidadorAutomovel validadorAutomovel = new ValidadorAutomovel();
+
+            ServicoAutomovel servicoAutomovel = new ServicoAutomovel(repositorioAutomovel, validadorAutomovel);
+
+            controladores.Add("ControladorAutomovel", new ControladorAutomovel(repositorioAutomovel, repositorioGrupoAutomoveis, servicoAutomovel));
 
         }
 
@@ -202,11 +214,17 @@ namespace LocadorAutomoveis.WinApp
             controlador.Excluir();
         }
 
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            controlador.Excluir();
+        }
+
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
         {
             btnInserir.Enabled = configuracao.InserirHabilitado;
             btnEditar.Enabled = configuracao.EditarHabilitado;
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
+            btnFiltrar.Enabled = configuracao.FiltrarHabilitado;
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao)
@@ -214,6 +232,7 @@ namespace LocadorAutomoveis.WinApp
             btnInserir.ToolTipText = configuracao.TooltipInserir;
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
+            btnFiltrar.ToolTipText = configuracao.TooltipFiltrar;
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
@@ -275,7 +294,12 @@ namespace LocadorAutomoveis.WinApp
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-               ConfigurarTelaPrincipal(controladores["ControladorGrupoClientes"]);
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoClientes"]);
+        }
+
+        private void automóveisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorAutomovel"]);
         }
     }
 }
