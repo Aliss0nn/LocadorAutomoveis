@@ -22,58 +22,29 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloClientes.Clientes", b =>
+            modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloCupom.Cupom", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Bairro")
+                    b.Property<DateTime>("DataValidade")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("varchar(200)");
 
-                    b.Property<string>("Cidade")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
+                    b.Property<Guid>("ParceiroId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Cnpj")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("NomeCliente")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Numero")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Rua")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("TipoPessoa")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TBClientes", (string)null);
+                    b.HasIndex("ParceiroId");
+
+                    b.ToTable("TBCupom", (string)null);
                 });
 
             modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloDisciplina.Disciplina", b =>
@@ -176,15 +147,28 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PlanoDeCalculo")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,0)");
-
-                    b.Property<int>("planoDeCalculo")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("TBTaxasEServico", (string)null);
+                });
+
+            modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloCupom.Cupom", b =>
+                {
+                    b.HasOne("LocadorAutomoveis.Dominio.ModuloParceiro.Parceiro", "Parceiro")
+                        .WithMany("Cupons")
+                        .HasForeignKey("ParceiroId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_TBCupom_TBParceiro");
+
+                    b.Navigation("Parceiro");
                 });
 
             modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloPlanoCobranca.PlanoCobranca", b =>
@@ -197,6 +181,11 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
                         .HasConstraintName("FK_TBPlanoCobranca_TBGrupoAutomoveis");
 
                     b.Navigation("Grupo");
+                });
+
+            modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloParceiro.Parceiro", b =>
+                {
+                    b.Navigation("Cupons");
                 });
 #pragma warning restore 612, 618
         }

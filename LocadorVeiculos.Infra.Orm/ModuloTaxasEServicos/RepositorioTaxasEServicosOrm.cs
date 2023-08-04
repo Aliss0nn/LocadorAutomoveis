@@ -15,7 +15,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos
 
         public TaxasEServico SelecionarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return registros.FirstOrDefault(x => x.Nome == nome);
         }
     }
 }

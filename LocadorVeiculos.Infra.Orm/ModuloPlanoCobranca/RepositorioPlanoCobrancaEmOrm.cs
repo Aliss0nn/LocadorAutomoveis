@@ -26,5 +26,17 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca
                 .FirstOrDefault(x => x.Grupo == grupo && x.TipoPlano == tipoPlano);
         }
 
+        public PlanoCobranca SelecionarPorId(Guid id, bool carregarGrupo = false)
+        {
+            if(!carregarGrupo)
+                return registros.FirstOrDefault(x => x.Id == id);
+
+            return registros
+                .Include(x => x.Grupo)
+                .FirstOrDefault(x => x.Id == id);
+
+
+        }
+
     }
 }

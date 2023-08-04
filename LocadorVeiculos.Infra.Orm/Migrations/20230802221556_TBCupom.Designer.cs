@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadorAutomoveis.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadorAutomoveisDbContext))]
-    [Migration("20230801192459_1")]
-    partial class _1
+    [Migration("20230802221556_TBCupom")]
+    partial class TBCupom
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,31 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloCupom.Cupom", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataValidade")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<Guid>("ParceiroId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParceiroId");
+
+                    b.ToTable("TBCupom", (string)null);
+                });
 
             modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloDisciplina.Disciplina", b =>
                 {
@@ -125,15 +150,28 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PlanoDeCalculo")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,0)");
-
-                    b.Property<int>("planoDeCalculo")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("TBTaxasEServico", (string)null);
+                });
+
+            modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloCupom.Cupom", b =>
+                {
+                    b.HasOne("LocadorAutomoveis.Dominio.ModuloParceiro.Parceiro", "Parceiro")
+                        .WithMany("Cupons")
+                        .HasForeignKey("ParceiroId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_TBCupom_TBParceiro");
+
+                    b.Navigation("Parceiro");
                 });
 
             modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloPlanoCobranca.PlanoCobranca", b =>
@@ -146,6 +184,11 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
                         .HasConstraintName("FK_TBPlanoCobranca_TBGrupoAutomoveis");
 
                     b.Navigation("Grupo");
+                });
+
+            modelBuilder.Entity("LocadorAutomoveis.Dominio.ModuloParceiro.Parceiro", b =>
+                {
+                    b.Navigation("Cupons");
                 });
 #pragma warning restore 612, 618
         }
