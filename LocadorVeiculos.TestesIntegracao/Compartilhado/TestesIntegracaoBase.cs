@@ -16,6 +16,7 @@ using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadorAutomoveis.Dominio.ModuloCupom;
 
 namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
 {
@@ -27,6 +28,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         protected IRepositorioParceiro repositorioParceiro;
         protected IRepositorioTaxasServico repositorioTaxasServico;
         protected IRepositorioPlanoCobranca repositorioPlanoCobranca;
+        protected IRepositorioCupom repositorioCupom;
         public TestesIntegracaoBase()
         {
 
