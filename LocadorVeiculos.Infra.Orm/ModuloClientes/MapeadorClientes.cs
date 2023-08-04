@@ -22,7 +22,26 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloClientes
 
             planoBuilder.Property(p => p. Cnpj).HasColumnType("varchar(200)");
 
-            planoBuilder.Property(p => p.Telefone).HasColumnType("varchar(200)");
+            planoBuilder.Property(p => p.Bairro).HasColumnType("varchar(200)").IsRequired();
+
+            planoBuilder.Property(p => p.Email).HasColumnType("varchar(200)").IsRequired();
+
+            planoBuilder.Property(p => p.Numero).HasColumnType("varchar(200)").IsRequired();
+
+            planoBuilder.Property(p => p.Estado).HasColumnType("varchar(200)").IsRequired();
+            
+            planoBuilder.Property(p => p.Rua).HasColumnType("varchar(200)").IsRequired();
+
+            planoBuilder.Property(p => p.TipoPessoa).HasColumnType("varchar(200)").IsRequired();
+
+            planoBuilder.Property(p => p.Telefone).HasColumnType("varchar(200)").IsRequired();
+
+            planoBuilder.Property(p => p.Cidade).HasColumnType("varchar(200)").IsRequired();
+
+
+
+
+            
 
         }
 

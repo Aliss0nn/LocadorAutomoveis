@@ -23,14 +23,14 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
             repositorioDisciplinaMoq = new Mock<IRepositorioDisciplina>();
             validadorMoq = new Mock<IValidadorDisciplina>();
             servicoDisciplina = new ServicoDisciplina(repositorioDisciplinaMoq.Object, validadorMoq.Object);
-            disciplina = new Disciplina("Educação Física");
+            disciplina = new Disciplina("Educação Fisica");
         }
 
         [TestMethod]
         public void Deve_inserir_disciplina_caso_ela_for_valida() //cenário 1
         {
             //arrange
-            disciplina = new Disciplina("Educação Física");
+            disciplina = new Disciplina("Educação Fisica");
 
             //action
             Result resultado = servicoDisciplina.Inserir(disciplina);
@@ -64,7 +64,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Nao_deve_inserir_disciplina_caso_o_nome_ja_esteja_cadastrado() //cenário 3
         {
             //arrange
-            string nomeDisciplina = "Educação Física";
+            string nomeDisciplina = "Educação Fisica";
             repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome(nomeDisciplina))
                 .Returns(() =>
                 {
@@ -136,13 +136,13 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Deve_editar_disciplina_com_o_mesmo_nome() //cenário 3
         {
             //arrange
-            repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome("Educação Física"))
+            repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome("Educação Fisica"))
                  .Returns(() =>
                  {
-                     return new Disciplina( "Educação Física");
+                     return new Disciplina( "Educação Fisica");
                  });
 
-            Disciplina outraDisciplina = new Disciplina( "Educação Física");
+            Disciplina outraDisciplina = new Disciplina( "Educação Fisica");
 
             //action
             var resultado = servicoDisciplina.Editar(outraDisciplina);
@@ -157,13 +157,13 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         public void Nao_deve_editar_disciplina_caso_o_nome_ja_esteja_cadastrado() //cenário 4
         {
             //arrange
-            repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome("Educação Física"))
+            repositorioDisciplinaMoq.Setup(x => x.SelecionarPorNome("Educação Fisica"))
                  .Returns(() =>
                  {
-                     return new Disciplina( "Educação Física");
+                     return new Disciplina( "Educação Fisica");
                  });
 
-            Disciplina novaDisciplina = new Disciplina("Educação Física");
+            Disciplina novaDisciplina = new Disciplina("Educação Fisica");
 
             //action
             var resultado = servicoDisciplina.Editar(novaDisciplina);

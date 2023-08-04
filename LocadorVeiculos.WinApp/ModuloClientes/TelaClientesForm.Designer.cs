@@ -89,7 +89,7 @@
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(52, 121);
+            txtTelefone.Location = new Point(59, 121);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(100, 23);
             txtTelefone.TabIndex = 4;
@@ -97,7 +97,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(-3, 124);
+            label3.Location = new Point(-1, 124);
             label3.Name = "label3";
             label3.Size = new Size(54, 15);
             label3.TabIndex = 5;
@@ -113,6 +113,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Pessoa Jurídica";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
@@ -122,8 +123,9 @@
             radioButton2.Size = new Size(96, 19);
             radioButton2.TabIndex = 7;
             radioButton2.TabStop = true;
-            radioButton2.Text = " Pessoa Física";
+            radioButton2.Text = " Pessoa Fisica";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // label4
             // 
@@ -190,6 +192,7 @@
             // 
             // txtCpf
             // 
+            txtCpf.Enabled = false;
             txtCpf.Location = new Point(52, 200);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(100, 23);
@@ -218,6 +221,7 @@
             // 
             // txtCnpj
             // 
+            txtCnpj.Enabled = false;
             txtCnpj.Location = new Point(201, 200);
             txtCnpj.Name = "txtCnpj";
             txtCnpj.Size = new Size(114, 23);
@@ -240,7 +244,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(-1, 166);
+            label11.Location = new Point(7, 166);
             label11.Name = "label11";
             label11.Size = new Size(73, 15);
             label11.TabIndex = 22;
@@ -249,7 +253,7 @@
             // btninserir
             // 
             btninserir.DialogResult = DialogResult.OK;
-            btninserir.Location = new Point(159, 348);
+            btninserir.Location = new Point(203, 348);
             btninserir.Name = "btninserir";
             btninserir.Size = new Size(75, 41);
             btninserir.TabIndex = 23;
@@ -260,7 +264,7 @@
             // button2
             // 
             button2.DialogResult = DialogResult.Cancel;
-            button2.Location = new Point(240, 348);
+            button2.Location = new Point(284, 348);
             button2.Name = "button2";
             button2.Size = new Size(75, 41);
             button2.TabIndex = 24;

@@ -15,7 +15,7 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
        
 
 
-        public Clientes(Guid id, string nomeCliente, string cpf, string estado, string cidade, string bairro, string rua, string numero, string telefone, string email, string cnpj)
+        public Clientes(Guid id, string nomeCliente, string cpf, string estado, string cidade, string bairro, string rua, string numero, string telefone, string email, string cnpj,string tipoPessoa)
         {
             Id = id;
             NomeCliente = nomeCliente;  
@@ -28,12 +28,15 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
             Email = email;
             Telefone = telefone;
             Cnpj = cnpj;
+            TipoPessoa = tipoPessoa;
         }
         public Clientes()
         {
         }
 
         public string NomeCliente { get; set; }
+
+        public string TipoPessoa { get; set; }
         public string Cpf { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
@@ -63,13 +66,7 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
             this.Email = clientes.Email;
             this.Telefone = clientes.Telefone;
             this.Cnpj = clientes.Cnpj;
-        }
-
-        
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id, NomeCliente, Cpf,Cidade,Estado,Email);
+            this.TipoPessoa = clientes.TipoPessoa;
         }
 
         public override bool Equals(object? obj)
@@ -77,6 +74,7 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
             return obj is Clientes clientes &&
                    Id.Equals(clientes.Id) &&
                    NomeCliente == clientes.NomeCliente &&
+                   TipoPessoa == clientes.TipoPessoa &&
                    Cpf == clientes.Cpf &&
                    Estado == clientes.Estado &&
                    Cidade == clientes.Cidade &&
@@ -86,6 +84,23 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
                    Email == clientes.Email &&
                    Telefone == clientes.Telefone &&
                    Cnpj == clientes.Cnpj;
+        }
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(NomeCliente);
+            hash.Add(TipoPessoa);
+            hash.Add(Cpf);
+            hash.Add(Estado);
+            hash.Add(Cidade);
+            hash.Add(Bairro);
+            hash.Add(Rua);
+            hash.Add(Numero);
+            hash.Add(Email);
+            hash.Add(Telefone);
+            hash.Add(Cnpj);
+            return hash.ToHashCode();
         }
     }
 
