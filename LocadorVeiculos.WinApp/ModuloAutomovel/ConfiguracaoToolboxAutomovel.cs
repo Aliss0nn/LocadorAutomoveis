@@ -9,5 +9,9 @@
         public override string TooltipEditar => "Editar um Automóvel existente";
 
         public override string TooltipExcluir => "Excluir um Automóvel existente";
+
+        public override string TooltipFiltrar => "Filtrar por Grupo de Automóveis";
+
+        public override bool FiltrarHabilitado { get { return true; } }
     }
 }

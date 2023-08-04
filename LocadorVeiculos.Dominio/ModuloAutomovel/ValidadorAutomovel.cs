@@ -26,10 +26,10 @@
                 .GreaterThanOrEqualTo(0);
 
             RuleFor(x => x.Ano)
-                .NotNull();
+                .GreaterThan(0);
 
             RuleFor(x => x.Capacidade)
-                .NotNull();
+                .GreaterThan(0);
 
             RuleFor(x => x.Placa)
                 .NotEmpty()

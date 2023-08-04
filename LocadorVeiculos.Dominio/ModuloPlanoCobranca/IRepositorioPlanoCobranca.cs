@@ -6,5 +6,6 @@ namespace LocadorAutomoveis.Dominio.ModuloPlanoCobranca
     {        
         PlanoCobranca SelecionarPorGrupoTipo(GrupoAutomoveis grupo, TipoPlanoEnum tipoPlano);
         List<PlanoCobranca> SelecionarTodos(bool carregarGrupos = false);
+        PlanoCobranca SelecionarPorId(Guid id, bool carregarGrupo = false);
     }
 }

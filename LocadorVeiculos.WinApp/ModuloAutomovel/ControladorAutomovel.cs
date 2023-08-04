@@ -102,6 +102,18 @@ namespace LocadorAutomoveis.WinApp.ModuloDisciplina
             }            
         }
 
+        public override void Filtrar()
+        {
+            TelaFiltroAutomovelForm tela = new TelaFiltroAutomovelForm(repositorioGrupoAutomoveis.SelecionarTodos());
+
+            DialogResult resultado = tela.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                CarregarAutomoveis(tela.ObterGrupo());
+            }
+        }
+
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
         {
             return new ConfiguracaoToolboxAutomovel();
@@ -120,6 +132,17 @@ namespace LocadorAutomoveis.WinApp.ModuloDisciplina
         private void CarregarAutomoveis()
         {
             List<Automovel> automoveis = repositorioAutomovel.SelecionarTodos(true);
+
+            tabelaAutomovel.AtualizarRegistros(automoveis);
+
+            mensagemRodape = string.Format("Visualizando {0} automove{1}", automoveis.Count, automoveis.Count == 1 ? "l" : "is");
+
+            TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
+        }
+
+        private void CarregarAutomoveis(GrupoAutomoveis grupo)
+        {
+            List<Automovel> automoveis = repositorioAutomovel.SelecionarTodosPorGrupo(grupo);
 
             tabelaAutomovel.AtualizarRegistros(automoveis);
 

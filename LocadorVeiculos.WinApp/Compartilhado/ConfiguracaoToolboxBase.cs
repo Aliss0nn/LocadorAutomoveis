@@ -11,6 +11,8 @@
 
         public abstract string TooltipExcluir { get; }
 
+        public virtual string TooltipFiltrar { get; }
+
         #endregion
 
         #region estados dos botões
@@ -20,9 +22,7 @@
 
         public virtual bool ExcluirHabilitado { get { return true; } }
 
-        public virtual bool AdicionarItensHabilitado { get { return false; } }
-
-        public virtual bool AtualizarItensHabilitado { get { return false; } }
+        public virtual bool FiltrarHabilitado { get { return false; } }
 
         #endregion
 

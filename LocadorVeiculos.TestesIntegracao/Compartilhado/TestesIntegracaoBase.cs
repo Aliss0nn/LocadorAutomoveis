@@ -4,11 +4,13 @@ using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
+using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
+using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         protected IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis;
         protected IRepositorioFuncionario repositorioFuncionario;
         protected IRepositorioParceiro repositorioParceiro;
+        protected IRepositorioPlanoCobranca repositorioPlanoCobranca;
         public TestesIntegracaoBase()
         {
 
@@ -63,8 +66,9 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
 
+            repositorioPlanoCobranca = new RepositorioPlanoCobrancaEmOrm(dbContext);
 
-
+            BuilderSetup.SetCreatePersistenceMethod<PlanoCobranca>(repositorioPlanoCobranca.Inserir);
 
         }
 
@@ -74,6 +78,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             LimparLista<GrupoAutomoveis>(dbContext);
             LimparLista<Parceiro>(dbContext);
             LimparLista<Funcionario>(dbContext);
+            LimparLista<PlanoCobranca>(dbContext);
         }
 
         private static void LimparLista<T>(LocadorAutomoveisDbContext dbContext)

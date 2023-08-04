@@ -12,6 +12,8 @@ namespace LocadorAutomoveis.WinApp
 
         public abstract void Excluir();
 
+        public virtual void Filtrar() { }
+
         public abstract UserControl ObtemListagem();
 
         public abstract ConfiguracaoToolboxBase ObtemConfiguracaoToolbox();

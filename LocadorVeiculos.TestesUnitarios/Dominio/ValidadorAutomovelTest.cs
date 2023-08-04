@@ -111,7 +111,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Dominio
         }
 
         [TestMethod]
-        public void Ano_automovel_nao_deve_ser_nulo()
+        public void Ano_automovel_deve_ser_maior_que_zero()
         {
             //action
             var resultado = validador.TestValidate(automovel);
@@ -121,7 +121,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Dominio
         }
 
         [TestMethod]
-        public void Capacidade_automovel_nao_deve_ser_nulo()
+        public void Capacidade_automovel_deve_ser_maior_que_zero()
         {
             //action
             var resultado = validador.TestValidate(automovel);
