@@ -1,13 +1,16 @@
-﻿using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
+﻿using LocadorAutomoveis.Aplicacao.ModuloClientes;
+using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
 using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Aplicacao.ModuloParceiro;
+using LocadorAutomoveis.Dominio.ModuloClientes;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
+using LocadorAutomoveis.Infra.Orm.ModuloClientes;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
@@ -95,6 +98,13 @@ namespace LocadorAutomoveis.WinApp
             ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
 
             controladores.Add("ControladorGrupoFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
+
+            IRepositorioClientes repositorioClientes = new RepositorioClientesEmOrm(dbContext);
+
+            ValidadorClientes validorClientes = new ValidadorClientes();
+
+            ServicoClientes serivoCliente = new ServicoClientes(repositorioClientes, validorClientes);
+            controladores.Add("ControladorGrupoClientes", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
 
 
         }
@@ -206,6 +216,11 @@ namespace LocadorAutomoveis.WinApp
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorGrupoFuncionario"]);
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoClientes"]);
         }
     }
 }
