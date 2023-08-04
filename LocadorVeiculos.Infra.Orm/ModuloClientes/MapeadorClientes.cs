@@ -16,7 +16,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloClientes
 
             planoBuilder.Property(p => p.Id).IsRequired().ValueGeneratedNever();
 
-            planoBuilder.Property(g => g.Nome).HasColumnType("varchar(200)").IsRequired();
+            planoBuilder.Property(g => g.NomeCliente).HasColumnType("varchar(200)").IsRequired();
 
             planoBuilder.Property(p => p.Cpf).HasColumnType("varchar(200)");
 

@@ -14,6 +14,7 @@ using LocadorAutomoveis.Infra.Orm.ModuloClientes;
 using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
+using LocadorAutomoveis.WinApp.ModuloClientes;
 using LocadorAutomoveis.WinApp.ModuloDisciplina;
 using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
@@ -104,7 +105,7 @@ namespace LocadorAutomoveis.WinApp
             ValidadorClientes validorClientes = new ValidadorClientes();
 
             ServicoClientes serivoCliente = new ServicoClientes(repositorioClientes, validorClientes);
-            controladores.Add("ControladorGrupoClientes", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
+            controladores.Add("ControladorGrupoClientes", new ControladorClientes(repositorioClientes, serivoCliente));
 
 
         }
@@ -215,7 +216,7 @@ namespace LocadorAutomoveis.WinApp
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurarTelaPrincipal(controladores["ControladorGrupoFuncionario"]);
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoFuncionarios"]);
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)

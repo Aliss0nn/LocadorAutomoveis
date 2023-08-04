@@ -9,12 +9,12 @@ namespace LocadorAutomoveis.WinApp.ModuloClientes
 {
     public class ConfiguracaoToolBoxClientes : ConfiguracaoToolboxBase
     {
-        public override string TipoCadastro => throw new NotImplementedException();
+        public override string TipoCadastro => "Cadastro de Clientes";
 
-        public override string TooltipInserir => throw new NotImplementedException();
+        public override string TooltipInserir => "Inserir novo Clientes";
 
-        public override string TooltipEditar => throw new NotImplementedException();
+        public override string TooltipEditar => "Editar um Clientes existente";
 
-        public override string TooltipExcluir => throw new NotImplementedException();
+        public override string TooltipExcluir => "Excluir um Clientes existente";
     }
 }

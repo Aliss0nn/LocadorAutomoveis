@@ -18,7 +18,7 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloClientes
 
         public Clientes SelecionarPorNome(string nome)
         {
-            return registros.FirstOrDefault(x => x.Nome == nome);
+            return registros.FirstOrDefault(x => x.NomeCliente == nome);
         }
 
     }

@@ -34,7 +34,7 @@ namespace LocadorAutomoveis.WinApp.ModuloClientes
 
                 new DataGridViewTextBoxColumn { Name = "Email", HeaderText = "Email", FillWeight=85F },
 
-               
+
             };
 
             return colunas;
@@ -51,7 +51,7 @@ namespace LocadorAutomoveis.WinApp.ModuloClientes
 
             foreach (Clientes clientes in clientees)
             {
-                grid.Rows.Add(clientes.Id, clientes.Nome,clientes.Nome,clientes.Telefone,clientes.Email);
+                grid.Rows.Add(clientes.Id,  clientes.NomeCliente, clientes.Telefone, clientes.Email);
             }
         }
     }

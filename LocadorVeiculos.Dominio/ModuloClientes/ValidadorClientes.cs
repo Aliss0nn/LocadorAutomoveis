@@ -12,7 +12,7 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
     {
         public ValidadorClientes()
         {
-            RuleFor(x => x.Nome)
+            RuleFor(x => x.NomeCliente)
                 .NotEmpty()
                 .NotNull()
                 .MinimumLength(5)

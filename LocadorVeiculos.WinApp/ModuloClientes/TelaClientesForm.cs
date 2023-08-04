@@ -27,9 +27,16 @@ namespace LocadorAutomoveis.WinApp.ModuloClientes
 
         public Clientes ObterClientes()
         {
-           
-
-            clientes.Nome = txtNome.Text;
+            clientes.NomeCliente = txtNome.Text;
+            clientes.Telefone = txtTelefone.Text;
+            clientes.Numero = txtNumero.Text;
+            clientes.Email = txtEmail.Text;
+            clientes.Cidade = txtCidade.Text;
+            clientes.Cpf = txtCpf.Text;
+            clientes.Cnpj = txtCnpj.Text;
+            clientes.Estado = txtEstado.Text;
+            clientes.Rua = txtRua.Text;
+            clientes.Bairro = txtBairro.Text;
 
             return clientes;
         }
@@ -37,9 +44,9 @@ namespace LocadorAutomoveis.WinApp.ModuloClientes
         public void ConfigurarClientes(Clientes clientes)
         {
             this.clientes = clientes;
-            
-            
-            txtNome.Text = clientes.Nome;
+
+
+            txtNome.Text = clientes.NomeCliente;
             txtBairro.Text = clientes.Bairro;
             txtCidade.Text = clientes.Cidade;
             txtCnpj.Text = clientes.Cnpj;
@@ -50,7 +57,7 @@ namespace LocadorAutomoveis.WinApp.ModuloClientes
             txtEstado.Text = clientes.Estado;
         }
 
-        private void btnGravar_Click(object sender, EventArgs e)
+        private void btninserir_Click(object sender, EventArgs e)
         {
             this.clientes = ObterClientes();
 

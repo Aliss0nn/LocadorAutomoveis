@@ -35,7 +35,8 @@
             // grid
             // 
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grid.Location = new Point(0, 3);
+            grid.Dock = DockStyle.Fill;
+            grid.Location = new Point(0, 0);
             grid.Name = "grid";
             grid.RowTemplate.Height = 25;
             grid.Size = new Size(150, 150);

@@ -29,12 +29,10 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
             Telefone = telefone;
             Cnpj = cnpj;
         }
-
         public Clientes()
         {
         }
 
-        public string Nome { get; set; }
         public string NomeCliente { get; set; }
         public string Cpf { get; set; }
         public string Estado { get; set; }
@@ -48,7 +46,7 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
 
         public override string ToString()
         {
-            return Nome;
+            return NomeCliente;
         }
 
         public override void Atualizar(Clientes clientes)
@@ -71,14 +69,13 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Nome, Cpf,Cidade,Estado,Email);
+            return HashCode.Combine(Id, NomeCliente, Cpf,Cidade,Estado,Email);
         }
 
         public override bool Equals(object? obj)
         {
             return obj is Clientes clientes &&
                    Id.Equals(clientes.Id) &&
-                   Nome == clientes.Nome &&
                    NomeCliente == clientes.NomeCliente &&
                    Cpf == clientes.Cpf &&
                    Estado == clientes.Estado &&

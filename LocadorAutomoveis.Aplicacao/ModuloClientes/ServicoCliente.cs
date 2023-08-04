@@ -122,7 +122,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloClientes
                 erros.AddRange(resultadoValidacao.Errors.Select(x => x.ErrorMessage));
 
             if (NomeDuplicado(clientes))
-                erros.Add($"Este nome '{clientes.Nome}' já está sendo utilizado");
+                erros.Add($"Este nome '{clientes.NomeCliente}' já está sendo utilizado");
 
             foreach (string erro in erros)
             {
@@ -134,11 +134,11 @@ namespace LocadorAutomoveis.Aplicacao.ModuloClientes
 
         private bool NomeDuplicado(Clientes clientes)
         {
-            Clientes ClientesEncontrada = repositorioClientes.SelecionarPorNome(clientes.Nome);
+            Clientes ClientesEncontrada = repositorioClientes.SelecionarPorNome(clientes.NomeCliente);
 
             if (ClientesEncontrada != null &&
                 ClientesEncontrada.Id != clientes.Id &&
-                ClientesEncontrada.Nome == clientes.Nome)
+                ClientesEncontrada.NomeCliente == clientes.NomeCliente)
             {
                 return true;
             }

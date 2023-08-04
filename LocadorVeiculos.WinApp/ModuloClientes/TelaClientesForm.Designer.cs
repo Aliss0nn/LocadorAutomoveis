@@ -255,6 +255,7 @@
             btninserir.TabIndex = 23;
             btninserir.Text = "Gravar";
             btninserir.UseVisualStyleBackColor = true;
+            btninserir.Click += btninserir_Click;
             // 
             // button2
             // 
