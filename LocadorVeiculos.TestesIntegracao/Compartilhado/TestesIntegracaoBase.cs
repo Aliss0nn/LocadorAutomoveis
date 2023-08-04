@@ -86,7 +86,8 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             LimparLista<Parceiro>(dbContext);
             LimparLista<Funcionario>(dbContext);
             LimparLista<PlanoCobranca>(dbContext);
-            LimparLista<TaxasEServico(dbContext);
+            LimparLista<TaxasEServico>(dbContext);
+            
         }
            
 

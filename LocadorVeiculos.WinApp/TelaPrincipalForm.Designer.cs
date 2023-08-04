@@ -32,12 +32,13 @@ namespace LocadorAutomoveis.WinApp
         {
             menu = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
+            taxasEServiçosToolStripMenuItem = new ToolStripMenuItem();
             disciplinaMenuItem = new ToolStripMenuItem();
             gruposDeAutomóveisToolStripMenuItem = new ToolStripMenuItem();
             parceirosToolStripMenuItem = new ToolStripMenuItem();
             funcionáriosToolStripMenuItem = new ToolStripMenuItem();
-            taxasEServiçosToolStripMenuItem = new ToolStripMenuItem();
             planosDeCobrançaToolStripMenuItem = new ToolStripMenuItem();
+            cupomToolStripMenuItem = new ToolStripMenuItem();
             toolbox = new ToolStrip();
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
@@ -50,7 +51,7 @@ namespace LocadorAutomoveis.WinApp
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
-            cupomToolStripMenuItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -68,10 +69,17 @@ namespace LocadorAutomoveis.WinApp
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { taxasEServiçosToolStripMenuItem, disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem, cupomToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { taxasEServiçosToolStripMenuItem, disciplinaMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem, cupomToolStripMenuItem, clientesToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
+            // 
+            // taxasEServiçosToolStripMenuItem
+            // 
+            taxasEServiçosToolStripMenuItem.Name = "taxasEServiçosToolStripMenuItem";
+            taxasEServiçosToolStripMenuItem.Size = new Size(196, 22);
+            taxasEServiçosToolStripMenuItem.Text = "Taxas e Serviços";
+            taxasEServiçosToolStripMenuItem.Click += taxasEServiçosToolStripMenuItem_Click;
             // 
             // disciplinaMenuItem
             // 
@@ -102,19 +110,19 @@ namespace LocadorAutomoveis.WinApp
             funcionáriosToolStripMenuItem.Text = "Funcionários";
             funcionáriosToolStripMenuItem.Click += funcionáriosToolStripMenuItem_Click;
             // 
-            // taxasEServiçosToolStripMenuItem
-            // 
-            taxasEServiçosToolStripMenuItem.Name = "taxasEServiçosToolStripMenuItem";
-            taxasEServiçosToolStripMenuItem.Size = new Size(196, 22);
-            taxasEServiçosToolStripMenuItem.Text = "Taxas e Serviços";
-            taxasEServiçosToolStripMenuItem.Click += taxasEServiçosToolStripMenuItem_Click;
-            // 
             // planosDeCobrançaToolStripMenuItem
             // 
             planosDeCobrançaToolStripMenuItem.Name = "planosDeCobrançaToolStripMenuItem";
             planosDeCobrançaToolStripMenuItem.Size = new Size(196, 22);
             planosDeCobrançaToolStripMenuItem.Text = "Planos de Cobrança";
             planosDeCobrançaToolStripMenuItem.Click += planosDeCobrançaToolStripMenuItem_Click;
+            // 
+            // cupomToolStripMenuItem
+            // 
+            cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
+            cupomToolStripMenuItem.Size = new Size(196, 22);
+            cupomToolStripMenuItem.Text = "Cupom";
+            cupomToolStripMenuItem.Click += cupomToolStripMenuItem_Click;
             // 
             // toolbox
             // 
@@ -211,12 +219,12 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.Size = new Size(686, 343);
             panelRegistros.TabIndex = 3;
             // 
-            // cupomToolStripMenuItem
+            // clientesToolStripMenuItem
             // 
-            cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
-            cupomToolStripMenuItem.Size = new Size(196, 22);
-            cupomToolStripMenuItem.Text = "Cupom";
-            cupomToolStripMenuItem.Click += cupomToolStripMenuItem_Click;
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(196, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -267,5 +275,6 @@ namespace LocadorAutomoveis.WinApp
         private ToolStripMenuItem taxasEServiçosToolStripMenuItem;
         private ToolStripMenuItem planosDeCobrançaToolStripMenuItem;
         private ToolStripMenuItem cupomToolStripMenuItem;
+        private ToolStripMenuItem clientesToolStripMenuItem;
     }
 }

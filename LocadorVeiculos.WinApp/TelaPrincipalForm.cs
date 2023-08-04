@@ -28,6 +28,10 @@ using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Infra.Orm.ModuloCupom;
 using LocadorAutomoveis.Aplicacao.ModuloCupom;
 using LocadorAutomoveis.WinApp.ModuloCupom;
+using LocadorAutomoveis.Dominio.ModuloClientes;
+using LocadorAutomoveis.Infra.Orm.ModuloClientes;
+using LocadorAutomoveis.Aplicacao.ModuloClientes;
+using LocadorAutomoveis.WinApp.ModuloClientes;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -133,9 +137,17 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorCupom validadorCupom = new ValidadorCupom();
 
-            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom,validadorCupom);
+            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom, validadorCupom);
 
             controladores.Add("ControladorCupom", new ControladorCupom(servicoCupom, repositorioCupom, repositorioParceiro));
+
+            IRepositorioClientes repositorioClientes = new RepositorioClientesEmOrm(dbContext);
+
+            ValidadorClientes validadorClientes = new ValidadorClientes();
+
+            ServicoClientes servicoClientes = new ServicoClientes(repositorioClientes, validadorClientes);
+            controladores.Add("ControladorGrupoClientes", new ControladorClientes(repositorioClientes, servicoClientes)); 
+
         }
 
         public static TelaPrincipalForm Instancia
@@ -259,6 +271,11 @@ namespace LocadorAutomoveis.WinApp
         private void cupomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+               ConfigurarTelaPrincipal(controladores["ControladorGrupoClientes"]);
         }
     }
 }
