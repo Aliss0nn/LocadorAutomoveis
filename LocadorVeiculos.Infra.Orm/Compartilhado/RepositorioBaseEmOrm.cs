@@ -17,23 +17,17 @@ namespace LocadorAutomoveis.Infra.Orm.Compartilhado
 
         public void Inserir(T novoRegistro)
         {
-            registros.Add(novoRegistro);
-
-            
+            registros.Add(novoRegistro);           
         }
 
         public void Editar(T registro)
         {
-            registros.Update(registro);
-
-           
+            registros.Update(registro);          
         }
 
         public void Excluir(T registro)
         {
-            registros.Remove(registro);
-
-            
+            registros.Remove(registro);         
         }
 
         public bool Existe(T registro)

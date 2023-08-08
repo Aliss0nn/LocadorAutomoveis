@@ -1,4 +1,5 @@
 ﻿using iText.Kernel.Pdf.Canvas.Wmf;
+using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using System;
 using System.Collections.Generic;
@@ -47,9 +48,16 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
         public string Telefone { get; set; }
         public string Cnpj { get; set; }
 
+        public List<Condutor> Condutores { get; set; }
+
         public override string ToString()
         {
             return NomeCliente;
+        }
+
+        public Clientes(List<Condutor> condutores)
+        {           
+            Condutores = condutores;
         }
 
         public override void Atualizar(Clientes clientes)
