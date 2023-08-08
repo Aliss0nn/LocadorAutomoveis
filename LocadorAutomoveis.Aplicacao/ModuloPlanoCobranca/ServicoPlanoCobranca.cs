@@ -1,4 +1,5 @@
-﻿using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
+﻿using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 
 namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
 {
@@ -6,13 +7,16 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
     {
         private IRepositorioPlanoCobranca repositorioPlanoCobranca;
         private IValidadorPlanoCobranca validadorPlanoCobranca;
+        private IContextoPersistencia contextoPersistencia;
 
         public ServicoPlanoCobranca(
             IRepositorioPlanoCobranca repositorioPlanoCobranca,
-            IValidadorPlanoCobranca validadorPlanoCobranca)
+            IValidadorPlanoCobranca validadorPlanoCobranca,
+            IContextoPersistencia contextoPersistencia)
         {
             this.repositorioPlanoCobranca = repositorioPlanoCobranca;
             this.validadorPlanoCobranca = validadorPlanoCobranca;
+            this.contextoPersistencia = contextoPersistencia;
         }
 
         public Result Inserir(PlanoCobranca planoCobranca)
@@ -22,13 +26,18 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
             List<string> erros = ValidarPlanoCobranca(planoCobranca);
 
             if (erros.Count() > 0)
-                return Result.Fail(erros);
+            {
+                contextoPersistencia.DesfazerAlteracoes();
 
+                return Result.Fail(erros);
+            }
             try
             {
                 repositorioPlanoCobranca.Inserir(planoCobranca);
 
                 Log.Debug("Plano de cobrança {PlanoCobrancaId} inserido com sucesso", planoCobranca.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok();
             }
@@ -37,6 +46,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
                 string msgErro = "Falha ao tentar inserir plano de cobrança.";
 
                 Log.Error(exc, msgErro + "{@p}", planoCobranca);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro);
             }
@@ -49,13 +60,19 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
             List<string> erros = ValidarPlanoCobranca(planoCobranca);
 
             if (erros.Count() > 0)
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 return Result.Fail(erros);
+            }
 
             try
             {
                 repositorioPlanoCobranca.Editar(planoCobranca);
 
                 Log.Debug("Plano de Cobrança {PlanoCobrancaId} editado com sucesso", planoCobranca.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok();
             }
@@ -64,6 +81,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
                 string msgErro = "Falha ao tentar editar plano de cobrança.";
 
                 Log.Error(exc, msgErro + "{@p}", planoCobranca);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro);
             }
@@ -88,6 +107,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
 
                 Log.Debug("Plano de Cobrança {PlanoCobrancaId} excluído com sucesso", planoCobranca.Id);
 
+                contextoPersistencia.GravarDados();
+
                 return Result.Ok();
             }
             catch (SqlException ex)
@@ -101,6 +122,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca
                 erros.Add(msgErro);
 
                 Log.Error(ex, msgErro + " {PlanoCobrancaId}", planoCobranca.Id);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(erros);
             }

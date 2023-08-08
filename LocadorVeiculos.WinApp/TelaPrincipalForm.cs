@@ -81,7 +81,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorGrupoAutomoveis validadorGrupoAutomoveis = new ValidadorGrupoAutomoveis();
 
-            ServicoGrupoAutomoveis servicoGrupoAutomoveis = new ServicoGrupoAutomoveis(repositorioGrupoAutomoveis, validadorGrupoAutomoveis);
+            ServicoGrupoAutomoveis servicoGrupoAutomoveis = new ServicoGrupoAutomoveis(repositorioGrupoAutomoveis, validadorGrupoAutomoveis,dbContext);
 
             controladores.Add("ControladorGrupoAutomoveis", new ControladorGrupoAutomoveis(repositorioGrupoAutomoveis, servicoGrupoAutomoveis));
 
@@ -89,7 +89,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorParceiro validadorParceiro = new ValidadorParceiro();
 
-            ServicoParceiro servicoParceiro = new ServicoParceiro(repositorioParceiro, validadorParceiro);
+            ServicoParceiro servicoParceiro = new ServicoParceiro(repositorioParceiro, validadorParceiro, dbContext);
 
             controladores.Add("ControladorParceiro", new ControladorParceiro(servicoParceiro, repositorioParceiro));
 
@@ -99,7 +99,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorFuncionario validadorFuncionario = new ValidadorFuncionario();
 
-            ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
+            ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario, dbContext);
 
             controladores.Add("ControladorGrupoFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
 
@@ -109,7 +109,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorTaxasServico validadorTaxaServico = new ValidadorTaxasServico();
 
-            ServicoTaxasEServicos servicoTaxasEServicos = new ServicoTaxasEServicos(repositorioTaxasServico, validadorTaxaServico);
+            ServicoTaxasEServicos servicoTaxasEServicos = new ServicoTaxasEServicos(repositorioTaxasServico, validadorTaxaServico, dbContext);
 
             controladores.Add("ControladorTaxaServico", new ControladorTaxaServico(repositorioTaxasServico, servicoTaxasEServicos));
 
@@ -119,7 +119,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorPlanoCobranca validadorPlanoCobranca = new ValidadorPlanoCobranca();
 
-            ServicoPlanoCobranca servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobranca, validadorPlanoCobranca);
+            ServicoPlanoCobranca servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobranca, validadorPlanoCobranca   , dbContext);
 
             controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, repositorioGrupoAutomoveis, servicoPlanoCobranca));
 
@@ -129,7 +129,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorCupom validadorCupom = new ValidadorCupom();
 
-            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom, validadorCupom);
+            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom, validadorCupom, dbContext);
 
             controladores.Add("ControladorCupom", new ControladorCupom(servicoCupom, repositorioCupom, repositorioParceiro));
 
@@ -137,7 +137,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorClientes validadorClientes = new ValidadorClientes();
 
-            ServicoClientes servicoClientes = new ServicoClientes(repositorioClientes, validadorClientes);
+            ServicoClientes servicoClientes = new ServicoClientes(repositorioClientes, validadorClientes, dbContext);
             controladores.Add("ControladorGrupoClientes", new ControladorClientes(repositorioClientes, servicoClientes));
 
             //ControladorAutomovel
@@ -146,7 +146,7 @@ namespace LocadorAutomoveis.WinApp
 
             ValidadorAutomovel validadorAutomovel = new ValidadorAutomovel();
 
-            ServicoAutomovel servicoAutomovel = new ServicoAutomovel(repositorioAutomovel, validadorAutomovel);
+            ServicoAutomovel servicoAutomovel = new ServicoAutomovel(repositorioAutomovel, validadorAutomovel, dbContext);
 
             controladores.Add("ControladorAutomovel", new ControladorAutomovel(repositorioAutomovel, repositorioGrupoAutomoveis, servicoAutomovel));
 

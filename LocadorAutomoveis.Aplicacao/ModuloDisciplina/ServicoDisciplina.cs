@@ -1,4 +1,5 @@
-﻿using LocadorAutomoveis.Dominio.ModuloDisciplina;
+﻿using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloDisciplina;
 
 namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
 {
@@ -6,13 +7,16 @@ namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
     {
         private IRepositorioDisciplina repositorioDisciplina;
         private IValidadorDisciplina validadorDisciplina;
+        private IContextoPersistencia contextoPersistencia;
 
         public ServicoDisciplina(
             IRepositorioDisciplina repositorioDisciplina,
-            IValidadorDisciplina validadorDisciplina)
+            IValidadorDisciplina validadorDisciplina, 
+            IContextoPersistencia contextoPersistencia)
         {
             this.repositorioDisciplina = repositorioDisciplina;
             this.validadorDisciplina = validadorDisciplina;
+            this.contextoPersistencia = contextoPersistencia;
         }
 
         public Result Inserir(Disciplina disciplina)
@@ -22,13 +26,19 @@ namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
             List<string> erros = ValidarDisciplina(disciplina);
 
             if (erros.Count() > 0)
-                return Result.Fail(erros); //cenário 2
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
+                return Result.Fail(erros);
+            }
 
             try
             {
                 repositorioDisciplina.Inserir(disciplina);
 
                 Log.Debug("Disciplina {DisciplinaId} inserida com sucesso", disciplina.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok(); //cenário 1
             }
@@ -37,6 +47,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
                 string msgErro = "Falha ao tentar inserir disciplina.";
 
                 Log.Error(exc, msgErro + "{@d}", disciplina);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro); //cenário 3
             }
@@ -47,15 +59,21 @@ namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
             Log.Debug("Tentando editar disciplina...{@d}", disciplina);
 
             List<string> erros = ValidarDisciplina(disciplina);
-
+           
             if (erros.Count() > 0)
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 return Result.Fail(erros);
+            }
 
             try
             {
                 repositorioDisciplina.Editar(disciplina);
 
                 Log.Debug("Disciplina {DisciplinaId} editada com sucesso", disciplina.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok();
             }
@@ -64,6 +82,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
                 string msgErro = "Falha ao tentar editar disciplina.";
 
                 Log.Error(exc, msgErro + "{@d}", disciplina);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro);
             }
@@ -88,6 +108,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
 
                 Log.Debug("Disciplina {DisciplinaId} excluída com sucesso", disciplina.Id);
 
+                contextoPersistencia.GravarDados();
+
                 return Result.Ok();
             }
             catch (SqlException ex)
@@ -101,6 +123,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloDisciplina
                 erros.Add(msgErro);
 
                 Log.Error(ex, msgErro + " {DisciplinaId}", disciplina.Id);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(erros);
             }

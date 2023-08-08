@@ -3,6 +3,7 @@ using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using FluentValidation.Results;
 using LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca;
+using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using Moq;
@@ -14,6 +15,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
     {
         Mock<IRepositorioPlanoCobranca> repositorioPlanoCobrancaMoq;
         Mock<IValidadorPlanoCobranca> validadorMoq;
+        Mock<IContextoPersistencia> contextoPersistenciaMoq;
 
         private ServicoPlanoCobranca servicoPlanoCobranca;
 
@@ -24,7 +26,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             repositorioPlanoCobrancaMoq = new Mock<IRepositorioPlanoCobranca>();
             validadorMoq = new Mock<IValidadorPlanoCobranca>();
-            servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobrancaMoq.Object, validadorMoq.Object);
+            servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobrancaMoq.Object, validadorMoq.Object,contextoPersistenciaMoq.Object);
             grupo = new GrupoAutomoveis("Esportivo");
             plano = new PlanoCobranca(grupo, TipoPlanoEnum.Livre, 10, 0, 0);
         }

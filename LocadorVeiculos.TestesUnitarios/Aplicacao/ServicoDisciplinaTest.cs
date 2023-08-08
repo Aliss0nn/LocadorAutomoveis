@@ -3,6 +3,7 @@ using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using FluentValidation.Results;
 using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
+using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using Moq;
 
@@ -13,6 +14,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
     {
         Mock<IRepositorioDisciplina> repositorioDisciplinaMoq;
         Mock<IValidadorDisciplina> validadorMoq;
+        Mock<IContextoPersistencia> contextoPersistenciaMoq;
 
         private ServicoDisciplina servicoDisciplina;
 
@@ -22,7 +24,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             repositorioDisciplinaMoq = new Mock<IRepositorioDisciplina>();
             validadorMoq = new Mock<IValidadorDisciplina>();
-            servicoDisciplina = new ServicoDisciplina(repositorioDisciplinaMoq.Object, validadorMoq.Object);
+            servicoDisciplina = new ServicoDisciplina(repositorioDisciplinaMoq.Object, validadorMoq.Object, contextoPersistenciaMoq.Object);
             disciplina = new Disciplina("Educação Física");
         }
 

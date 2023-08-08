@@ -1,4 +1,5 @@
-﻿using LocadorAutomoveis.Dominio.ModuloCupom;
+﻿using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,15 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
     {
         private IRepositorioCupom repositorioCupom;
         private IValidadorCupom validadorCupom;
+        private IContextoPersistencia contextoPersistencia;
 
         public ServicoCupom(IRepositorioCupom repositorioCupom,
-            IValidadorCupom validadorCupom)
+            IValidadorCupom validadorCupom,
+            IContextoPersistencia contextoPersistencia)
         {
             this.repositorioCupom = repositorioCupom;
             this.validadorCupom = validadorCupom;
+            this.contextoPersistencia = contextoPersistencia;
         }
 
         public Result Inserir(Cupom cupom)
@@ -27,13 +31,18 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
             List<string> erros = ValidadorCupom(cupom);
 
             if (erros.Count() > 0)
-                return Result.Fail(erros); //cenário 2
+            {
+                contextoPersistencia.DesfazerAlteracoes();
 
+                return Result.Fail(erros);
+            }
             try
             {
                 repositorioCupom.Inserir(cupom);
 
                 Log.Debug("Cupom {CupomId} inserido com sucesso", cupom.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok(); //cenário 1
             }
@@ -42,6 +51,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
                 string msgErro = "Falha ao tentar inserir Cupons.";
 
                 Log.Error(exc, msgErro + "{@c}", cupom);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro); //cenário 3
             }
@@ -54,7 +65,11 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
             List<string> erros = ValidadorCupom(cupom);
 
             if (erros.Count() > 0)
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 return Result.Fail(erros);
+            }
 
             try
             {   
@@ -62,6 +77,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
 
                 Log.Debug("Cupom {CupomId} editado com sucesso", cupom.Id);
 
+                contextoPersistencia.GravarDados();
                 return Result.Ok();
             }
             catch (Exception exc)
@@ -70,6 +86,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
 
                 Log.Error(exc, msgErro + "{@c}", cupom);
 
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(msgErro);
             }
         }
@@ -93,10 +110,14 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
 
                 Log.Debug("Cupom {CupomId} excluído com sucesso", cupom.Id);
 
+                contextoPersistencia.GravarDados();
+
                 return Result.Ok();
             }
             catch (SqlException ex)
             {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 List<string> erros = new List<string>();
 
                 string msgErro;

@@ -3,6 +3,7 @@ using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using FluentValidation.Results;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
+using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using Moq;
 
@@ -13,6 +14,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
     {
         Mock<IRepositorioGrupoAutomoveis> repositorioGrupoAutomoveisMoq;
         Mock<IValidadorGrupoAutomoveis> validadorMoq;
+        Mock<IContextoPersistencia> contextoPersistenciaMoq;
 
         private ServicoGrupoAutomoveis servicoGrupoAutomoveis;
 
@@ -22,7 +24,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             repositorioGrupoAutomoveisMoq = new Mock<IRepositorioGrupoAutomoveis>();
             validadorMoq = new Mock<IValidadorGrupoAutomoveis>();
-            servicoGrupoAutomoveis = new ServicoGrupoAutomoveis(repositorioGrupoAutomoveisMoq.Object, validadorMoq.Object);
+            servicoGrupoAutomoveis = new ServicoGrupoAutomoveis(repositorioGrupoAutomoveisMoq.Object, validadorMoq.Object, contextoPersistenciaMoq.Object);
             grupo = new GrupoAutomoveis("Esportivo");
         }
 

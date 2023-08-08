@@ -1,4 +1,5 @@
-﻿using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
+﻿using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,15 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
     {
         private IRepositorioParceiro repositorioParceiro;
         private IValidadorParceiro validadorParceiro;
+        private IContextoPersistencia contextoPersistencia;
 
         public ServicoParceiro(IRepositorioParceiro repositorioParceiro, 
-            IValidadorParceiro validadorParceiro)
+            IValidadorParceiro validadorParceiro,
+            IContextoPersistencia contextoPersistencia)
         {
             this.repositorioParceiro = repositorioParceiro;
             this.validadorParceiro = validadorParceiro;
+            this.contextoPersistencia = contextoPersistencia;
         }
         public Result Inserir(Parceiro parceiro)
         {
@@ -27,13 +31,19 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
             List<string> erros = ValidadorParceiro(parceiro);
 
             if (erros.Count() > 0)
-                return Result.Fail(erros); //cenário 2
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
+                return Result.Fail(erros);
+            }
 
             try
             {
                 repositorioParceiro.Inserir(parceiro);
 
                 Log.Debug("Parceiro {ParceiroId} inserido com sucesso", parceiro.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok(); //cenário 1
             }
@@ -42,6 +52,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
                 string msgErro = "Falha ao tentar inserir Parceiros.";
 
                 Log.Error(exc, msgErro + "{@p}", parceiro);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro); //cenário 3
             }
@@ -54,13 +66,19 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
             List<string> erros = ValidadorParceiro(parceiro);
 
             if (erros.Count() > 0)
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 return Result.Fail(erros);
+            }
 
             try
             {
                 repositorioParceiro.Editar(parceiro);
 
                 Log.Debug("Parceiro {ParceiroId} editado com sucesso", parceiro.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok();
             }
@@ -69,6 +87,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
                 string msgErro = "Falha ao tentar editar Parceiro.";
 
                 Log.Error(exc, msgErro + "{@p}", parceiro);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro);
             }
@@ -93,10 +113,14 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
 
                 Log.Debug("Parceiro {ParceiroId} excluído com sucesso", parceiro.Id);
 
+                contextoPersistencia.GravarDados();
+
                 return Result.Ok();
             }
             catch (SqlException ex)
             {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 List<string> erros = new List<string>();
 
                 string msgErro;

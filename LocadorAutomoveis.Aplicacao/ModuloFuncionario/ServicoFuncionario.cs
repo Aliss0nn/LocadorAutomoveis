@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocadorAutomoveis.Dominio;
 
 
 namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
@@ -13,13 +14,16 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
     {
         private IRepositorioFuncionario repositorioFuncionario;
         private IValidadorFuncionario validadorFuncionario;
+        private IContextoPersistencia contextoPersistencia;
 
         public ServicoFuncionario(
             IRepositorioFuncionario repositorioFuncionario,
-            IValidadorFuncionario validadorFuncionario)
+            IValidadorFuncionario validadorFuncionario,
+            IContextoPersistencia contextoPersistencia)
         {
             this.repositorioFuncionario = repositorioFuncionario;
             this.validadorFuncionario = validadorFuncionario;
+            this.contextoPersistencia = contextoPersistencia;
         }
 
         public Result Inserir(Funcionario Funcionario)
@@ -27,15 +31,21 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
             Log.Debug("Tentando inserir Funcionario...{@d}", Funcionario);
 
             List<string> erros = ValidarFuncionario(Funcionario);
-
+           
             if (erros.Count() > 0)
-                return Result.Fail(erros); //cenário 2
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
+                return Result.Fail(erros);
+            }
 
             try
             {
                 repositorioFuncionario.Inserir(Funcionario);
 
                 Log.Debug("Funcionario {FuncionarioId} inserida com sucesso", Funcionario.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok(); //cenário 1
             }
@@ -44,6 +54,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
                 string msgErro = "Falha ao tentar inserir Funcionario.";
 
                 Log.Error(exc, msgErro + "{@d}", Funcionario);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro); //cenário 3
             }
@@ -56,13 +68,19 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
             List<string> erros = ValidarFuncionario(Funcionario);
 
             if (erros.Count() > 0)
+            {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 return Result.Fail(erros);
+            }
 
             try
             {
                 repositorioFuncionario.Editar(Funcionario);
 
                 Log.Debug("Funcionario {FuncionarioId} editada com sucesso", Funcionario.Id);
+
+                contextoPersistencia.GravarDados();
 
                 return Result.Ok();
             }
@@ -71,6 +89,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
                 string msgErro = "Falha ao tentar editar Funcionario.";
 
                 Log.Error(exc, msgErro + "{@d}", Funcionario);
+
+                contextoPersistencia.DesfazerAlteracoes();
 
                 return Result.Fail(msgErro);
             }
@@ -95,10 +115,14 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
 
                 Log.Debug("Funcionario {FuncionarioId} excluída com sucesso", Funcionario.Id);
 
+                contextoPersistencia.GravarDados();
+
                 return Result.Ok();
             }
             catch (SqlException ex)
             {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 List<string> erros = new List<string>();
 
                 string msgErro;
