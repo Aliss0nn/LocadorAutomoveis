@@ -11,8 +11,6 @@ namespace LocadorAutomoveis.WinApp
 {
     public partial class TelaPrincipalForm : Form
     {
-        private Dictionary<string, ControladorBase> controladores;
-
         private ControladorBase controlador;
 
         private Ioc ioc;
