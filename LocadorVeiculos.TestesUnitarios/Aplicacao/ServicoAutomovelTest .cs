@@ -6,6 +6,7 @@ using LocadorAutomoveis.Aplicacao.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using Moq;
+using LocadorAutomoveis.Dominio;
 
 namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
 {
@@ -14,6 +15,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
     {
         Mock<IRepositorioAutomovel> repositorioAutomovelMoq;
         Mock<IValidadorAutomovel> validadorMoq;
+        Mock<IContextoPersistencia> contextoPersistencia;
 
         private ServicoAutomovel servicoAutomovel;
 
@@ -24,7 +26,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             repositorioAutomovelMoq = new Mock<IRepositorioAutomovel>();
             validadorMoq = new Mock<IValidadorAutomovel>();
-            servicoAutomovel = new ServicoAutomovel(repositorioAutomovelMoq.Object, validadorMoq.Object);
+            servicoAutomovel = new ServicoAutomovel(repositorioAutomovelMoq.Object, validadorMoq.Object, contextoPersistencia.Object);
             grupo = new GrupoAutomoveis("Esportivo");
             automovel = new Automovel(
                 "Marca",
