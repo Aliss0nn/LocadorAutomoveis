@@ -163,15 +163,15 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
                      return new PlanoCobranca(plano.Grupo, plano.TipoPlano, 10, 0, 0);
                  });
 
-            PlanoCobranca novoGrupo = new PlanoCobranca(plano.Grupo, plano.TipoPlano, 10, 0, 0);
+            PlanoCobranca novoPlano = new PlanoCobranca(plano.Grupo, plano.TipoPlano, 10, 0, 0);
 
             //action
-            var resultado = servicoPlanoCobranca.Editar(novoGrupo);
+            var resultado = servicoPlanoCobranca.Editar(novoPlano);
 
             //assert 
             resultado.Should().BeFailure();
 
-            repositorioPlanoCobrancaMoq.Verify(x => x.Editar(novoGrupo), Times.Never());
+            repositorioPlanoCobrancaMoq.Verify(x => x.Editar(novoPlano), Times.Never());
         }
 
         [TestMethod]
