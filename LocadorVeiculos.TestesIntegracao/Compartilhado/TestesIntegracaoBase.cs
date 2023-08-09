@@ -53,29 +53,54 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             //GrupoAutomoveis
             repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
       
-            BuilderSetup.SetCreatePersistenceMethod<GrupoAutomoveis>(repositorioGrupoAutomoveis.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<GrupoAutomoveis>((GrupoAutomoveis) =>
+            {
+                repositorioGrupoAutomoveis.Inserir(GrupoAutomoveis);
+                contextoPersistencia.GravarDados();
+            });
+
 
             //Funcionario
             repositorioFuncionario = new RepositorioFuncionarioEmOrm(dbContext);
 
-            BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Funcionario>((Funcionario) =>
+            {
+                repositorioFuncionario.Inserir(Funcionario);
+                contextoPersistencia.GravarDados();
+            });
 
             //Parceiro
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
 
-            BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Parceiro>((Parceiro) =>
+            {
+                repositorioParceiro.Inserir(Parceiro);
+                contextoPersistencia.GravarDados();
+            });
 
             //Taxa e Serviço
             repositorioTaxasServico = new RepositorioTaxasEServicosOrm(dbContext);
-            BuilderSetup.SetCreatePersistenceMethod<TaxasEServico>(repositorioTaxasServico.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<TaxasEServico>((TaxasEServico) =>
+            {
+                repositorioTaxasServico.Inserir(TaxasEServico);
+                contextoPersistencia.GravarDados();
+            });
 
             //Plano Cobrança
             repositorioPlanoCobranca = new RepositorioPlanoCobrancaEmOrm(dbContext);
-            BuilderSetup.SetCreatePersistenceMethod<PlanoCobranca>(repositorioPlanoCobranca.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<PlanoCobranca>((PlanoCobranca) =>
+            {
+                repositorioPlanoCobranca.Inserir(PlanoCobranca);
+                contextoPersistencia.GravarDados();
+            });
 
             //Condutor
             repositorioCondutor = new RepositorioCondutorEmOrm(dbContext);
-            BuilderSetup.SetCreatePersistenceMethod<Condutor>(repositorioCondutor.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Condutor>((Condutor) =>
+            {
+                repositorioCondutor.Inserir(Condutor);
+                contextoPersistencia.GravarDados();
+            });
 
         }
 
