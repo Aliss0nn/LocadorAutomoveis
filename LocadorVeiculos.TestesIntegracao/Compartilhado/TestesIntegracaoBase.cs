@@ -1,5 +1,6 @@
 ﻿using FizzWare.NBuilder;
 using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloAluguel;
 using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
@@ -9,6 +10,7 @@ using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
+using LocadorAutomoveis.Infra.Orm.ModuloAluguel;
 using LocadorAutomoveis.Infra.Orm.ModuloCondutor;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
@@ -29,6 +31,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         protected IRepositorioPlanoCobranca repositorioPlanoCobranca;
         protected IRepositorioCupom repositorioCupom;
         protected IRepositorioCondutor repositorioCondutor;
+        protected IRepositorioAluguel repositorioAluguel;
         public TestesIntegracaoBase()
         {
 
@@ -99,6 +102,14 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             BuilderSetup.SetCreatePersistenceMethod<Condutor>((Condutor) =>
             {
                 repositorioCondutor.Inserir(Condutor);
+                contextoPersistencia.GravarDados();
+            });
+
+            //Aluguel
+            repositorioAluguel = new RepositorioAluguelEmOrm(dbContext);
+            BuilderSetup.SetCreatePersistenceMethod<Aluguel>((Aluguel) =>
+            {
+                repositorioAluguel.Inserir(Aluguel);
                 contextoPersistencia.GravarDados();
             });
 

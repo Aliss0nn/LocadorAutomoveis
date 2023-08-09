@@ -24,15 +24,16 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
         {
             repositorioParceiroMoq = new Mock<IRepositorioParceiro>();
             validadorMoq = new Mock<IValidadorParceiro>();
+            contextoPersistenciaMoq = new Mock<IContextoPersistencia>();
             servicoParceiro = new ServicoParceiro(repositorioParceiroMoq.Object, validadorMoq.Object, contextoPersistenciaMoq.Object);
-            parceiro = new Parceiro("Posto Shell");
+            parceiro = new Parceiro("parceiro");
         }
 
         [TestMethod]
         public void Deve_inserir_parceiro_caso_ela_for_valida() //cenário 1
         {
             //arrange
-            parceiro = new Parceiro("Posto Shell");
+            parceiro = new Parceiro("parceiro");
 
             //action
             Result resultado = servicoParceiro.Inserir(parceiro);
@@ -96,7 +97,7 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
 
             //assert 
             resultado.Should().BeFailure();
-            resultado.Reasons[0].Message.Should().Be("Falha ao tentar inserir parceiro.");
+            resultado.Reasons[0].Message.Should().Be("Falha ao tentar inserir Parceiros.");
         }
 
 
@@ -192,7 +193,7 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
 
             //assert 
             resultado.Should().BeFailure();
-            resultado.Errors[0].Message.Should().Be("Falha ao tentar editar parceiro.");
+            resultado.Errors[0].Message.Should().Be("Falha ao tentar editar Parceiro.");
         }
 
 
@@ -253,7 +254,7 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
 
             //assert 
             resultado.Should().BeFailure();
-            resultado.Reasons[0].Message.Should().Be("Falha ao tentar excluir parceiro");
+            resultado.Reasons[0].Message.Should().Be("Este Parceiro não pode ser excluído");
         }
     }
         
