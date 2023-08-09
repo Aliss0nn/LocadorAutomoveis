@@ -4,6 +4,7 @@ using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadorAutomoveis.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadorAutomoveisDbContext))]
-    partial class LocadorAutomoveisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230809002614_TBCondutor2")]
+    partial class TBCondutor2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,13 +137,11 @@ namespace LocadorAutomoveis.Infra.Orm.Migrations
                     b.Property<Guid>("ClientesId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Cnh")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Cnh")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Cpf")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()

@@ -53,6 +53,7 @@ namespace LocadorAutomoveis.WinApp
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
+            condutoresToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -70,7 +71,7 @@ namespace LocadorAutomoveis.WinApp
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { taxasEServiçosToolStripMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem, cupomToolStripMenuItem, clientesToolStripMenuItem, automóveisToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { taxasEServiçosToolStripMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem, cupomToolStripMenuItem, clientesToolStripMenuItem, automóveisToolStripMenuItem, condutoresToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -241,6 +242,13 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.Size = new Size(686, 334);
             panelRegistros.TabIndex = 3;
             // 
+            // condutoresToolStripMenuItem
+            // 
+            condutoresToolStripMenuItem.Name = "condutoresToolStripMenuItem";
+            condutoresToolStripMenuItem.Size = new Size(196, 22);
+            condutoresToolStripMenuItem.Text = "Condutores";
+            condutoresToolStripMenuItem.Click += condutoresToolStripMenuItem_Click;
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -292,5 +300,6 @@ namespace LocadorAutomoveis.WinApp
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem automóveisToolStripMenuItem;
         private ToolStripButton btnFiltrar;
+        private ToolStripMenuItem condutoresToolStripMenuItem;
     }
 }

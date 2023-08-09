@@ -1,11 +1,5 @@
 ﻿using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloParceiro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadorAutomoveis.Aplicacao.ModuloCupom
 {
@@ -44,7 +38,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
 
                 contextoPersistencia.GravarDados();
 
-                return Result.Ok(); //cenário 1
+                return Result.Ok(); 
             }
             catch (Exception exc)
             {
@@ -54,7 +48,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloCupom
 
                 contextoPersistencia.DesfazerAlteracoes();
 
-                return Result.Fail(msgErro); //cenário 3
+                return Result.Fail(msgErro); 
             }
         }
 
