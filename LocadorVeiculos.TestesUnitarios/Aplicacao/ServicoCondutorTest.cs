@@ -139,9 +139,9 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
         public void Deve_editar_condutor_com_o_mesmo_nome() //cenário 3
         {
             //arrange
-            Condutor outraDisciplina = new Condutor("TesteNome", "email@gmail.com", "123456789", "323222121", "321312312314", DateTime.Today, condutor.ClienteEhCondutor, clientes);
+            Condutor outroCondutor = new Condutor("TesteNome", "email@gmail.com", "123456789", "323222121", "321312312314", DateTime.Today, condutor.ClienteEhCondutor, clientes);
 
-            Guid id = outraDisciplina.Id;
+            Guid id = outroCondutor.Id;
 
             repositorioCondutorMoq.Setup(x => x.SelecionarPorNome("Educação Física"))
                  .Returns(() =>
@@ -150,12 +150,12 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
                  });
 
             //action
-            var resultado = servicoCondutor.Editar(outraDisciplina);
+            var resultado = servicoCondutor.Editar(outroCondutor);
 
             //assert 
             resultado.Should().BeSuccess();
 
-            repositorioCondutorMoq.Verify(x => x.Editar(outraDisciplina), Times.Once());
+            repositorioCondutorMoq.Verify(x => x.Editar(outroCondutor), Times.Once());
         }
 
         [TestMethod]
@@ -168,15 +168,15 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
                      return new Condutor("TesteNome", "email@gmail.com", "123456789", "323222121", "321312312314", DateTime.Today, condutor.ClienteEhCondutor, clientes);
             });
 
-            Condutor novaDisciplina = new Condutor("TesteNome", "email@gmail.com", "123456789", "323222121", "321312312314", DateTime.Today, condutor.ClienteEhCondutor, clientes);
+            Condutor novoCondutor = new Condutor("TesteNome", "email@gmail.com", "123456789", "323222121", "321312312314", DateTime.Today, condutor.ClienteEhCondutor, clientes);
 
             //action
-            var resultado = servicoCondutor.Editar(novaDisciplina);
+            var resultado = servicoCondutor.Editar(novoCondutor);
 
             //assert 
             resultado.Should().BeFailure();
 
-            repositorioCondutorMoq.Verify(x => x.Editar(novaDisciplina), Times.Never());
+            repositorioCondutorMoq.Verify(x => x.Editar(novoCondutor), Times.Never());
         }
 
         [TestMethod]
