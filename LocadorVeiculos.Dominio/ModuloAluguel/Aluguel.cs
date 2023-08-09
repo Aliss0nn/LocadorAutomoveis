@@ -6,6 +6,7 @@ using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
+using System;
 using System.Numerics;
 using System.Text.RegularExpressions;
 
@@ -122,6 +123,86 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
             KmPercorrido = kmPercorrido;
             Fechado = true;
             NivelTanque = nivelTanque;
+        }
+
+        public void PrecoInicial()
+        {
+            TimeSpan diferenca = DataPrevisao - DataLocacao;
+            int dias = (int)diferenca.TotalDays;
+            decimal valor = dias * Plano.PrecoDiario;
+            
+            foreach(TaxasEServico taxa in Taxas)
+            {
+                if (taxa.PlanoDeCalculo == "Preço Fixo")
+                    valor += taxa.Preco;
+
+                else
+                    valor += taxa.Preco * dias;
+            }
+
+            if (Cupom != null)
+                valor -= Cupom.Valor;
+
+            Preco = valor;
+        }
+
+        public void PrecoDevolucao()
+        {
+            TimeSpan diferenca = DataDevolucao - DataLocacao;
+            int dias = (int)diferenca.TotalDays;
+            decimal valor = dias * Plano.PrecoDiario;
+
+            if(Plano.TipoPlano == TipoPlanoEnum.Controlado)
+            {
+                decimal kmLivres = Plano.KmLivre * dias;
+                decimal kmExtras = (KmPercorrido - KmAutomovel) - kmLivres;
+                if (kmExtras > 0)
+                    valor += kmExtras * Plano.PrecoKm;
+            }
+
+            if(Plano.TipoPlano == TipoPlanoEnum.Diario)
+            {
+                decimal kmExtras = (KmPercorrido - KmAutomovel);
+                valor += kmExtras * Plano.PrecoKm;
+            }
+
+            foreach (TaxasEServico taxa in Taxas)
+            {
+                if (taxa.PlanoDeCalculo == "Preço Fixo")
+                    valor += taxa.Preco;
+
+                else
+                    valor += taxa.Preco * dias;
+            }
+
+            switch (NivelTanque)
+            {
+                case NivelTanqueEnum.Vazio:
+                    valor += Automovel.Capacidade * Configuracao.ObterValor(Automovel.TipoCombustivel);
+                    break;
+                case NivelTanqueEnum.Quase_Vazio:
+                    valor += 0.75m * Automovel.Capacidade * Configuracao.ObterValor(Automovel.TipoCombustivel);
+                    break;
+                case NivelTanqueEnum.Meio_Cheio:
+                    valor += 0.5m * Automovel.Capacidade * Configuracao.ObterValor(Automovel.TipoCombustivel);
+                    break;
+                case NivelTanqueEnum.Quase_Cheio:
+                    valor += 0.25m * Automovel.Capacidade * Configuracao.ObterValor(Automovel.TipoCombustivel);
+                    break;
+            }
+
+            if(DataDevolucao.Date > DataPrevisao.Date)
+            {
+                valor = valor * 1.1m;
+                TimeSpan atrasoDiferenca = DataDevolucao.Date - DataPrevisao.Date;
+                int diasAtraso = (int)atrasoDiferenca.TotalDays;
+                valor += 50 * diasAtraso;
+            }
+
+            if (Cupom != null)
+                valor -= Cupom.Valor;
+
+            Preco = valor;
         }
 
         public override bool Equals(object? obj)
