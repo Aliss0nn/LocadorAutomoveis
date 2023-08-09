@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Math.EC.Rfc7748;
+﻿using FluentValidation.Validators;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace LocadorAutomoveis.Dominio.ModuloCondutor
                 .NotNull()
                 .NotEmpty()
                 .MinimumLength(5)
-                .NaoPodeCaracteresEspeciais();
+                .EmailAddress();
 
             RuleFor(x => x.Cpf)
                 .NotNull()

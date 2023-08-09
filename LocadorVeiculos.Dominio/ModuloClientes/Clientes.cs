@@ -60,6 +60,23 @@ namespace LocadorAutomoveis.Dominio.ModuloClientes
             Condutores = condutores;
         }
 
+        public Clientes(string nomeCliente, string tipoPessoa, string cpf,
+            string estado, string cidade, string bairro, string rua, string numero, 
+            string email, string telefone, string cnpj)
+        {
+            NomeCliente = nomeCliente;
+            TipoPessoa = tipoPessoa;
+            Cpf = cpf;
+            Estado = estado;
+            Cidade = cidade;
+            Bairro = bairro;
+            Rua = rua;
+            Numero = numero;
+            Email = email;
+            Telefone = telefone;
+            Cnpj = cnpj;           
+        }
+
         public override void Atualizar(Clientes clientes)
         {
 

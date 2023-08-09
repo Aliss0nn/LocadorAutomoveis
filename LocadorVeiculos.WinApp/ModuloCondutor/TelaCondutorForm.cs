@@ -1,7 +1,5 @@
 ﻿using LocadorAutomoveis.Dominio.ModuloClientes;
 using LocadorAutomoveis.Dominio.ModuloCondutor;
-using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloParceiro;
 using LocadorAutomoveis.WinApp.Compartilhado;
 
 namespace LocadorAutomoveis.WinApp.ModuloCondutor
@@ -79,6 +77,13 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
         private void checkboxClienteCondutor_CheckedChanged(object sender, EventArgs e)
         {
             Clientes cliente = cmbClientes.SelectedItem as Clientes;
+
+            if(cmbClientes.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um Cliente Primeiro",
+                               "Tela Cadastro de Condutores", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             if (checkboxClienteCondutor.Checked)
             {

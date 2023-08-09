@@ -95,13 +95,13 @@
             // 
             txtNome.Location = new Point(88, 45);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(340, 23);
+            txtNome.Size = new Size(344, 23);
             txtNome.TabIndex = 1;
             // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(256, 226);
+            btnGravar.Location = new Point(244, 226);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(92, 35);
             btnGravar.TabIndex = 6;
@@ -112,7 +112,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(355, 226);
+            btnCancelar.Location = new Point(342, 226);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(90, 35);
             btnCancelar.TabIndex = 7;
@@ -142,7 +142,7 @@
             Controls.Add(lbNome);
             Name = "TelaTaxasServicoForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastro de Taxa ou Serviço";
+            Text = "Cadastro de Taxas ou Serviços";
             grpBoxPlanos.ResumeLayout(false);
             grpBoxPlanos.PerformLayout();
             ResumeLayout(false);
