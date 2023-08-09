@@ -66,6 +66,11 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloAluguel
             aluguelBuilder.Property(al => al.KmPercorrido);
 
             aluguelBuilder.Property(al => al.NivelTanque);
+
+            aluguelBuilder.HasMany(al => al.Taxas)
+                .WithMany()
+                .UsingEntity(x => x.ToTable("TBAluguel_TBTaxasEServico"));
+
         }
     }
 }
