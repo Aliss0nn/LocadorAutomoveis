@@ -14,6 +14,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloDisciplina
             var disciplina = Builder<Disciplina>.CreateNew().Build();
             //action
             repositorioDisciplina.Inserir(disciplina);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioDisciplina.SelecionarPorId(disciplina.Id).Should().Be(disciplina);
@@ -30,6 +31,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloDisciplina
 
             //action
             repositorioDisciplina.Editar(disciplina);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioDisciplina.SelecionarPorId(disciplina.Id)

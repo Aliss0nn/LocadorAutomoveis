@@ -17,11 +17,14 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadorAutomoveis.Dominio.ModuloCupom;
+using LocadorAutomoveis.Dominio.ModuloCondutor;
+using LocadorAutomoveis.Infra.Orm.ModuloCondutor;
 
 namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
 {
     public class TestesIntegracaoBase
     {
+        protected IContextoPersistencia contextoPersistencia;
         protected IRepositorioDisciplina repositorioDisciplina;
         protected IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis;
         protected IRepositorioFuncionario repositorioFuncionario;
@@ -29,6 +32,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         protected IRepositorioTaxasServico repositorioTaxasServico;
         protected IRepositorioPlanoCobranca repositorioPlanoCobranca;
         protected IRepositorioCupom repositorioCupom;
+        protected IRepositorioCondutor repositorioCondutor;
         public TestesIntegracaoBase()
         {
 
@@ -39,6 +43,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             optionsBuilder.UseSqlServer(connectionString);
 
             var dbContext = new LocadorAutomoveisDbContext(optionsBuilder.Options);
+            contextoPersistencia = dbContext;
 
             var migracoesPendentes = dbContext.Database.GetPendingMigrations();
 
@@ -73,11 +78,15 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
 
             //Taxa e Serviço
             repositorioTaxasServico = new RepositorioTaxasEServicosOrm(dbContext);
-
-            repositorioPlanoCobranca = new RepositorioPlanoCobrancaEmOrm(dbContext);
             BuilderSetup.SetCreatePersistenceMethod<TaxasEServico>(repositorioTaxasServico.Inserir);
 
+            //Plano Cobrança
+            repositorioPlanoCobranca = new RepositorioPlanoCobrancaEmOrm(dbContext);
             BuilderSetup.SetCreatePersistenceMethod<PlanoCobranca>(repositorioPlanoCobranca.Inserir);
+
+            //Condutor
+            repositorioCondutor = new RepositorioCondutorEmOrm(dbContext);
+            BuilderSetup.SetCreatePersistenceMethod<Condutor>(repositorioCondutor.Inserir);
 
         }
 
@@ -89,6 +98,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             LimparLista<Funcionario>(dbContext);
             LimparLista<PlanoCobranca>(dbContext);
             LimparLista<TaxasEServico>(dbContext);
+            LimparLista<Condutor>(dbContext);
             
         }
            

@@ -13,13 +13,12 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio
     public class CupomTest
     {
         Cupom cupom;
-        Parceiro parceiro;
-        DateTime data;
+        Parceiro parceiro;     
 
         public CupomTest()
         {
             parceiro = new Parceiro("Posto Shell");
-            cupom = new Cupom("Desconto Shell",50,data,parceiro);
+            cupom = new Cupom("Desconto Shell",50,DateTime.Today,parceiro);
         }
     }
 }
