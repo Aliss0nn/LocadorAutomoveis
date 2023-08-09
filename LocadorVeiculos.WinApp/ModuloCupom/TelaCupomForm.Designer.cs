@@ -80,7 +80,7 @@
             // 
             DataValidadePicker.Location = new Point(107, 117);
             DataValidadePicker.Name = "DataValidadePicker";
-            DataValidadePicker.Size = new Size(255, 23);
+            DataValidadePicker.Size = new Size(268, 23);
             DataValidadePicker.TabIndex = 3;
             // 
             // txtValor
@@ -95,7 +95,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(193, 213);
+            btnGravar.Location = new Point(184, 213);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(93, 45);
             btnGravar.TabIndex = 5;
@@ -106,7 +106,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(301, 213);
+            btnCancelar.Location = new Point(283, 213);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(92, 45);
             btnCancelar.TabIndex = 6;
@@ -126,14 +126,14 @@
             // 
             txtNome.Location = new Point(107, 38);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(255, 23);
+            txtNome.Size = new Size(268, 23);
             txtNome.TabIndex = 1;
             // 
             // TelaCupomForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 281);
+            ClientSize = new Size(422, 273);
             Controls.Add(txtNome);
             Controls.Add(lbParceiro);
             Controls.Add(btnCancelar);
