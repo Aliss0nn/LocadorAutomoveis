@@ -80,6 +80,13 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
         {
             Clientes cliente = cmbClientes.SelectedItem as Clientes;
 
+            if(cmbClientes.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um Cliente para Carregar Primeiro",
+                               "Tela Cadastro de Condutores", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             if (checkboxClienteCondutor.Checked)
             {
                 txtNome.Text = cliente.NomeCliente;
