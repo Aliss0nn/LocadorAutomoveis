@@ -2,7 +2,7 @@ using FluentAssertions;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace LocadorAutomoveis.TestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloGrupoAutomovel
 {
     [TestClass]
     public class GrupoAutomoveisTest

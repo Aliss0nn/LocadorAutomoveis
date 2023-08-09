@@ -3,7 +3,7 @@ using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace LocadorAutomoveis.TestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloAutomovel
 {
     [TestClass]
     public class AutomovelTest

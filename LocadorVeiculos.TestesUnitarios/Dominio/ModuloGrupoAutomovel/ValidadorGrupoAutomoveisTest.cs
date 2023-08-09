@@ -1,7 +1,7 @@
 ﻿using FluentValidation.TestHelper;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 
-namespace LocadorAutomoveis.TestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloGrupoAutomovel
 {
     [TestClass]
     public class ValidadorGrupoAutomoveisTest

@@ -3,7 +3,7 @@
 using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using System.Runtime.ConstrainedExecution;
 
-namespace LocadorAutomoveis.TestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloPlanoCobrança
 {
     [TestClass]
     public class ValidadorPlanoCobrancaTest

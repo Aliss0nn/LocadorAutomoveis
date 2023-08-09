@@ -2,7 +2,7 @@
 using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloCupom;
 
-namespace LocadorAutomoveisTestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloCondutor
 {
     [TestClass]
     public class ValidadorCondutorTest
@@ -13,7 +13,7 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio
         public ValidadorCondutorTest()
         {
             condutor = new Condutor();
-            
+
             validador = new ValidadorCondutor();
         }
 

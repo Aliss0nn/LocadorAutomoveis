@@ -3,7 +3,7 @@
 using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using System.Runtime.ConstrainedExecution;
 
-namespace LocadorAutomoveis.TestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloAutomovel
 {
     [TestClass]
     public class ValidadorAutomovelTest
