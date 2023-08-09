@@ -1,19 +1,6 @@
-﻿using iText.StyledXmlParser.Jsoup.Nodes;
-using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
-using LocadorAutomoveis.Dominio.ModuloFuncionario;
+﻿using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
-using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LocadorAutomoveis.WinApp.ModuloCupom
 {
@@ -68,7 +55,6 @@ namespace LocadorAutomoveis.WinApp.ModuloCupom
 
                 DialogResult = DialogResult.None;
             }
-
         }
 
         public void CarregarParceiros(List<Parceiro> parceiros)

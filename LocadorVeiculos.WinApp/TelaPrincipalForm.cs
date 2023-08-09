@@ -1,6 +1,7 @@
 ﻿using LocadorAutomoveis.WinApp.Compartilhado.IoC;
 using LocadorAutomoveis.WinApp.ModuloAutomovel;
 using LocadorAutomoveis.WinApp.ModuloClientes;
+using LocadorAutomoveis.WinApp.ModuloCondutor;
 using LocadorAutomoveis.WinApp.ModuloCupom;
 using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
@@ -24,9 +25,9 @@ namespace LocadorAutomoveis.WinApp
             labelRodape.Text = string.Empty;
             labelTipoCadastro.Text = string.Empty;
 
-            ioc = new IoC_ComInjecaoDependencia();          
+            ioc = new IoC_ComInjecaoDependencia();
         }
-     
+
         public static TelaPrincipalForm Instancia
         {
             get;
@@ -44,7 +45,7 @@ namespace LocadorAutomoveis.WinApp
         {
             labelRodape.Text = mensagem;
         }
-     
+
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -160,6 +161,11 @@ namespace LocadorAutomoveis.WinApp
         private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(ioc.Get<ControladorTaxaServico>());
+        }
+
+        private void condutoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(ioc.Get<ControladorCondutor>());
         }
     }
 }

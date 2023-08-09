@@ -17,5 +17,13 @@ namespace LocadorAutomoveis.Infra.Orm.ModuloCondutor
         {
             return registros.FirstOrDefault(x => x.Nome == nome);
         }
+
+        public List<Condutor> SelecionarTodos(bool incluirClientes = false)
+        {
+            if (incluirClientes)
+                return registros.Include(x => x.Clientes).ToList();
+
+            return registros.ToList();
+        }
     }
 }

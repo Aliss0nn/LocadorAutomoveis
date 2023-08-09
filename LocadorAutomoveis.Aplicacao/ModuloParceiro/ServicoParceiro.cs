@@ -1,12 +1,5 @@
 ﻿using LocadorAutomoveis.Dominio;
-using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
 {
@@ -45,7 +38,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
 
                 contextoPersistencia.GravarDados();
 
-                return Result.Ok(); //cenário 1
+                return Result.Ok(); 
             }
             catch (Exception exc)
             {
@@ -55,7 +48,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
 
                 contextoPersistencia.DesfazerAlteracoes();
 
-                return Result.Fail(msgErro); //cenário 3
+                return Result.Fail(msgErro); 
             }
         }
 
@@ -123,10 +116,8 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
 
                 List<string> erros = new List<string>();
 
-                string msgErro;
-
-                msgErro = "Falha ao tentar excluir Parceiro";
-
+                string msgErro = ObterMensagemErro(ex);             
+            
                 erros.Add(msgErro);
 
                 Log.Error(ex, msgErro + " {ParceiroId}", parceiro.Id);
@@ -167,6 +158,17 @@ namespace LocadorAutomoveis.Aplicacao.ModuloParceiro
             }
 
             return false;
+        }
+        private static string ObterMensagemErro(Exception ex)
+        {
+            string msgErro;
+
+            if (ex.Message.Contains("FK_TBCupom_TBParceiro"))
+                msgErro = "Este Parceiro está relacionado com um Cupom e não pode ser excluído";
+            else
+                msgErro = "Este Parceiro não pode ser excluído";
+
+            return msgErro;
         }
     }
 }
