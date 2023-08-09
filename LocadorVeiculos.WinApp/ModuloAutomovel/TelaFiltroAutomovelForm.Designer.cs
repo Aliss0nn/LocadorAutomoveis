@@ -50,7 +50,7 @@
             cmbGrupo.Location = new Point(36, 39);
             cmbGrupo.Name = "cmbGrupo";
             cmbGrupo.Size = new Size(253, 23);
-            cmbGrupo.TabIndex = 30;
+            cmbGrupo.TabIndex = 1;
             // 
             // btnCancelar
             // 
@@ -58,7 +58,7 @@
             btnCancelar.Location = new Point(235, 80);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
-            btnCancelar.TabIndex = 29;
+            btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -68,7 +68,7 @@
             btnSelecionar.Location = new Point(154, 80);
             btnSelecionar.Name = "btnSelecionar";
             btnSelecionar.Size = new Size(75, 45);
-            btnSelecionar.TabIndex = 28;
+            btnSelecionar.TabIndex = 2;
             btnSelecionar.Text = "Selecionar";
             btnSelecionar.UseVisualStyleBackColor = true;
             btnSelecionar.Click += btnGravar_Click;
