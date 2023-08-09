@@ -9,7 +9,7 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
     public partial class TelaCondutorForm : Form
     {
         public Condutor condutor;
-      
+
         public event GravarRegistroDelegate<Condutor> onGravarRegistro;
 
         public TelaCondutorForm(List<Clientes> clientes)
@@ -24,8 +24,8 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
             condutor.ClienteEhCondutor = checkboxClienteCondutor.Checked;
             condutor.Nome = txtNome.Text;
             condutor.Email = txtEmail.Text;
-            condutor.Cpf = Convert.ToInt32(maskCpf.Text);
-            condutor.Cnh = Convert.ToInt32(maskCNH.Text);
+            condutor.Cpf = txtCPF.Text;
+            condutor.Cnh = txtCNH.Text;
             condutor.Telefone = maskTelefone.Text;
             condutor.Validade = dateTimeValidade.Value;
             condutor.Clientes = (Clientes)cmbClientes.SelectedItem;
@@ -37,11 +37,11 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
         {
             this.condutor = condutor;
 
-            txtNome.Text = condutor.Nome;        
+            txtNome.Text = condutor.Nome;
             txtEmail.Text = condutor.Email;
-            maskCNH.Text = condutor.Cnh.ToString();
-            maskCpf.Text = condutor.Cpf.ToString();
-            maskTelefone.Text = condutor.Telefone;                
+            txtCNH.Text = condutor.Cnh.ToString();
+            txtCPF.Text = condutor.Cpf.ToString();
+            maskTelefone.Text = condutor.Telefone;
             cmbClientes.SelectedItem = condutor.Clientes;
             checkboxClienteCondutor.Checked = condutor.ClienteEhCondutor;
 

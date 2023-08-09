@@ -12,9 +12,9 @@ namespace LocadorAutomoveis.Dominio.ModuloCondutor
     {
         public string Nome { get; set; }
         public string Email { get; set; }
-        public int Cpf { get; set; }
+        public string Cpf { get; set; }
         public string Telefone { get; set; }
-        public int Cnh { get; set; }
+        public string Cnh { get; set; }
         public DateTime Validade { get; set; }
         public bool ClienteEhCondutor { get; set; }
         public Clientes Clientes { get; set; }
@@ -24,12 +24,12 @@ namespace LocadorAutomoveis.Dominio.ModuloCondutor
 
         }
 
-        public Condutor(Guid id, string Nome, string Email, int cpf, string telefone, int cnh, DateTime validade, bool clienteEhCondutor, Clientes clientes) : this(Nome,Email,cpf,telefone,cnh,validade,clienteEhCondutor,clientes)
+        public Condutor(Guid id, string Nome, string Email, string cpf, string telefone, string cnh, DateTime validade, bool clienteEhCondutor, Clientes clientes) : this(Nome,Email,cpf,telefone,cnh,validade,clienteEhCondutor,clientes)
         {
             Id = id;
         }
 
-        public Condutor(string nome, string email, int cpf, string telefone, int cnh, DateTime validade, bool clienteEhCondutor, Clientes clientes)
+        public Condutor(string nome, string email, string cpf, string telefone, string cnh, DateTime validade, bool clienteEhCondutor, Clientes clientes)
         {
             Nome = nome;
             Email = email;

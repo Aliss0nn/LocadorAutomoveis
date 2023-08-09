@@ -42,9 +42,9 @@
             btnCancelar = new Button();
             dateTimeValidade = new DateTimePicker();
             maskTelefone = new MaskedTextBox();
-            maskCpf = new MaskedTextBox();
-            maskCNH = new MaskedTextBox();
             btnGravar = new Button();
+            txtCPF = new TextBox();
+            txtCNH = new TextBox();
             SuspendLayout();
             // 
             // cmbClientes
@@ -167,20 +167,6 @@
             maskTelefone.Size = new Size(119, 23);
             maskTelefone.TabIndex = 5;
             // 
-            // maskCpf
-            // 
-            maskCpf.Location = new Point(250, 189);
-            maskCpf.Name = "maskCpf";
-            maskCpf.Size = new Size(170, 23);
-            maskCpf.TabIndex = 6;
-            // 
-            // maskCNH
-            // 
-            maskCNH.Location = new Point(88, 237);
-            maskCNH.Name = "maskCNH";
-            maskCNH.Size = new Size(167, 23);
-            maskCNH.TabIndex = 7;
-            // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
@@ -192,13 +178,27 @@
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
             // 
+            // txtCPF
+            // 
+            txtCPF.Location = new Point(250, 189);
+            txtCPF.Name = "txtCPF";
+            txtCPF.Size = new Size(169, 23);
+            txtCPF.TabIndex = 11;
+            // 
+            // txtCNH
+            // 
+            txtCNH.Location = new Point(88, 237);
+            txtCNH.Name = "txtCNH";
+            txtCNH.Size = new Size(169, 23);
+            txtCNH.TabIndex = 12;
+            // 
             // TelaCondutorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(455, 407);
-            Controls.Add(maskCNH);
-            Controls.Add(maskCpf);
+            Controls.Add(txtCNH);
+            Controls.Add(txtCPF);
             Controls.Add(maskTelefone);
             Controls.Add(dateTimeValidade);
             Controls.Add(btnCancelar);
@@ -236,8 +236,8 @@
         private Button btnCancelar;
         private DateTimePicker dateTimeValidade;
         private MaskedTextBox maskTelefone;
-        private MaskedTextBox maskCpf;
-        private MaskedTextBox maskCNH;
         private Button btnGravar;
+        private TextBox txtCPF;
+        private TextBox txtCNH;
     }
 }
