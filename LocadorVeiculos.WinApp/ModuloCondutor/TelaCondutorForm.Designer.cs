@@ -128,6 +128,7 @@
             checkboxClienteCondutor.TabIndex = 2;
             checkboxClienteCondutor.Text = "Cliente é Condutor";
             checkboxClienteCondutor.UseVisualStyleBackColor = true;
+            checkboxClienteCondutor.CheckedChanged += checkboxClienteCondutor_CheckedChanged;
             // 
             // txtEmail
             // 

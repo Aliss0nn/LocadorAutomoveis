@@ -21,7 +21,7 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
         }
         public Condutor ObterCondutor()
         {
-            condutor.ClienteEhCondutor = checkboxClienteCondutor.Checked;
+            condutor.ClienteEhCondutor = checkboxClienteCondutor.Checked ? true : false;
             condutor.Nome = txtNome.Text;
             condutor.Email = txtEmail.Text;
             condutor.Cpf = txtCPF.Text;
@@ -76,6 +76,35 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
             }
         }
 
+        private void checkboxClienteCondutor_CheckedChanged(object sender, EventArgs e)
+        {
+            Clientes cliente = cmbClientes.SelectedItem as Clientes;
 
+            if (checkboxClienteCondutor.Checked)
+            {
+                txtNome.Text = cliente.NomeCliente;
+                txtEmail.Text = cliente.Email;
+                maskTelefone.Text = cliente.Telefone;
+                txtCPF.Text = cliente.Cpf;
+
+                txtNome.Enabled = false;
+                txtEmail.Enabled = false;
+                maskTelefone.Enabled = false;
+                txtCPF.Enabled = false;
+
+            }
+            else
+            {
+                txtNome.Enabled = true;
+                txtEmail.Enabled = true;
+                maskTelefone.Enabled = true;
+                txtCPF.Enabled = true;
+
+                txtNome.Text = "";
+                txtEmail.Text = "";
+                maskTelefone.Text = "";
+                txtCPF.Text = "";
+            }
+        }
     }
 }
