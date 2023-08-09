@@ -1,12 +1,6 @@
-﻿using LocadorAutomoveis.Dominio.ModuloDisciplina;
-
-using LocadorAutomoveis.Infra.Orm.Compartilhado;
-using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
+﻿using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace LocadorAutomoveis.ConsoleApp
 {

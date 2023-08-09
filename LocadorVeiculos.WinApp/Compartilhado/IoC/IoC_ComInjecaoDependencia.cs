@@ -2,7 +2,6 @@
 using LocadorAutomoveis.Aplicacao.ModuloClientes;
 using LocadorAutomoveis.Aplicacao.ModuloCondutor;
 using LocadorAutomoveis.Aplicacao.ModuloCupom;
-using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
 using LocadorAutomoveis.Aplicacao.ModuloFuncionario;
 using LocadorAutomoveis.Aplicacao.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Aplicacao.ModuloParceiro;
@@ -13,7 +12,6 @@ using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloClientes;
 using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
@@ -25,7 +23,6 @@ using LocadorAutomoveis.Infra.Orm.ModuloAutomovel;
 using LocadorAutomoveis.Infra.Orm.ModuloClientes;
 using LocadorAutomoveis.Infra.Orm.ModuloCondutor;
 using LocadorAutomoveis.Infra.Orm.ModuloCupom;
-using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
@@ -34,7 +31,6 @@ using LocadorAutomoveis.WinApp.ModuloAutomovel;
 using LocadorAutomoveis.WinApp.ModuloClientes;
 using LocadorAutomoveis.WinApp.ModuloCondutor;
 using LocadorAutomoveis.WinApp.ModuloCupom;
-using LocadorAutomoveis.WinApp.ModuloDisciplina;
 using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloParceiro;
@@ -64,12 +60,7 @@ namespace LocadorAutomoveis.WinApp.Compartilhado.IoC
             {
                 optionsBuilder.UseSqlServer(connectionString);
             });
-
-            servicos.AddTransient<ControladorDisciplina>();
-            servicos.AddTransient<ServicoDisciplina>();
-            servicos.AddTransient<IValidadorDisciplina, ValidadorDisciplina>();
-            servicos.AddTransient<IRepositorioDisciplina, RepositorioDisciplinaEmOrm>();
-
+          
             servicos.AddTransient<ControladorAutomovel>();
             servicos.AddTransient<ServicoAutomovel>();
             servicos.AddTransient<IValidadorAutomovel, ValidadorAutomovel>();

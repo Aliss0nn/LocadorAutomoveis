@@ -1,31 +1,27 @@
 ﻿using FizzWare.NBuilder;
 using LocadorAutomoveis.Dominio;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
+using LocadorAutomoveis.Dominio.ModuloCondutor;
+using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
-using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
+using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
-using LocadorAutomoveis.Infra.Orm.ModuloDisciplina;
+using LocadorAutomoveis.Infra.Orm.ModuloCondutor;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
-using LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
-using Microsoft.Data.SqlClient;
+using LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloCondutor;
-using LocadorAutomoveis.Infra.Orm.ModuloCondutor;
 
 namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
 {
     public class TestesIntegracaoBase
     {
-        protected IContextoPersistencia contextoPersistencia;
-        protected IRepositorioDisciplina repositorioDisciplina;
+        protected IContextoPersistencia contextoPersistencia;      
         protected IRepositorioGrupoAutomoveis repositorioGrupoAutomoveis;
         protected IRepositorioFuncionario repositorioFuncionario;
         protected IRepositorioParceiro repositorioParceiro;
@@ -53,13 +49,6 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
             }           
 
             LimparTabelas(dbContext);
-
-            //Disciplina
-            repositorioDisciplina = new RepositorioDisciplinaEmOrm(dbContext);
-
-            //BuilderSetup.DisablePropertyNamingFor<Disciplina, int>(d => d.Id);
-
-            BuilderSetup.SetCreatePersistenceMethod<Disciplina>(repositorioDisciplina.Inserir);
 
             //GrupoAutomoveis
             repositorioGrupoAutomoveis = new RepositorioGrupoAutomoveisEmOrm(dbContext);
@@ -91,8 +80,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         }
 
         protected static void LimparTabelas(LocadorAutomoveisDbContext dbContext)
-        {
-            LimparLista<Disciplina>(dbContext);
+        {           
             LimparLista<GrupoAutomoveis>(dbContext);
             LimparLista<Parceiro>(dbContext);
             LimparLista<Funcionario>(dbContext);

@@ -1,11 +1,5 @@
 ﻿using FluentValidation.TestHelper;
 using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadorAutomoveisTestesUnitarios.Dominio
 {

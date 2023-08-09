@@ -1,8 +1,5 @@
 ﻿using FluentValidation.TestHelper;
-
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
-using System.Runtime.ConstrainedExecution;
 
 namespace LocadorAutomoveis.TestesUnitarios.Dominio
 {

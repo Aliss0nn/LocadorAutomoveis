@@ -26,12 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ModuloDisciplina\TabelaDisciplinaControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ModuloDisciplina\TelaDisciplinaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -3,10 +3,8 @@ using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using FluentValidation.Results;
 using LocadorAutomoveis.Aplicacao.ModuloCupom;
-using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
 using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
 using Moq;
 
