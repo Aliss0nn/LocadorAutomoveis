@@ -2,6 +2,7 @@
 using LocadorAutomoveis.Dominio.ModuloAluguel;
 using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloClientes;
+using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
@@ -22,7 +23,7 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
         private IRepositorioAutomovel repositorioAutomovel;
         private IRepositorioCupom repositorioCupom;
         private IRepositorioTaxasServico repositorioTaxasEServico;
-
+        private readonly IRepositorioCondutor repositorioCondutor;
         private TabelaAluguelControl tabelaAluguel;
 
         private ServicoAluguel servicoAluguel;
@@ -36,6 +37,7 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             IRepositorioAutomovel repositorioAutomovel,
             IRepositorioCupom repositorioCupom,
             IRepositorioTaxasServico repositorioTaxasEServico,
+            IRepositorioCondutor repositorioCondutor,
             ServicoAluguel servicoAluguel)
         {
             this.repositorioAluguel = repositorioAluguel;
@@ -46,24 +48,25 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             this.repositorioAutomovel = repositorioAutomovel;
             this.repositorioCupom = repositorioCupom;
             this.repositorioTaxasEServico = repositorioTaxasEServico;
+            this.repositorioCondutor = repositorioCondutor;
             this.servicoAluguel = servicoAluguel;
         }
 
         public override void Inserir()
         {
             TelaAluguelForm tela = new TelaAluguelForm(
-                repositorioAluguel.SelecionarTodos(true),
                 repositorioFuncionario.SelecionarTodos(),
                 repositorioCliente.SelecionarTodos(),
                 repositorioGrupoAutomoveis.SelecionarTodos(),
                 repositorioPlanoCobranca.SelecionarTodos(true),
                 repositorioAutomovel.SelecionarTodos(true),
                 repositorioCupom.SelecionarTodos(true),
-                repositorioTaxasEServico.SelecionarTodos());
+                repositorioTaxasEServico.SelecionarTodos(),
+                repositorioCondutor.SelecionarTodos(true));
 
             tela.onGravarRegistro += servicoAluguel.Inserir;
 
-            tela.ConfigurarDisciplina(new Aluguel());
+            tela.ConfigurarAluguel(new Aluguel());
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -87,18 +90,18 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             }
 
             TelaAluguelForm tela = new TelaAluguelForm(
-                repositorioAluguel.SelecionarTodos(true),
                 repositorioFuncionario.SelecionarTodos(),
                 repositorioCliente.SelecionarTodos(),
                 repositorioGrupoAutomoveis.SelecionarTodos(),
                 repositorioPlanoCobranca.SelecionarTodos(true),
                 repositorioAutomovel.SelecionarTodos(true),
                 repositorioCupom.SelecionarTodos(true),
-                repositorioTaxasEServico.SelecionarTodos());
+                repositorioTaxasEServico.SelecionarTodos(),
+                repositorioCondutor.SelecionarTodos(true));
 
             tela.onGravarRegistro += servicoAluguel.Editar;
 
-            tela.ConfigurarDisciplina(aluguelSelecionado);
+            tela.ConfigurarAluguel(aluguelSelecionado);
 
             DialogResult resultado = tela.ShowDialog();
 

@@ -51,6 +51,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             listTaxas = new CheckedListBox();
+            label10 = new Label();
+            cmbondutor = new ComboBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             SuspendLayout();
@@ -74,6 +76,7 @@
             btnGravar.TabIndex = 7;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // cmbFuncionario
             // 
@@ -261,11 +264,31 @@
             listTaxas.Size = new Size(376, 148);
             listTaxas.TabIndex = 0;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(418, 44);
+            label10.Name = "label10";
+            label10.Size = new Size(58, 15);
+            label10.TabIndex = 29;
+            label10.Text = "Condutor";
+            // 
+            // cmbondutor
+            // 
+            cmbondutor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbondutor.FormattingEnabled = true;
+            cmbondutor.Location = new Point(482, 41);
+            cmbondutor.Name = "cmbondutor";
+            cmbondutor.Size = new Size(190, 23);
+            cmbondutor.TabIndex = 28;
+            // 
             // TelaAluguelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(684, 459);
+            Controls.Add(label10);
+            Controls.Add(cmbondutor);
             Controls.Add(tabControl1);
             Controls.Add(txtPrevisao);
             Controls.Add(label9);
@@ -320,5 +343,7 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private CheckedListBox listTaxas;
+        private Label label10;
+        private ComboBox cmbondutor;
     }
 }

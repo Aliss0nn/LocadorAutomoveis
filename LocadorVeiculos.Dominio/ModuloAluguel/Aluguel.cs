@@ -1,5 +1,6 @@
 ﻿using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloClientes;
+using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
@@ -26,7 +27,8 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
             int kmAutomovel, 
             DateTime dataLocacao,
             DateTime dataPrevisao,
-            List<TaxasEServico> taxas) :this()
+            List<TaxasEServico> taxas,
+            Condutor condutor) :this()
         {
             Funcionario = funcionario;
             Cliente = cliente;
@@ -38,6 +40,7 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
             DataLocacao = dataLocacao;
             DataPrevisao = dataPrevisao;
             Taxas = taxas;
+            Condutor = condutor;
             DataDevolucao = DateTime.Now;
         }
 
@@ -52,7 +55,8 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
             int kmAutomovel,
             DateTime dataLocacao,
             DateTime dataPrevisao,
-            List<TaxasEServico> taxas) : this(funcionario, 
+            List<TaxasEServico> taxas,
+            Condutor condutor) : this(funcionario, 
                 cliente, 
                 grupo, 
                 plano, 
@@ -61,7 +65,8 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
                 kmAutomovel, 
                 dataLocacao, 
                 dataPrevisao,
-                taxas)
+                taxas,
+                condutor)
         {
             Id = id;
         }
@@ -81,6 +86,7 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
         public bool Fechado { get; set; }
         public NivelTanqueEnum NivelTanque { get; set; }
         public List<TaxasEServico> Taxas { get; set; }
+        public Condutor Condutor { get; set; }
 
         public override string ToString()
         {
@@ -104,6 +110,7 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
             Fechado = aluguel.Fechado;
             NivelTanque = aluguel.NivelTanque;
             Taxas = aluguel.Taxas;
+            Condutor = aluguel.Condutor;
         }
 
         public void ConcluirAluguel(
@@ -135,7 +142,8 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
                    KmPercorrido == aluguel.KmPercorrido &&
                    Fechado == aluguel.Fechado &&
                    NivelTanque == aluguel.NivelTanque &&
-                   EqualityComparer<List<TaxasEServico>>.Default.Equals(Taxas, aluguel.Taxas);
+                   EqualityComparer<List<TaxasEServico>>.Default.Equals(Taxas, aluguel.Taxas) &&
+                   EqualityComparer<Condutor>.Default.Equals(Condutor, aluguel.Condutor);
         }
 
         public override int GetHashCode()
@@ -157,6 +165,7 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
             hash.Add(Fechado);
             hash.Add(NivelTanque);
             hash.Add(Taxas);
+            hash.Add(Condutor);
             return hash.ToHashCode();
         }
     }
