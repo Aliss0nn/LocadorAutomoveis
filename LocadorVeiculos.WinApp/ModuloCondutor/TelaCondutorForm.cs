@@ -39,8 +39,8 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
 
             txtNome.Text = condutor.Nome;
             txtEmail.Text = condutor.Email;
-            txtCNH.Text = condutor.Cnh.ToString();
-            txtCPF.Text = condutor.Cpf.ToString();
+            txtCNH.Text = condutor.Cnh;
+            txtCPF.Text = condutor.Cpf;
             maskTelefone.Text = condutor.Telefone;
             cmbClientes.SelectedItem = condutor.Clientes;
             checkboxClienteCondutor.Checked = condutor.ClienteEhCondutor;

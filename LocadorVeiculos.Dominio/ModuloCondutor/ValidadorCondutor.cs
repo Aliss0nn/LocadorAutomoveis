@@ -22,15 +22,21 @@ namespace LocadorAutomoveis.Dominio.ModuloCondutor
                 .NotEmpty()
                 .MinimumLength(5)
                 .NaoPodeCaracteresEspeciais();
-           
+
             RuleFor(x => x.Cpf)
                 .NotNull()
-                .NotEmpty();
+                .NotEmpty()
+                .MinimumLength(12)
+                .NaoPodeCaracteresEspeciais()
+                .MaximumLength(12);
 
             RuleFor(x => x.Cnh).
                 NotNull()
-                .NotEmpty();
-           
+                .NotEmpty()
+                .MinimumLength(11)
+                .NaoPodeCaracteresEspeciais()
+                .MaximumLength(11);
+
             RuleFor(x => x.Telefone)
                 .NotNull()
                 .NotEmpty();

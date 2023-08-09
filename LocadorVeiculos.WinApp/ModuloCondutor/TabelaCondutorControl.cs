@@ -17,7 +17,7 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
         {
             var colunas = new DataGridViewColumn[]
             {
-                  new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F, Visible = false  },
+                  new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F, Visible = false },
 
                   new DataGridViewTextBoxColumn { Name = "Nome do Condutor", HeaderText = "Nome do Condutor", FillWeight=85F },
 
@@ -44,7 +44,7 @@ namespace LocadorAutomoveis.WinApp.ModuloCondutor
 
             foreach (Condutor condutor in condutores)
             {
-                gridCondutores.Rows.Add(condutor.Nome,condutor.Clientes,condutor.Cpf,condutor.Cnh,condutor.Validade);
+                gridCondutores.Rows.Add(condutor.Id,condutor.Nome,condutor.Clientes,condutor.Cpf,condutor.Cnh,condutor.Validade);
             }
         }
     }

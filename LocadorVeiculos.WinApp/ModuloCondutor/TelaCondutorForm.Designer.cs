@@ -49,6 +49,7 @@
             // 
             // cmbClientes
             // 
+            cmbClientes.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbClientes.FormattingEnabled = true;
             cmbClientes.Location = new Point(88, 25);
             cmbClientes.Name = "cmbClientes";
