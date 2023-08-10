@@ -158,7 +158,7 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             if (aluguel.DataPrevisao != new DateTime())
                 txtPrevisao.Value = aluguel.DataPrevisao;
 
-            if(aluguel.Automovel != null)
+            if (aluguel.Automovel != null)
                 txtKmAutomovel.Text = aluguel.Automovel.Quilometragem + "";
         }
 

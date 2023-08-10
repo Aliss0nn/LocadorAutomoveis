@@ -51,6 +51,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             listTaxas = new CheckedListBox();
+            tabPage2 = new TabPage();
+            listExtras = new CheckedListBox();
             label10 = new Label();
             cmbCondutor = new ComboBox();
             txtDevolucao = new DateTimePicker();
@@ -59,12 +61,10 @@
             cmbNivelTanque = new ComboBox();
             label14 = new Label();
             txtKmPercorrido = new NumericUpDown();
-            tabPage2 = new TabPage();
-            listExtras = new CheckedListBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtKmPercorrido).BeginInit();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtKmPercorrido).BeginInit();
             SuspendLayout();
             // 
             // btnCancelar
@@ -73,7 +73,7 @@
             btnCancelar.Location = new Point(597, 478);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
-            btnCancelar.TabIndex = 8;
+            btnCancelar.TabIndex = 16;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -83,7 +83,7 @@
             btnGravar.Location = new Point(516, 478);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
-            btnGravar.TabIndex = 7;
+            btnGravar.TabIndex = 15;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -96,7 +96,7 @@
             cmbFuncionario.Location = new Point(151, 41);
             cmbFuncionario.Name = "cmbFuncionario";
             cmbFuncionario.Size = new Size(190, 23);
-            cmbFuncionario.TabIndex = 9;
+            cmbFuncionario.TabIndex = 1;
             // 
             // label1
             // 
@@ -124,7 +124,7 @@
             cmbCliente.Location = new Point(151, 70);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(190, 23);
-            cmbCliente.TabIndex = 11;
+            cmbCliente.TabIndex = 2;
             // 
             // label4
             // 
@@ -143,7 +143,7 @@
             cmbGrupo.Location = new Point(151, 99);
             cmbGrupo.Name = "cmbGrupo";
             cmbGrupo.Size = new Size(190, 23);
-            cmbGrupo.TabIndex = 13;
+            cmbGrupo.TabIndex = 3;
             // 
             // label5
             // 
@@ -162,7 +162,7 @@
             cmbPlano.Location = new Point(151, 128);
             cmbPlano.Name = "cmbPlano";
             cmbPlano.Size = new Size(190, 23);
-            cmbPlano.TabIndex = 15;
+            cmbPlano.TabIndex = 4;
             // 
             // label6
             // 
@@ -180,7 +180,7 @@
             txtLocacao.Location = new Point(151, 157);
             txtLocacao.Name = "txtLocacao";
             txtLocacao.Size = new Size(190, 23);
-            txtLocacao.TabIndex = 18;
+            txtLocacao.TabIndex = 5;
             // 
             // label7
             // 
@@ -199,7 +199,7 @@
             cmbAutomovel.Location = new Point(482, 73);
             cmbAutomovel.Name = "cmbAutomovel";
             cmbAutomovel.Size = new Size(190, 23);
-            cmbAutomovel.TabIndex = 19;
+            cmbAutomovel.TabIndex = 10;
             // 
             // label8
             // 
@@ -213,11 +213,12 @@
             // cmbCupom
             // 
             cmbCupom.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCupom.Enabled = false;
             cmbCupom.FormattingEnabled = true;
             cmbCupom.Location = new Point(286, 274);
             cmbCupom.Name = "cmbCupom";
             cmbCupom.Size = new Size(190, 23);
-            cmbCupom.TabIndex = 21;
+            cmbCupom.TabIndex = 8;
             // 
             // txtKmAutomovel
             // 
@@ -225,7 +226,7 @@
             txtKmAutomovel.Location = new Point(482, 102);
             txtKmAutomovel.Name = "txtKmAutomovel";
             txtKmAutomovel.Size = new Size(190, 23);
-            txtKmAutomovel.TabIndex = 24;
+            txtKmAutomovel.TabIndex = 11;
             // 
             // label2
             // 
@@ -243,7 +244,7 @@
             txtPrevisao.Location = new Point(482, 131);
             txtPrevisao.Name = "txtPrevisao";
             txtPrevisao.Size = new Size(190, 23);
-            txtPrevisao.TabIndex = 26;
+            txtPrevisao.TabIndex = 12;
             // 
             // label9
             // 
@@ -262,7 +263,7 @@
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(396, 192);
-            tabControl1.TabIndex = 27;
+            tabControl1.TabIndex = 14;
             // 
             // tabPage1
             // 
@@ -282,7 +283,25 @@
             listTaxas.Location = new Point(6, 6);
             listTaxas.Name = "listTaxas";
             listTaxas.Size = new Size(376, 148);
-            listTaxas.TabIndex = 0;
+            listTaxas.TabIndex = 1;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(listExtras);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Size = new Size(388, 164);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Taxas Extras";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listExtras
+            // 
+            listExtras.FormattingEnabled = true;
+            listExtras.Location = new Point(6, 8);
+            listExtras.Name = "listExtras";
+            listExtras.Size = new Size(376, 148);
+            listExtras.TabIndex = 2;
             // 
             // label10
             // 
@@ -301,7 +320,7 @@
             cmbCondutor.Location = new Point(482, 44);
             cmbCondutor.Name = "cmbCondutor";
             cmbCondutor.Size = new Size(190, 23);
-            cmbCondutor.TabIndex = 28;
+            cmbCondutor.TabIndex = 9;
             // 
             // txtDevolucao
             // 
@@ -309,7 +328,7 @@
             txtDevolucao.Location = new Point(151, 186);
             txtDevolucao.Name = "txtDevolucao";
             txtDevolucao.Size = new Size(190, 23);
-            txtDevolucao.TabIndex = 31;
+            txtDevolucao.TabIndex = 6;
             // 
             // label11
             // 
@@ -336,7 +355,7 @@
             cmbNivelTanque.Location = new Point(151, 215);
             cmbNivelTanque.Name = "cmbNivelTanque";
             cmbNivelTanque.Size = new Size(190, 23);
-            cmbNivelTanque.TabIndex = 32;
+            cmbNivelTanque.TabIndex = 7;
             // 
             // label14
             // 
@@ -354,26 +373,8 @@
             txtKmPercorrido.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtKmPercorrido.Name = "txtKmPercorrido";
             txtKmPercorrido.Size = new Size(190, 23);
-            txtKmPercorrido.TabIndex = 36;
+            txtKmPercorrido.TabIndex = 13;
             txtKmPercorrido.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // tabPage2
-            // 
-            tabPage2.Controls.Add(listExtras);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(388, 164);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Taxas Extras";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // listExtras
-            // 
-            listExtras.FormattingEnabled = true;
-            listExtras.Location = new Point(6, 8);
-            listExtras.Name = "listExtras";
-            listExtras.Size = new Size(376, 148);
-            listExtras.TabIndex = 1;
             // 
             // TelaAluguelDevolucaoForm
             // 
@@ -413,8 +414,8 @@
             Text = "Cadastro de Aluguéis";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)txtKmPercorrido).EndInit();
             tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtKmPercorrido).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

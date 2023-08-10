@@ -19,7 +19,6 @@ namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
 
         public GrupoAutomoveis ObterGrupoAutomoveis()
         {
-            grupo.Id = Guid.Parse(txtId.Text);
 
             grupo.Nome = txtNome.Text;
 
@@ -30,7 +29,6 @@ namespace LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis
         {
             this.grupo = grupo;
 
-            txtId.Text = grupo.Id.ToString();
             txtNome.Text = grupo.Nome;
         }
 

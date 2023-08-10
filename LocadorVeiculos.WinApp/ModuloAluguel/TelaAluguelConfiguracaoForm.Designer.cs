@@ -50,7 +50,7 @@
             btnCancelar.Location = new Point(167, 144);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
-            btnCancelar.TabIndex = 8;
+            btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -60,7 +60,7 @@
             btnConfigurar.Location = new Point(86, 144);
             btnConfigurar.Name = "btnConfigurar";
             btnConfigurar.Size = new Size(75, 45);
-            btnConfigurar.TabIndex = 7;
+            btnConfigurar.TabIndex = 5;
             btnConfigurar.Text = "Configurar";
             btnConfigurar.UseVisualStyleBackColor = true;
             btnConfigurar.Click += btnConfigurar_Click;
@@ -82,7 +82,7 @@
             txtGasolina.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtGasolina.Name = "txtGasolina";
             txtGasolina.Size = new Size(84, 23);
-            txtGasolina.TabIndex = 9;
+            txtGasolina.TabIndex = 1;
             txtGasolina.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label1
@@ -102,7 +102,7 @@
             txtGas.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtGas.Name = "txtGas";
             txtGas.Size = new Size(84, 23);
-            txtGas.TabIndex = 11;
+            txtGas.TabIndex = 2;
             txtGas.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // txtAlcool
@@ -113,7 +113,7 @@
             txtAlcool.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtAlcool.Name = "txtAlcool";
             txtAlcool.Size = new Size(84, 23);
-            txtAlcool.TabIndex = 15;
+            txtAlcool.TabIndex = 4;
             txtAlcool.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label3
@@ -133,7 +133,7 @@
             txtDiesel.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtDiesel.Name = "txtDiesel";
             txtDiesel.Size = new Size(84, 23);
-            txtDiesel.TabIndex = 13;
+            txtDiesel.TabIndex = 3;
             txtDiesel.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label4

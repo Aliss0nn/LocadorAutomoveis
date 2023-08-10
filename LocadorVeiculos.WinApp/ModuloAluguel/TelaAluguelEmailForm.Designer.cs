@@ -39,20 +39,20 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(293, 124);
+            btnCancelar.Location = new Point(330, 121);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(84, 40);
-            btnCancelar.TabIndex = 7;
+            btnCancelar.TabIndex = 4;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(197, 124);
+            btnGravar.Location = new Point(234, 121);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(90, 40);
-            btnGravar.TabIndex = 6;
+            btnGravar.TabIndex = 3;
             btnGravar.Text = "Logar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -62,7 +62,7 @@
             txtEmail.Location = new Point(162, 39);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(234, 23);
-            txtEmail.TabIndex = 5;
+            txtEmail.TabIndex = 1;
             // 
             // lbNome
             // 
@@ -78,7 +78,7 @@
             txtSenha.Location = new Point(162, 80);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(234, 23);
-            txtSenha.TabIndex = 9;
+            txtSenha.TabIndex = 2;
             // 
             // label1
             // 

@@ -73,6 +73,8 @@ namespace LocadorAutomoveis.WinApp
             btnEditar.Enabled = configuracao.EditarHabilitado;
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
             btnFiltrar.Enabled = configuracao.FiltrarHabilitado;
+            btnConcluir.Enabled = configuracao.ConcluirHabilitado;
+            btnConfiguracao.Enabled = configuracao.ConfigurarHabilitado;
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao)
@@ -81,6 +83,8 @@ namespace LocadorAutomoveis.WinApp
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
             btnFiltrar.ToolTipText = configuracao.TooltipFiltrar;
+            btnConcluir.ToolTipText = configuracao.TooltipConcluir;
+            btnConfiguracao.ToolTipText = configuracao.TooltipConfigurar;
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)

@@ -63,7 +63,7 @@
             btnCancelar.Location = new Point(597, 402);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
-            btnCancelar.TabIndex = 8;
+            btnCancelar.TabIndex = 13;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -73,7 +73,7 @@
             btnGravar.Location = new Point(516, 402);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
-            btnGravar.TabIndex = 7;
+            btnGravar.TabIndex = 12;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -85,7 +85,7 @@
             cmbFuncionario.Location = new Point(151, 41);
             cmbFuncionario.Name = "cmbFuncionario";
             cmbFuncionario.Size = new Size(190, 23);
-            cmbFuncionario.TabIndex = 9;
+            cmbFuncionario.TabIndex = 1;
             // 
             // label1
             // 
@@ -112,7 +112,7 @@
             cmbCliente.Location = new Point(151, 70);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(190, 23);
-            cmbCliente.TabIndex = 11;
+            cmbCliente.TabIndex = 2;
             cmbCliente.SelectedIndexChanged += cmbCliente_SelectedIndexChanged;
             // 
             // label4
@@ -131,7 +131,7 @@
             cmbGrupo.Location = new Point(151, 99);
             cmbGrupo.Name = "cmbGrupo";
             cmbGrupo.Size = new Size(190, 23);
-            cmbGrupo.TabIndex = 13;
+            cmbGrupo.TabIndex = 3;
             cmbGrupo.SelectedIndexChanged += cmbGrupo_SelectedIndexChanged;
             // 
             // label5
@@ -151,7 +151,7 @@
             cmbPlano.Location = new Point(151, 128);
             cmbPlano.Name = "cmbPlano";
             cmbPlano.Size = new Size(190, 23);
-            cmbPlano.TabIndex = 15;
+            cmbPlano.TabIndex = 4;
             // 
             // label6
             // 
@@ -168,7 +168,7 @@
             txtLocacao.Location = new Point(151, 157);
             txtLocacao.Name = "txtLocacao";
             txtLocacao.Size = new Size(190, 23);
-            txtLocacao.TabIndex = 18;
+            txtLocacao.TabIndex = 5;
             // 
             // label7
             // 
@@ -187,7 +187,7 @@
             cmbAutomovel.Location = new Point(482, 73);
             cmbAutomovel.Name = "cmbAutomovel";
             cmbAutomovel.Size = new Size(190, 23);
-            cmbAutomovel.TabIndex = 19;
+            cmbAutomovel.TabIndex = 8;
             cmbAutomovel.SelectedIndexChanged += cmbAutomovel_SelectedIndexChanged;
             // 
             // label8
@@ -206,7 +206,7 @@
             cmbCupom.Location = new Point(286, 196);
             cmbCupom.Name = "cmbCupom";
             cmbCupom.Size = new Size(190, 23);
-            cmbCupom.TabIndex = 21;
+            cmbCupom.TabIndex = 6;
             // 
             // txtKmAutomovel
             // 
@@ -214,7 +214,7 @@
             txtKmAutomovel.Location = new Point(482, 102);
             txtKmAutomovel.Name = "txtKmAutomovel";
             txtKmAutomovel.Size = new Size(190, 23);
-            txtKmAutomovel.TabIndex = 24;
+            txtKmAutomovel.TabIndex = 9;
             // 
             // label2
             // 
@@ -231,7 +231,7 @@
             txtPrevisao.Location = new Point(482, 131);
             txtPrevisao.Name = "txtPrevisao";
             txtPrevisao.Size = new Size(190, 23);
-            txtPrevisao.TabIndex = 26;
+            txtPrevisao.TabIndex = 10;
             // 
             // label9
             // 
@@ -249,7 +249,7 @@
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(396, 192);
-            tabControl1.TabIndex = 27;
+            tabControl1.TabIndex = 11;
             // 
             // tabPage1
             // 
@@ -268,7 +268,7 @@
             listTaxas.Location = new Point(6, 6);
             listTaxas.Name = "listTaxas";
             listTaxas.Size = new Size(376, 148);
-            listTaxas.TabIndex = 0;
+            listTaxas.TabIndex = 1;
             // 
             // label10
             // 
@@ -287,7 +287,7 @@
             cmbCondutor.Location = new Point(482, 41);
             cmbCondutor.Name = "cmbCondutor";
             cmbCondutor.Size = new Size(190, 23);
-            cmbCondutor.TabIndex = 28;
+            cmbCondutor.TabIndex = 7;
             // 
             // TelaAluguelForm
             // 
