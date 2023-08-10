@@ -125,7 +125,7 @@
             txtPreco.Mask = "00000000";
             txtPreco.Name = "txtPreco";
             txtPreco.Size = new Size(129, 23);
-            txtPreco.TabIndex = 8;
+            txtPreco.TabIndex = 2;
             txtPreco.ValidatingType = typeof(int);
             // 
             // TelaTaxasServicoForm

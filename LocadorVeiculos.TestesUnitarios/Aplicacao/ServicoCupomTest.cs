@@ -3,10 +3,8 @@ using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using FluentValidation.Results;
 using LocadorAutomoveis.Aplicacao.ModuloCupom;
-using LocadorAutomoveis.Aplicacao.ModuloDisciplina;
 using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
 using LocadorAutomoveis.Dominio.ModuloParceiro;
 using Moq;
 
@@ -140,9 +138,9 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
         public void Deve_editar_cupom_com_o_mesmo_nome() //cenário 3
         {
             //arrange
-            Cupom outraDisciplina = new Cupom("cupom", 100, DateTime.Today, parceiro);
+            Cupom outroCupom = new Cupom("cupom", 100, DateTime.Today, parceiro);
 
-            Guid id = outraDisciplina.Id;
+            Guid id = outroCupom.Id;
 
             repositorioCupomMoq.Setup(x => x.SelecionarPorNome("Educação Física"))
                  .Returns(() =>
@@ -151,12 +149,12 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
                  });
 
             //action
-            var resultado = servicoCupom.Editar(outraDisciplina);
+            var resultado = servicoCupom.Editar(outroCupom);
 
             //assert 
             resultado.Should().BeSuccess();
 
-            repositorioCupomMoq.Verify(x => x.Editar(outraDisciplina), Times.Once());
+            repositorioCupomMoq.Verify(x => x.Editar(outroCupom), Times.Once());
         }
 
         [TestMethod]
@@ -169,15 +167,15 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
                      return new Cupom("cupom", 100, DateTime.Today, parceiro);
                  });
 
-            Cupom novaDisciplina = new Cupom("cupom", 100, DateTime.Today, parceiro);
+            Cupom novoCupom = new Cupom("cupom", 100, DateTime.Today, parceiro);
 
             //action
-            var resultado = servicoCupom.Editar(novaDisciplina);
+            var resultado = servicoCupom.Editar(novoCupom);
 
             //assert 
             resultado.Should().BeFailure();
 
-            repositorioCupomMoq.Verify(x => x.Editar(novaDisciplina), Times.Never());
+            repositorioCupomMoq.Verify(x => x.Editar(novoCupom), Times.Never());
         }
 
         [TestMethod]

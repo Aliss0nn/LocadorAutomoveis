@@ -8,9 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FluentValidation.TestHelper;
 
-
-
-namespace LocadorAutomoveisTestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloTaxasEServiços
 {
     [TestClass]
     public class ValidadorTaxaEServico
@@ -77,7 +75,7 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio
             //assert
             resultado.ShouldHaveValidationErrorFor(x => x.Nome)
                 .WithErrorMessage("'Nome' deve ser composto por letras e números.");
-        }     
+        }
     }
 
 }

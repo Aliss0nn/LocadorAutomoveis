@@ -1,11 +1,5 @@
-﻿using LocadorAutomoveis.Dominio.ModuloFuncionario;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LocadorAutomoveis.Dominio;
+﻿using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloFuncionario;
 
 
 namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario

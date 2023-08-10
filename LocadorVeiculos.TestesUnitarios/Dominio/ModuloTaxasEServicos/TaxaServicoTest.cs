@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadorAutomoveisTestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloTaxasEServiços
 {
     [TestClass]
     public class TaxaServicoTest
@@ -14,7 +14,7 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio
 
         public TaxaServicoTest()
         {
-            taxasEServico = new TaxasEServico("Limpeza do Veículo",50,"Preço Fixo");
+            taxasEServico = new TaxasEServico("Limpeza do Veículo", 50, "Preço Fixo");
         }
     }
 }

@@ -1,20 +1,14 @@
 ﻿using FluentValidation.TestHelper;
 using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LocadorAutomoveisTestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloCupom
 {
     [TestClass]
     public class ValidadorCupomTest
-    {      
+    {
         private Cupom cupom;
         private ValidadorCupom validador;
-        
+
 
         public ValidadorCupomTest()
         {
@@ -60,5 +54,5 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio
                 .WithErrorMessage("'Nome' deve ser composto por letras e números.");
         }
     }
-        
+
 }

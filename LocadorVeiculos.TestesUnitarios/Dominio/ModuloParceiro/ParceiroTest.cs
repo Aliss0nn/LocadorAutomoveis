@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadorAutomoveisTestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloParceiro
 {
     [TestClass]
     public class ParceiroTest

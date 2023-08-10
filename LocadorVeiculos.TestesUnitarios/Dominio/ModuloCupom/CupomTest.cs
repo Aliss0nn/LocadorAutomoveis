@@ -7,18 +7,18 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadorAutomoveisTestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloCupom
 {
     [TestClass]
     public class CupomTest
     {
         Cupom cupom;
-        Parceiro parceiro;     
+        Parceiro parceiro;
 
         public CupomTest()
         {
             parceiro = new Parceiro("Posto Shell");
-            cupom = new Cupom("Desconto Shell",50,DateTime.Today,parceiro);
+            cupom = new Cupom("Desconto Shell", 50, DateTime.Today, parceiro);
         }
     }
 }
