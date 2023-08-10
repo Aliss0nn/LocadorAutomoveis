@@ -1,6 +1,6 @@
 ﻿namespace LocadorAutomoveis.WinApp.ModuloAluguel
 {
-    partial class TelaAluguelForm
+    partial class TelaAluguelDevolucaoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -53,14 +53,24 @@
             listTaxas = new CheckedListBox();
             label10 = new Label();
             cmbCondutor = new ComboBox();
+            txtDevolucao = new DateTimePicker();
+            label11 = new Label();
+            label12 = new Label();
+            cmbNivelTanque = new ComboBox();
+            label14 = new Label();
+            txtKmPercorrido = new NumericUpDown();
+            tabPage2 = new TabPage();
+            listExtras = new CheckedListBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtKmPercorrido).BeginInit();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(597, 402);
+            btnCancelar.Location = new Point(597, 478);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
             btnCancelar.TabIndex = 8;
@@ -70,7 +80,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(516, 402);
+            btnGravar.Location = new Point(516, 478);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
             btnGravar.TabIndex = 7;
@@ -81,6 +91,7 @@
             // cmbFuncionario
             // 
             cmbFuncionario.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFuncionario.Enabled = false;
             cmbFuncionario.FormattingEnabled = true;
             cmbFuncionario.Location = new Point(151, 41);
             cmbFuncionario.Name = "cmbFuncionario";
@@ -108,12 +119,12 @@
             // cmbCliente
             // 
             cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCliente.Enabled = false;
             cmbCliente.FormattingEnabled = true;
             cmbCliente.Location = new Point(151, 70);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(190, 23);
             cmbCliente.TabIndex = 11;
-            cmbCliente.SelectedIndexChanged += cmbCliente_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -127,12 +138,12 @@
             // cmbGrupo
             // 
             cmbGrupo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbGrupo.Enabled = false;
             cmbGrupo.FormattingEnabled = true;
             cmbGrupo.Location = new Point(151, 99);
             cmbGrupo.Name = "cmbGrupo";
             cmbGrupo.Size = new Size(190, 23);
             cmbGrupo.TabIndex = 13;
-            cmbGrupo.SelectedIndexChanged += cmbGrupo_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -164,6 +175,7 @@
             // 
             // txtLocacao
             // 
+            txtLocacao.Enabled = false;
             txtLocacao.Format = DateTimePickerFormat.Short;
             txtLocacao.Location = new Point(151, 157);
             txtLocacao.Name = "txtLocacao";
@@ -188,12 +200,11 @@
             cmbAutomovel.Name = "cmbAutomovel";
             cmbAutomovel.Size = new Size(190, 23);
             cmbAutomovel.TabIndex = 19;
-            cmbAutomovel.SelectedIndexChanged += cmbAutomovel_SelectedIndexChanged;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(230, 199);
+            label8.Location = new Point(230, 277);
             label8.Name = "label8";
             label8.Size = new Size(50, 15);
             label8.TabIndex = 22;
@@ -203,7 +214,7 @@
             // 
             cmbCupom.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCupom.FormattingEnabled = true;
-            cmbCupom.Location = new Point(286, 196);
+            cmbCupom.Location = new Point(286, 274);
             cmbCupom.Name = "cmbCupom";
             cmbCupom.Size = new Size(190, 23);
             cmbCupom.TabIndex = 21;
@@ -227,6 +238,7 @@
             // 
             // txtPrevisao
             // 
+            txtPrevisao.Enabled = false;
             txtPrevisao.Format = DateTimePickerFormat.Short;
             txtPrevisao.Location = new Point(482, 131);
             txtPrevisao.Name = "txtPrevisao";
@@ -245,7 +257,8 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
-            tabControl1.Location = new Point(35, 255);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new Point(42, 331);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(396, 192);
@@ -264,6 +277,7 @@
             // 
             // listTaxas
             // 
+            listTaxas.Enabled = false;
             listTaxas.FormattingEnabled = true;
             listTaxas.Location = new Point(6, 6);
             listTaxas.Name = "listTaxas";
@@ -273,27 +287,105 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(415, 44);
+            label10.Location = new Point(418, 44);
             label10.Name = "label10";
-            label10.Size = new Size(61, 15);
+            label10.Size = new Size(58, 15);
             label10.TabIndex = 29;
-            label10.Text = "Condutor:";
+            label10.Text = "Condutor";
             // 
             // cmbCondutor
             // 
             cmbCondutor.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCondutor.Enabled = false;
             cmbCondutor.FormattingEnabled = true;
-            cmbCondutor.Location = new Point(482, 41);
+            cmbCondutor.Location = new Point(482, 44);
             cmbCondutor.Name = "cmbCondutor";
             cmbCondutor.Size = new Size(190, 23);
             cmbCondutor.TabIndex = 28;
             // 
-            // TelaAluguelForm
+            // txtDevolucao
+            // 
+            txtDevolucao.Format = DateTimePickerFormat.Short;
+            txtDevolucao.Location = new Point(151, 186);
+            txtDevolucao.Name = "txtDevolucao";
+            txtDevolucao.Size = new Size(190, 23);
+            txtDevolucao.TabIndex = 31;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(55, 192);
+            label11.Name = "label11";
+            label11.Size = new Size(90, 15);
+            label11.TabIndex = 30;
+            label11.Text = "DataDevolução:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(67, 218);
+            label12.Name = "label12";
+            label12.Size = new Size(78, 15);
+            label12.TabIndex = 33;
+            label12.Text = "Nível Tanque:";
+            // 
+            // cmbNivelTanque
+            // 
+            cmbNivelTanque.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbNivelTanque.FormattingEnabled = true;
+            cmbNivelTanque.Location = new Point(151, 215);
+            cmbNivelTanque.Name = "cmbNivelTanque";
+            cmbNivelTanque.Size = new Size(190, 23);
+            cmbNivelTanque.TabIndex = 32;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(420, 162);
+            label14.Name = "label14";
+            label14.Size = new Size(56, 15);
+            label14.TabIndex = 35;
+            label14.Text = "Km Final:";
+            // 
+            // txtKmPercorrido
+            // 
+            txtKmPercorrido.Location = new Point(482, 160);
+            txtKmPercorrido.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
+            txtKmPercorrido.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            txtKmPercorrido.Name = "txtKmPercorrido";
+            txtKmPercorrido.Size = new Size(190, 23);
+            txtKmPercorrido.TabIndex = 36;
+            txtKmPercorrido.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(listExtras);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Size = new Size(388, 164);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Taxas Extras";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listExtras
+            // 
+            listExtras.FormattingEnabled = true;
+            listExtras.Location = new Point(6, 8);
+            listExtras.Name = "listExtras";
+            listExtras.Size = new Size(376, 148);
+            listExtras.TabIndex = 1;
+            // 
+            // TelaAluguelDevolucaoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 459);
+            ClientSize = new Size(684, 535);
+            Controls.Add(txtKmPercorrido);
+            Controls.Add(label14);
+            Controls.Add(label12);
+            Controls.Add(cmbNivelTanque);
+            Controls.Add(txtDevolucao);
+            Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(cmbCondutor);
             Controls.Add(tabControl1);
@@ -317,10 +409,12 @@
             Controls.Add(cmbFuncionario);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
-            Name = "TelaAluguelForm";
+            Name = "TelaAluguelDevolucaoForm";
             Text = "Cadastro de Aluguéis";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtKmPercorrido).EndInit();
+            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -352,5 +446,13 @@
         private CheckedListBox listTaxas;
         private Label label10;
         private ComboBox cmbCondutor;
+        private DateTimePicker txtDevolucao;
+        private Label label11;
+        private Label label12;
+        private ComboBox cmbNivelTanque;
+        private Label label14;
+        private NumericUpDown txtKmPercorrido;
+        private TabPage tabPage2;
+        private CheckedListBox listExtras;
     }
 }
