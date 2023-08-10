@@ -32,6 +32,12 @@ namespace LocadorAutomoveis.Dominio.ModuloFuncionario
             Id = id;
 
         }
+
+        public Funcionario(string nome)
+        {
+            Nome = nome;
+        }
+
         public override string ToString()
         {
             return Nome;

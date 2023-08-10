@@ -3,6 +3,7 @@ using LocadorAutomoveis.WinApp.ModuloAutomovel;
 using LocadorAutomoveis.WinApp.ModuloClientes;
 using LocadorAutomoveis.WinApp.ModuloCondutor;
 using LocadorAutomoveis.WinApp.ModuloCupom;
+using LocadorAutomoveis.WinApp.ModuloDisciplina;
 using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloParceiro;

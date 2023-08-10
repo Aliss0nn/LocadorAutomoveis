@@ -41,6 +41,13 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
                 grupo);
         }
 
+        public ServicoAutomovelTest(Mock<IRepositorioAutomovel> repositorioAutomovelMoq, Mock<IValidadorAutomovel> validadorMoq, Mock<IContextoPersistencia> contextoPersistencia)
+        {
+            this.repositorioAutomovelMoq = repositorioAutomovelMoq;
+            this.validadorMoq = validadorMoq;
+            this.contextoPersistencia = contextoPersistencia;
+        }
+
         [TestMethod]
         public void Deve_inserir_automovel_caso_ele_for_valido() 
         {
