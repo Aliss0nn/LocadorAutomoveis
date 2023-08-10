@@ -65,7 +65,7 @@
             btnCancelar.Location = new Point(356, 373);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
-            btnCancelar.TabIndex = 8;
+            btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -75,7 +75,7 @@
             btnGravar.Location = new Point(275, 373);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
-            btnGravar.TabIndex = 7;
+            btnGravar.TabIndex = 11;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -85,7 +85,7 @@
             txtModelo.Location = new Point(159, 129);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(253, 23);
-            txtModelo.TabIndex = 6;
+            txtModelo.TabIndex = 3;
             // 
             // label2
             // 
@@ -101,7 +101,7 @@
             btnImagem.Location = new Point(304, 40);
             btnImagem.Name = "btnImagem";
             btnImagem.Size = new Size(108, 37);
-            btnImagem.TabIndex = 10;
+            btnImagem.TabIndex = 1;
             btnImagem.Text = "Inserir Imagem";
             btnImagem.UseVisualStyleBackColor = true;
             btnImagem.Click += btnImagem_Click;
@@ -122,7 +122,7 @@
             cmbGrupo.Location = new Point(159, 100);
             cmbGrupo.Name = "cmbGrupo";
             cmbGrupo.Size = new Size(253, 23);
-            cmbGrupo.TabIndex = 12;
+            cmbGrupo.TabIndex = 2;
             // 
             // label4
             // 
@@ -147,7 +147,7 @@
             txtMarca.Location = new Point(159, 158);
             txtMarca.Name = "txtMarca";
             txtMarca.Size = new Size(253, 23);
-            txtMarca.TabIndex = 14;
+            txtMarca.TabIndex = 4;
             // 
             // label6
             // 
@@ -163,7 +163,7 @@
             txtCor.Location = new Point(159, 190);
             txtCor.Name = "txtCor";
             txtCor.Size = new Size(253, 23);
-            txtCor.TabIndex = 17;
+            txtCor.TabIndex = 5;
             // 
             // cmbCombustivel
             // 
@@ -172,7 +172,7 @@
             cmbCombustivel.Location = new Point(156, 272);
             cmbCombustivel.Name = "cmbCombustivel";
             cmbCombustivel.Size = new Size(253, 23);
-            cmbCombustivel.TabIndex = 18;
+            cmbCombustivel.TabIndex = 8;
             // 
             // label7
             // 
@@ -199,7 +199,7 @@
             txtAno.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtAno.Name = "txtAno";
             txtAno.Size = new Size(120, 23);
-            txtAno.TabIndex = 22;
+            txtAno.TabIndex = 6;
             txtAno.Value = new decimal(new int[] { 2023, 0, 0, 0 });
             // 
             // txtCapacidade
@@ -210,7 +210,7 @@
             txtCapacidade.Minimum = new decimal(new int[] { 1, 0, 0, 131072 });
             txtCapacidade.Name = "txtCapacidade";
             txtCapacidade.Size = new Size(120, 23);
-            txtCapacidade.TabIndex = 24;
+            txtCapacidade.TabIndex = 9;
             txtCapacidade.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // label9
@@ -237,7 +237,7 @@
             txtQuilometragem.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             txtQuilometragem.Name = "txtQuilometragem";
             txtQuilometragem.Size = new Size(120, 23);
-            txtQuilometragem.TabIndex = 27;
+            txtQuilometragem.TabIndex = 10;
             txtQuilometragem.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label11
@@ -255,7 +255,7 @@
             txtPlaca.Mask = "aaa-0000";
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(120, 23);
-            txtPlaca.TabIndex = 28;
+            txtPlaca.TabIndex = 7;
             // 
             // folderBrowserDialog1
             // 

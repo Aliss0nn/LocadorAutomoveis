@@ -17,7 +17,7 @@ namespace LocadorAutomoveis.WinApp.ModuloPlanoCobranca
         {
             var colunas = new DataGridViewColumn[]
             {
-                new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F },
+                new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F , Visible = false},
 
                 new DataGridViewTextBoxColumn { Name = "Grupo", HeaderText = "Grupo", FillWeight=85F },
 

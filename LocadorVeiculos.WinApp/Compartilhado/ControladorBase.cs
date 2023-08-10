@@ -14,6 +14,10 @@ namespace LocadorAutomoveis.WinApp
 
         public virtual void Filtrar() { }
 
+        public virtual void Configurar() { }
+
+        public virtual void Concluir() { }
+
         public abstract UserControl ObtemListagem();
 
         public abstract ConfiguracaoToolboxBase ObtemConfiguracaoToolbox();

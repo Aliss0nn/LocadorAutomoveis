@@ -1,7 +1,11 @@
-﻿namespace LocadorAutomoveis.Dominio.ModuloAluguel
+﻿using LocadorAutomoveis.Dominio.ModuloAutomovel;
+
+namespace LocadorAutomoveis.Dominio.ModuloAluguel
 {
     public interface IRepositorioAluguel : IRepositorio<Aluguel>
     {        
-        Aluguel SelecionarTodos(bool carregarObjetos);
+        List<Aluguel> SelecionarTodos(bool carregarObjetos = false);
+
+        Aluguel SelecionarPorAutomovel(Automovel automovel);
     }
 }

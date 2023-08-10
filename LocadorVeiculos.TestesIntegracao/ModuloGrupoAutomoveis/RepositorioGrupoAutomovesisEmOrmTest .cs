@@ -44,9 +44,10 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloGrupoAutomoveis
 
             //action
             repositorioGrupoAutomoveis.Excluir(grupo);
+            contextoPersistencia.GravarDados();
 
             //assert
-            repositorioDisciplina.SelecionarPorId(grupo.Id).Should().BeNull();
+            repositorioGrupoAutomoveis.SelecionarPorId(grupo.Id).Should().BeNull();
         }
 
         [TestMethod]

@@ -1,33 +1,30 @@
 ﻿using FizzWare.NBuilder;
 using FluentAssertions;
 using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
-using LocadorAutomoveis.TestesIntegracao.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LocadorAutomoveis.Dominio.ModuloParceiro;
 
 namespace LocadorAutomoveis.TestesIntegracao.ModuloCupom
 {
+    [TestClass]
     public class RepositorioCupomEmOrmTest : TestesIntegracaoBase
     {
         [TestMethod]
-        public void Deve_inserir_disciplina()
+        public void Deve_inserir_cupom()
         {
             //arrange
             var cupom = Builder<Cupom>.CreateNew().Build();
+            cupom.Parceiro = Builder<Parceiro>.CreateNew().Persist();
 
             //action
             repositorioCupom.Inserir(cupom);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioCupom.SelecionarPorId(cupom.Id).Should().Be(cupom);
         }
 
         [TestMethod]
-        public void Deve_editar_disciplina()
+        public void Deve_editar_cupom()
         {
             //arrange
             var cupomId = Builder<Cupom>.CreateNew().Persist().Id;
@@ -37,6 +34,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloCupom
 
             //action
             repositorioCupom.Editar(cupom);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioCupom.SelecionarPorId(cupom.Id)
@@ -44,20 +42,21 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloCupom
         }
 
         [TestMethod]
-        public void Deve_excluir_disciplina()
+        public void Deve_excluir_cupom()
         {
             //arrange
             var cupom = Builder<Cupom>.CreateNew().Persist();
 
             //action
             repositorioCupom.Excluir(cupom);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioCupom.SelecionarPorId(cupom.Id).Should().BeNull();
         }
 
         [TestMethod]
-        public void Deve_selecionar_todas_disciplinas()
+        public void Deve_selecionar_todos_cupons()
         {
             //arrange
             var desconto = Builder<Cupom>.CreateNew().Persist();
@@ -73,26 +72,26 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloCupom
 
 
         [TestMethod]
-        public void Deve_selecionar_disciplina_por_nome()
+        public void Deve_selecionar_cupom_por_nome()
         {
             //arrange
             var desconto = Builder<Cupom>.CreateNew().Persist();
 
             //action
-            var disciplinasEncontrada = repositorioCupom.SelecionarPorNome(desconto.Nome);
+            var cupomsEncontrado = repositorioCupom.SelecionarPorNome(desconto.Nome);
 
             //assert
-            disciplinasEncontrada.Should().Be(desconto);
+            cupomsEncontrado.Should().Be(desconto);
         }
 
         [TestMethod]
-        public void Deve_selecionar_disciplina_por_id()
+        public void Deve_selecionar_cupom_por_id()
         {
             //arrange
             var desconto = Builder<Cupom>.CreateNew().Persist();
 
             //action
-            var descontoEncontrado = repositorioDisciplina.SelecionarPorId(desconto.Id);
+            var descontoEncontrado = repositorioCupom.SelecionarPorId(desconto.Id);
 
             //assert            
             descontoEncontrado.Should().Be(desconto);

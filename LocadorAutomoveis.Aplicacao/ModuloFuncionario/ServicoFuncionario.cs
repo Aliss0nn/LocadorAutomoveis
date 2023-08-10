@@ -1,11 +1,5 @@
-﻿using LocadorAutomoveis.Dominio.ModuloFuncionario;
-using LocadorAutomoveis.Dominio.ModuloDisciplina;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LocadorAutomoveis.Dominio;
+﻿using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloFuncionario;
 
 
 namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
@@ -47,7 +41,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
 
                 contextoPersistencia.GravarDados();
 
-                return Result.Ok(); //cenário 1
+                return Result.Ok(); 
             }
             catch (Exception exc)
             {
@@ -57,7 +51,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
 
                 contextoPersistencia.DesfazerAlteracoes();
 
-                return Result.Fail(msgErro); //cenário 3
+                return Result.Fail(msgErro); 
             }
         }
 
@@ -161,7 +155,7 @@ namespace LocadorAutomoveis.Aplicacao.ModuloFuncionario
 
             if(Funcionario.Salario < 250 )
             {
-                erros.Add($"Este nome '{Funcionario.Salario}' Não contem o valor mínimo 250$");
+                erros.Add($"Este salário '{Funcionario.Salario}' Não contem o valor mínimo 250$");
             }
 
             foreach (string erro in erros)

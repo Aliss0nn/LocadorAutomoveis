@@ -42,7 +42,7 @@
             // btnInserir
             // 
             btnInserir.DialogResult = DialogResult.OK;
-            btnInserir.Location = new Point(195, 162);
+            btnInserir.Location = new Point(158, 139);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(75, 40);
             btnInserir.TabIndex = 0;
@@ -53,7 +53,7 @@
             // button2
             // 
             button2.DialogResult = DialogResult.Cancel;
-            button2.Location = new Point(276, 162);
+            button2.Location = new Point(239, 139);
             button2.Name = "button2";
             button2.Size = new Size(75, 40);
             button2.TabIndex = 1;
@@ -63,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(34, 59);
+            label1.Location = new Point(47, 26);
             label1.Name = "label1";
             label1.Size = new Size(43, 15);
             label1.TabIndex = 2;
@@ -72,7 +72,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(17, 99);
+            label2.Location = new Point(30, 66);
             label2.Name = "label2";
             label2.Size = new Size(62, 15);
             label2.TabIndex = 3;
@@ -81,7 +81,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(34, 130);
+            label3.Location = new Point(47, 97);
             label3.Name = "label3";
             label3.Size = new Size(45, 15);
             label3.TabIndex = 4;
@@ -89,35 +89,35 @@
             // 
             // txt_Nome
             // 
-            txt_Nome.Location = new Point(85, 56);
+            txt_Nome.Location = new Point(98, 23);
             txt_Nome.Name = "txt_Nome";
             txt_Nome.Size = new Size(172, 23);
-            txt_Nome.TabIndex = 5;
+            txt_Nome.TabIndex = 1;
             // 
             // txt_dataAdmissao
             // 
             txt_dataAdmissao.Format = DateTimePickerFormat.Short;
-            txt_dataAdmissao.Location = new Point(85, 93);
+            txt_dataAdmissao.Location = new Point(98, 60);
             txt_dataAdmissao.MinDate = new DateTime(2023, 6, 15, 0, 0, 0, 0);
             txt_dataAdmissao.Name = "txt_dataAdmissao";
-            txt_dataAdmissao.Size = new Size(200, 23);
-            txt_dataAdmissao.TabIndex = 8;
+            txt_dataAdmissao.Size = new Size(172, 23);
+            txt_dataAdmissao.TabIndex = 2;
             txt_dataAdmissao.Value = new DateTime(2023, 6, 24, 0, 0, 0, 0);
             // 
             // txt_Salario
             // 
             txt_Salario.DecimalPlaces = 2;
-            txt_Salario.Location = new Point(85, 128);
+            txt_Salario.Location = new Point(98, 95);
             txt_Salario.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             txt_Salario.Name = "txt_Salario";
-            txt_Salario.Size = new Size(120, 23);
-            txt_Salario.TabIndex = 9;
+            txt_Salario.Size = new Size(172, 23);
+            txt_Salario.TabIndex = 3;
             // 
             // TelaFuncionarioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(375, 214);
+            ClientSize = new Size(326, 191);
             Controls.Add(txt_Salario);
             Controls.Add(txt_dataAdmissao);
             Controls.Add(txt_Nome);

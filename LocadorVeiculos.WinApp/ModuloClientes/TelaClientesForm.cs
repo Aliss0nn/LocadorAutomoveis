@@ -59,7 +59,7 @@ namespace LocadorAutomoveis.WinApp.ModuloClientes
             if (clientes.TipoPessoa == "Juridica")
             {
                 radioButton1.Checked = true;
-                
+
                 txtCpf.Enabled = false;
 
                 txtCnpj.Enabled = true;

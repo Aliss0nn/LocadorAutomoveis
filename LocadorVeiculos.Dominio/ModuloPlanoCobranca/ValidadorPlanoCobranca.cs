@@ -8,49 +8,42 @@
                 .NotNull();
 
             RuleFor(x => x.PrecoDiario)
-                .NotNull()
                 .GreaterThan(0);
-
-            RuleFor(x => x.TipoPlano)
-                .NotEqual(new TipoPlanoEnum());
 
             When(x => x.TipoPlano == TipoPlanoEnum.Diario, () =>
             {
                 RuleFor(x => x.PrecoKm)
-                .NotNull()
                 .GreaterThan(0);
             });
 
             When(x => x.TipoPlano == TipoPlanoEnum.Diario, () =>
             {
                 RuleFor(x => x.KmLivre)
-                .Null();
+                .Equal(0);
             });
 
             When(x => x.TipoPlano == TipoPlanoEnum.Controlado, () =>
             {
                 RuleFor(x => x.PrecoKm)
-                .NotNull()
                 .GreaterThan(0);
             });
 
             When(x => x.TipoPlano == TipoPlanoEnum.Controlado, () =>
             {
                 RuleFor(x => x.KmLivre)
-                .NotNull()
                 .GreaterThan(0);
             });
 
             When(x => x.TipoPlano == TipoPlanoEnum.Livre, () =>
             {
                 RuleFor(x => x.PrecoKm)
-                .Null();
+                 .Equal(0);
             });
 
             When(x => x.TipoPlano == TipoPlanoEnum.Livre, () =>
             {
                 RuleFor(x => x.KmLivre)
-                .Null();
+                 .Equal(0);
             });
         }
     }

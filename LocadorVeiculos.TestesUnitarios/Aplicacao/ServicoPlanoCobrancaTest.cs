@@ -26,6 +26,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             repositorioPlanoCobrancaMoq = new Mock<IRepositorioPlanoCobranca>();
             validadorMoq = new Mock<IValidadorPlanoCobranca>();
+            contextoPersistenciaMoq = new Mock<IContextoPersistencia>();
             servicoPlanoCobranca = new ServicoPlanoCobranca(repositorioPlanoCobrancaMoq.Object, validadorMoq.Object,contextoPersistenciaMoq.Object);
             grupo = new GrupoAutomoveis("Esportivo");
             plano = new PlanoCobranca(grupo, TipoPlanoEnum.Livre, 10, 0, 0);

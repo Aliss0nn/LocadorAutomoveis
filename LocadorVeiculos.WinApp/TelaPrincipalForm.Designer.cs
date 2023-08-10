@@ -40,12 +40,15 @@ namespace LocadorAutomoveis.WinApp
             cupomToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             automóveisToolStripMenuItem = new ToolStripMenuItem();
+            condutoresToolStripMenuItem = new ToolStripMenuItem();
+            aluguéisToolStripMenuItem = new ToolStripMenuItem();
             toolbox = new ToolStrip();
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             btnFiltrar = new ToolStripButton();
+            btnConcluir = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripSeparator4 = new ToolStripSeparator();
@@ -53,7 +56,7 @@ namespace LocadorAutomoveis.WinApp
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
             panelRegistros = new Panel();
-            condutoresToolStripMenuItem = new ToolStripMenuItem();
+            btnConfiguracao = new ToolStripButton();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -71,7 +74,7 @@ namespace LocadorAutomoveis.WinApp
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { taxasEServiçosToolStripMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem, cupomToolStripMenuItem, clientesToolStripMenuItem, automóveisToolStripMenuItem, condutoresToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { taxasEServiçosToolStripMenuItem, gruposDeAutomóveisToolStripMenuItem, parceirosToolStripMenuItem, funcionáriosToolStripMenuItem, planosDeCobrançaToolStripMenuItem, cupomToolStripMenuItem, clientesToolStripMenuItem, automóveisToolStripMenuItem, condutoresToolStripMenuItem, aluguéisToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -132,11 +135,25 @@ namespace LocadorAutomoveis.WinApp
             automóveisToolStripMenuItem.Text = "Automóveis";
             automóveisToolStripMenuItem.Click += automóveisToolStripMenuItem_Click;
             // 
+            // condutoresToolStripMenuItem
+            // 
+            condutoresToolStripMenuItem.Name = "condutoresToolStripMenuItem";
+            condutoresToolStripMenuItem.Size = new Size(196, 22);
+            condutoresToolStripMenuItem.Text = "Condutores";
+            condutoresToolStripMenuItem.Click += condutoresToolStripMenuItem_Click;
+            // 
+            // aluguéisToolStripMenuItem
+            // 
+            aluguéisToolStripMenuItem.Name = "aluguéisToolStripMenuItem";
+            aluguéisToolStripMenuItem.Size = new Size(196, 22);
+            aluguéisToolStripMenuItem.Text = "Aluguéis";
+            aluguéisToolStripMenuItem.Click += aluguéisToolStripMenuItem_Click;
+            // 
             // toolbox
             // 
             toolbox.Enabled = false;
             toolbox.ImageScalingSize = new Size(20, 20);
-            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, toolStripSeparator1, toolStripSeparator4, labelTipoCadastro });
+            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, btnConfiguracao, toolStripSeparator1, btnConcluir, toolStripSeparator4, labelTipoCadastro });
             toolbox.Location = new Point(0, 24);
             toolbox.Name = "toolbox";
             toolbox.Size = new Size(686, 41);
@@ -196,6 +213,18 @@ namespace LocadorAutomoveis.WinApp
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.Click += btnFiltrar_Click;
             // 
+            // btnConcluir
+            // 
+            btnConcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluir.Image = Properties.Resources.picture_as_pdf_FILL0_wght400_GRAD0_opsz24;
+            btnConcluir.ImageScaling = ToolStripItemImageScaling.None;
+            btnConcluir.ImageTransparentColor = Color.Magenta;
+            btnConcluir.Name = "btnConcluir";
+            btnConcluir.Padding = new Padding(5);
+            btnConcluir.Size = new Size(38, 38);
+            btnConcluir.Text = "Concluir";
+            btnConcluir.Click += btnConcluir_Click;
+            // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
@@ -242,12 +271,17 @@ namespace LocadorAutomoveis.WinApp
             panelRegistros.Size = new Size(686, 334);
             panelRegistros.TabIndex = 3;
             // 
-            // condutoresToolStripMenuItem
+            // btnConfiguracao
             // 
-            condutoresToolStripMenuItem.Name = "condutoresToolStripMenuItem";
-            condutoresToolStripMenuItem.Size = new Size(196, 22);
-            condutoresToolStripMenuItem.Text = "Condutores";
-            condutoresToolStripMenuItem.Click += condutoresToolStripMenuItem_Click;
+            btnConfiguracao.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConfiguracao.Image = Properties.Resources.outline_list_alt_black_24dp;
+            btnConfiguracao.ImageScaling = ToolStripItemImageScaling.None;
+            btnConfiguracao.ImageTransparentColor = Color.Magenta;
+            btnConfiguracao.Name = "btnConfiguracao";
+            btnConfiguracao.Padding = new Padding(5);
+            btnConfiguracao.Size = new Size(38, 38);
+            btnConfiguracao.Text = "Configurar";
+            btnConfiguracao.Click += btnConfiguracao_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -301,5 +335,8 @@ namespace LocadorAutomoveis.WinApp
         private ToolStripMenuItem automóveisToolStripMenuItem;
         private ToolStripButton btnFiltrar;
         private ToolStripMenuItem condutoresToolStripMenuItem;
+        private ToolStripMenuItem aluguéisToolStripMenuItem;
+        private ToolStripButton btnConcluir;
+        private ToolStripButton btnConfiguracao;
     }
 }

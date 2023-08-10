@@ -28,36 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtId = new TextBox();
-            label1 = new Label();
             btnCancelar = new Button();
             btnGravar = new Button();
             txtNome = new TextBox();
             label2 = new Label();
             SuspendLayout();
             // 
-            // txtId
-            // 
-            txtId.Enabled = false;
-            txtId.Location = new Point(76, 17);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(60, 23);
-            txtId.TabIndex = 0;
-            txtId.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(50, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(20, 15);
-            label1.TabIndex = 5;
-            label1.Text = "Id:";
-            // 
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(270, 102);
+            btnCancelar.Location = new Point(254, 70);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
             btnCancelar.TabIndex = 3;
@@ -67,7 +47,7 @@
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(189, 102);
+            btnGravar.Location = new Point(173, 70);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
             btnGravar.TabIndex = 2;
@@ -77,7 +57,7 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(76, 46);
+            txtNome.Location = new Point(60, 27);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(253, 23);
             txtNome.TabIndex = 1;
@@ -85,7 +65,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 49);
+            label2.Location = new Point(11, 30);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 6;
@@ -95,9 +75,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(357, 159);
-            Controls.Add(txtId);
-            Controls.Add(label1);
+            ClientSize = new Size(341, 127);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(txtNome);
@@ -109,9 +87,6 @@
         }
 
         #endregion
-
-        private TextBox txtId;
-        private Label label1;
         private Button btnCancelar;
         private Button btnGravar;
         private TextBox txtNome;

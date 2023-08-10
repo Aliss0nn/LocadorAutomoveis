@@ -8,6 +8,7 @@ using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloParceiro;
 using LocadorAutomoveis.WinApp.ModuloTaxasEServicos;
+using LocadorAutomoveis.WinApp.ModuloAluguel;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -73,6 +74,8 @@ namespace LocadorAutomoveis.WinApp
             btnEditar.Enabled = configuracao.EditarHabilitado;
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
             btnFiltrar.Enabled = configuracao.FiltrarHabilitado;
+            btnConcluir.Enabled = configuracao.ConcluirHabilitado;
+            btnConfiguracao.Enabled = configuracao.ConfigurarHabilitado;
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao)
@@ -81,6 +84,8 @@ namespace LocadorAutomoveis.WinApp
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
             btnFiltrar.ToolTipText = configuracao.TooltipFiltrar;
+            btnConcluir.ToolTipText = configuracao.TooltipConcluir;
+            btnConfiguracao.ToolTipText = configuracao.TooltipConfigurar;
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
@@ -167,6 +172,21 @@ namespace LocadorAutomoveis.WinApp
         private void condutoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(ioc.Get<ControladorCondutor>());
+        }
+
+        private void aluguéisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(ioc.Get<ControladorAluguel>());
+        }
+
+        private void btnConcluir_Click(object sender, EventArgs e)
+        {
+            controlador.Concluir();
+        }
+
+        private void btnConfiguracao_Click(object sender, EventArgs e)
+        {
+            controlador.Configurar();
         }
     }
 }

@@ -55,7 +55,7 @@
             txtId.Location = new Point(94, 24);
             txtId.Name = "txtId";
             txtId.Size = new Size(60, 23);
-            txtId.TabIndex = 7;
+            txtId.TabIndex = 1;
             txtId.TabStop = false;
             // 
             // label1
@@ -73,7 +73,7 @@
             btnCancelar.Location = new Point(259, 285);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 45);
-            btnCancelar.TabIndex = 10;
+            btnCancelar.TabIndex = 9;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -83,7 +83,7 @@
             btnGravar.Location = new Point(178, 285);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 45);
-            btnGravar.TabIndex = 9;
+            btnGravar.TabIndex = 8;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -104,7 +104,7 @@
             cmbTipo.Location = new Point(94, 82);
             cmbTipo.Name = "cmbTipo";
             cmbTipo.Size = new Size(214, 23);
-            cmbTipo.TabIndex = 13;
+            cmbTipo.TabIndex = 3;
             cmbTipo.SelectedIndexChanged += cmbTipo_SelectedIndexChanged;
             // 
             // label3
@@ -127,7 +127,7 @@
             groupBox1.Location = new Point(45, 125);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(263, 145);
-            groupBox1.TabIndex = 15;
+            groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Configurações do Plano";
             // 
@@ -138,7 +138,7 @@
             txtKmLivres.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             txtKmLivres.Name = "txtKmLivres";
             txtKmLivres.Size = new Size(54, 23);
-            txtKmLivres.TabIndex = 19;
+            txtKmLivres.TabIndex = 7;
             // 
             // txtPrecoKm
             // 
@@ -147,7 +147,7 @@
             txtPrecoKm.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             txtPrecoKm.Name = "txtPrecoKm";
             txtPrecoKm.Size = new Size(54, 23);
-            txtPrecoKm.TabIndex = 18;
+            txtPrecoKm.TabIndex = 6;
             // 
             // txtPrecoDiario
             // 
@@ -156,7 +156,7 @@
             txtPrecoDiario.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             txtPrecoDiario.Name = "txtPrecoDiario";
             txtPrecoDiario.Size = new Size(54, 23);
-            txtPrecoDiario.TabIndex = 17;
+            txtPrecoDiario.TabIndex = 5;
             // 
             // label
             // 
@@ -183,7 +183,7 @@
             cmbGrupo.Location = new Point(94, 53);
             cmbGrupo.Name = "cmbGrupo";
             cmbGrupo.Size = new Size(214, 23);
-            cmbGrupo.TabIndex = 17;
+            cmbGrupo.TabIndex = 2;
             // 
             // label5
             // 
