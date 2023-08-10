@@ -10,6 +10,7 @@ using Moq;
 
 namespace LocadorAutomoveisTestesUnitarios.Aplicacao
 {
+    [TestClass]
     public class ServicoCupomTest
     {
         Mock<IRepositorioCupom> repositorioCupomMoq;

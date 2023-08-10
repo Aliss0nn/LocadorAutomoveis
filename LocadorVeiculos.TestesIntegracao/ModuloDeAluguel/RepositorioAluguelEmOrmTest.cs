@@ -4,6 +4,7 @@ using LocadorAutomoveis.Dominio.ModuloAluguel;
 
 namespace LocadorAutomoveis.TestesIntegracao.ModuloDeAluguel
 {
+   
     public class RepositorioAluguelEmOrmTest : TestesIntegracaoBase
     {
         [TestMethod]

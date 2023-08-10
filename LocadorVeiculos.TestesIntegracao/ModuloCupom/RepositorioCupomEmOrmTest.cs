@@ -1,9 +1,11 @@
 ﻿using FizzWare.NBuilder;
 using FluentAssertions;
 using LocadorAutomoveis.Dominio.ModuloCupom;
+using LocadorAutomoveis.Dominio.ModuloParceiro;
 
 namespace LocadorAutomoveis.TestesIntegracao.ModuloCupom
 {
+    [TestClass]
     public class RepositorioCupomEmOrmTest : TestesIntegracaoBase
     {
         [TestMethod]
@@ -11,6 +13,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloCupom
         {
             //arrange
             var cupom = Builder<Cupom>.CreateNew().Build();
+            cupom.Parceiro = Builder<Parceiro>.CreateNew().Persist();
 
             //action
             repositorioCupom.Inserir(cupom);
@@ -45,7 +48,8 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloCupom
             var cupom = Builder<Cupom>.CreateNew().Persist();
 
             //action
-            repositorioCupom.Excluir(cupom);         
+            repositorioCupom.Excluir(cupom);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioCupom.SelecionarPorId(cupom.Id).Should().BeNull();

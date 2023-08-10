@@ -1,6 +1,8 @@
 ﻿using FizzWare.NBuilder;
 using LocadorAutomoveis.Dominio;
 using LocadorAutomoveis.Dominio.ModuloAluguel;
+using LocadorAutomoveis.Dominio.ModuloAutomovel;
+using LocadorAutomoveis.Dominio.ModuloClientes;
 using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloCupom;
 using LocadorAutomoveis.Dominio.ModuloFuncionario;
@@ -11,7 +13,9 @@ using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
 using LocadorAutomoveis.Infra.Orm.ModuloAluguel;
+using LocadorAutomoveis.Infra.Orm.ModuloClientes;
 using LocadorAutomoveis.Infra.Orm.ModuloCondutor;
+using LocadorAutomoveis.Infra.Orm.ModuloCupom;
 using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
@@ -31,6 +35,7 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         protected IRepositorioPlanoCobranca repositorioPlanoCobranca;
         protected IRepositorioCupom repositorioCupom;
         protected IRepositorioCondutor repositorioCondutor;
+        protected IRepositorioClientes repositorioCliente;
         protected IRepositorioAluguel repositorioAluguel;
         public TestesIntegracaoBase()
         {
@@ -97,11 +102,29 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
                 contextoPersistencia.GravarDados();
             });
 
+            //Cliente
+            repositorioCliente = new RepositorioClientesEmOrm(dbContext);
+            BuilderSetup.SetCreatePersistenceMethod<Clientes>((Cliente) =>
+            {
+                repositorioCliente.Inserir(Cliente);
+                contextoPersistencia.GravarDados();
+            });
+
             //Condutor
             repositorioCondutor = new RepositorioCondutorEmOrm(dbContext);
             BuilderSetup.SetCreatePersistenceMethod<Condutor>((Condutor) =>
             {
+                Condutor.Clientes = Builder<Clientes>.CreateNew().Persist();
                 repositorioCondutor.Inserir(Condutor);
+                contextoPersistencia.GravarDados();
+            });
+
+            //Cupom
+            repositorioCupom = new RepositorioCupomEmOrm(dbContext);
+            BuilderSetup.SetCreatePersistenceMethod<Cupom>((Cupom) =>
+            {
+                Cupom.Parceiro = Builder<Parceiro>.CreateNew().Persist();
+                repositorioCupom.Inserir(Cupom);
                 contextoPersistencia.GravarDados();
             });
 
@@ -117,13 +140,21 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
 
         protected static void LimparTabelas(LocadorAutomoveisDbContext dbContext)
         {
+            LimparLista<Aluguel>(dbContext);
+            LimparLista<Automovel>(dbContext);
             LimparLista<PlanoCobranca>(dbContext);
             LimparLista<GrupoAutomoveis>(dbContext);
+            LimparLista<Cupom>(dbContext);
             LimparLista<Parceiro>(dbContext);
             LimparLista<Funcionario>(dbContext);
             LimparLista<TaxasEServico>(dbContext);
             LimparLista<Condutor>(dbContext);
+            LimparLista<Clientes>(dbContext);
+           
+         
             
+            
+
         }
            
 

@@ -9,6 +9,7 @@ using Moq;
 
 namespace LocadorAutomoveisTestesUnitarios.Aplicacao
 {
+    [TestClass]
     public class ServicoTaxasEServicoTest
     {
         Mock<IRepositorioTaxasServico> repositorioMoq;

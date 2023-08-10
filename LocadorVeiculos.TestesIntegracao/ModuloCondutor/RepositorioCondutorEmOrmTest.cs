@@ -1,10 +1,12 @@
 ﻿using FizzWare.NBuilder;
 using FluentAssertions;
+using LocadorAutomoveis.Dominio.ModuloClientes;
 using LocadorAutomoveis.Dominio.ModuloCondutor;
 using LocadorAutomoveis.Dominio.ModuloCupom;
 
 namespace LocadorAutomoveis.TestesIntegracao.ModuloCondutor
 {
+    [TestClass]
     public class RepositorioCondutorEmOrmTest : TestesIntegracaoBase
     {
         [TestMethod]
@@ -12,6 +14,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloCondutor
         {
             //arrange
             var condutor = Builder<Condutor>.CreateNew().Build();
+            condutor.Clientes = Builder<Clientes>.CreateNew().Build();
 
             //action
             repositorioCondutor.Inserir(condutor);
