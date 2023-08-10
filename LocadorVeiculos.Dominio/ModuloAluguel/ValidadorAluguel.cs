@@ -49,12 +49,6 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
                 RuleFor(x => x.KmPercorrido)
                 .GreaterThan(0);
             });
-
-            When(x => x.Fechado, () =>
-            {
-                RuleFor(x => x.NivelTanque)
-                .NotEqual(new NivelTanqueEnum());
-            });
         }
     }
 }

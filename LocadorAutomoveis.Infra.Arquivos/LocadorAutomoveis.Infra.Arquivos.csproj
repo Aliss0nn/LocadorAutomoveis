@@ -15,4 +15,10 @@
     <ProjectReference Include="..\LocadorVeiculos.Dominio\LocadorAutomoveis.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ModuloAluguel\Configuracao.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

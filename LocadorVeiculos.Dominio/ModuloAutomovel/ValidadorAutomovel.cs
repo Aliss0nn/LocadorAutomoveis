@@ -19,9 +19,6 @@
                 .NotNull()
                 .MinimumLength(3);
 
-            RuleFor(x => x.TipoCombustivel)
-                .NotEqual(new TipoCombustivelEnum());
-
             RuleFor(x => x.Quilometragem)
                 .GreaterThanOrEqualTo(0);
 

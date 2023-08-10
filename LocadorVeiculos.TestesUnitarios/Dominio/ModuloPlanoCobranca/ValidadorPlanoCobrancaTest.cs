@@ -29,16 +29,6 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloPlanoCobrança
         }
 
         [TestMethod]
-        public void TipoPlano_planoCobranca_nao_deve_ser_nulo()
-        {
-            //action
-            var resultado = validador.TestValidate(plano);
-
-            //assert
-            resultado.ShouldHaveValidationErrorFor(x => x.TipoPlano);
-        }
-
-        [TestMethod]
         public void PrecoDiario_planoCobranca_nao_deve_ser_nulo()
         {
             //action

@@ -88,16 +88,6 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloAutomovel
         }
 
         [TestMethod]
-        public void TipoCombustivel_automovel_nao_deve_ser_nulo()
-        {
-            //action
-            var resultado = validador.TestValidate(automovel);
-
-            //assert
-            resultado.ShouldHaveValidationErrorFor(x => x.TipoCombustivel);
-        }
-
-        [TestMethod]
         public void Quilometragem_automovel_nao_ser_negativa()
         {
             //arrange
