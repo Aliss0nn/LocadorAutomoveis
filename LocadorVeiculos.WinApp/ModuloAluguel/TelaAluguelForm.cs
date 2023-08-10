@@ -109,10 +109,16 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             aluguel.DataLocacao = txtLocacao.Value.Date;
             aluguel.DataPrevisao = txtPrevisao.Value.Date;
 
-            aluguel.KmAutomovel = Convert.ToInt32(txtKmAutomovel.Text);
 
-            aluguel.PrecoInicial();
+            try
+            {
+                aluguel.KmAutomovel = Convert.ToInt32(txtKmAutomovel.Text);
+                aluguel.PrecoInicial();
+            }
+            catch
+            {
 
+            }
             return aluguel;
         }
 

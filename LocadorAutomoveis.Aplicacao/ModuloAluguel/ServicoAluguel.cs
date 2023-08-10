@@ -152,11 +152,12 @@ namespace LocadorAutomoveis.Aplicacao.ModuloAluguel
 
         private bool AutomovelDuplicado(Aluguel aluguel)
         {
-            Aluguel aluguelEncontrada = repositorioAluguel.SelecionarPorAutomovel(aluguel.Automovel);
+            Aluguel aluguelEncontrado = repositorioAluguel.SelecionarPorAutomovel(aluguel.Automovel);
 
-            if (aluguelEncontrada != null &&
-                aluguelEncontrada.Id != aluguel.Id &&
-                aluguelEncontrada.Automovel == aluguel.Automovel)
+            if (aluguelEncontrado != null &&
+                aluguelEncontrado.Id != aluguel.Id &&
+                aluguelEncontrado.Automovel == aluguel.Automovel &&
+                !aluguelEncontrado.Fechado)
             {
                 return true;
             }

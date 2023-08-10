@@ -9,7 +9,7 @@ using Moq;
 
 namespace LocadorAutomoveisTestesUnitarios.Aplicacao
 {
-    [TestClass]
+ 
     public class ServicoTaxasEServicoTest
     {
         Mock<IRepositorioTaxasServico> repositorioMoq;
@@ -138,14 +138,14 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
         public void Deve_editar_TaxasEServico_com_o_mesmo_nome() //cenário 3
         {
             //arrange
-            TaxasEServico outraTaxasEServico = new TaxasEServico("TaxasEServico", 100, "planoTeste");
+            TaxasEServico outraTaxasEServico = new TaxasEServico("TaxasEServico", 100, "Preço Fixo");
 
             Guid id = outraTaxasEServico.Id;
 
             repositorioMoq.Setup(x => x.SelecionarPorNome("TaxasEServico"))
                  .Returns(() =>
                  {
-                     return new TaxasEServico(id, "TaxasEServico",100,"planoTeste");
+                     return new TaxasEServico(id, "TaxasEServico",100,"Preço Fixo");
                  });
 
             //action

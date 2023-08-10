@@ -34,6 +34,11 @@ namespace LocadorAutomoveis.Dominio.ModuloTaxasEServicos
             Id = id;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
         public override void Atualizar(TaxasEServico registro)
         {
             this.Nome = registro.Nome;

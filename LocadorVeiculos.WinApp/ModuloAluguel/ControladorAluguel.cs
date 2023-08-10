@@ -109,6 +109,13 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
                 return;
             }
 
+            if (aluguelSelecionado.Fechado)
+            {
+                MessageBox.Show("Selecione um aluguel em aberto",
+                "Edição de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             TelaAluguelForm tela = new TelaAluguelForm(
                 repositorioFuncionario.SelecionarTodos(),
                 repositorioCliente.SelecionarTodos(),

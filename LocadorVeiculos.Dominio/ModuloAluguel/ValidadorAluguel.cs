@@ -1,11 +1,4 @@
-﻿using LocadorAutomoveis.Dominio.ModuloAutomovel;
-using LocadorAutomoveis.Dominio.ModuloClientes;
-using LocadorAutomoveis.Dominio.ModuloCupom;
-using LocadorAutomoveis.Dominio.ModuloFuncionario;
-using System.Numerics;
-using System.Text.RegularExpressions;
-
-namespace LocadorAutomoveis.Dominio.ModuloAluguel
+﻿namespace LocadorAutomoveis.Dominio.ModuloAluguel
 {
     public class ValidadorAluguel : AbstractValidator<Aluguel>, IValidadorAluguel
     {
@@ -23,9 +16,6 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
             RuleFor(x => x.Automovel)
                 .NotNull();
 
-            RuleFor(x => x.Cupom)
-                .NotNull();
-
             RuleFor(x => x.KmAutomovel)
                 .GreaterThan(0);
 
@@ -33,15 +23,20 @@ namespace LocadorAutomoveis.Dominio.ModuloAluguel
                 .NotEqual(new DateTime());
 
             RuleFor(x => x.DataPrevisao)
-                .NotEqual(new DateTime());
+                .GreaterThan(DateTime.Now);
 
-            RuleFor(x => x.Preco)
-                .GreaterThan(0);
+            RuleFor(x => x.Condutor.Validade)
+                .GreaterThanOrEqualTo(DateTime.Now);
+
+            When(x => x.Cupom != null, () =>
+            {
+                RuleFor(x => x.Cupom.DataValidade)
+                .GreaterThanOrEqualTo(DateTime.Now);
+            });
 
             When(x => x.Fechado, () =>
             {
-                RuleFor(x => x.DataDevolucao)
-                .NotEqual(new DateTime());
+                RuleFor(x => x.DataDevolucao > x.DataLocacao).Equal(true);
             });
 
             When(x => x.Fechado, () =>
