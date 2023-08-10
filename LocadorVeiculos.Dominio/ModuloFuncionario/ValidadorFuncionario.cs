@@ -16,6 +16,14 @@ namespace LocadorAutomoveis.Dominio.ModuloFuncionario
                 .NotNull()
                 .MinimumLength(5)
                 .NaoPodeCaracteresEspeciais();
+
+
+            RuleFor(x => x.Salario)
+                .GreaterThanOrEqualTo(250);
+
+
+            RuleFor(x => x.DataAdmissao)
+                .GreaterThan(DateTime.Now);
         }
     }
 }

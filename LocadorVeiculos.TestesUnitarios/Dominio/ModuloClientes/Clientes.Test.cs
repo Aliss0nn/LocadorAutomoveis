@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
-namespace LocadorAutomoveisTestesUnitarios.Dominio
+namespace LocadorAutomoveisTestesUnitarios.Dominio.ModuloClientes
 {
     [TestClass]
     public class ClienteTest
@@ -16,7 +16,7 @@ namespace LocadorAutomoveisTestesUnitarios.Dominio
         Clientes cliente;
         public ClienteTest()
         {
-            cliente = new Clientes(new Guid,"Marcos", "11582178321","SC", "Alfredo Wagner", "Aguas Frias", "Jose Lino De Mello", "12", "48981827812","Joaomarcelo@gmail.com", "12818371281", "Jurídica");
+            cliente = new Clientes(new Guid(), "Marcos", "11582178321", "SC", "Alfredo Wagner", "Aguas Frias", "Jose Lino De Mello", "12", "48981827812", "Joaomarcelo@gmail.com", "12818371281", "Jurídica");
         }
 
     }

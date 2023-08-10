@@ -17,6 +17,7 @@ namespace LocadorAutomoveis.Dominio.ModuloCondutor
                 .NotEmpty()
                 .MinimumLength(5)
                 .NaoPodeCaracteresEspeciais();
+            
 
             RuleFor(x => x.Email)
                 .NotNull()
@@ -27,9 +28,8 @@ namespace LocadorAutomoveis.Dominio.ModuloCondutor
             RuleFor(x => x.Cpf)
                 .NotNull()
                 .NotEmpty()
-                .MinimumLength(12)
-                .NaoPodeCaracteresEspeciais()
-                .MaximumLength(12);
+                .MinimumLength(14)
+                .MaximumLength(14);
 
             RuleFor(x => x.Cnh).
                 NotNull()
