@@ -117,6 +117,8 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
 
         public void ConfigurarAluguel(Aluguel aluguel)
         {
+            this.aluguel = aluguel;
+
             cmbFuncionario.SelectedItem = aluguel.Funcionario;
 
             cmbCliente.SelectedItem = aluguel.Cliente;

@@ -8,6 +8,7 @@ using LocadorAutomoveis.Dominio.ModuloFuncionario;
 using LocadorAutomoveis.Dominio.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
+using LocadorAutomoveis.Infra.Arquivos;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -25,6 +26,8 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
         private IRepositorioTaxasServico repositorioTaxasEServico;
         private readonly IRepositorioCondutor repositorioCondutor;
         private TabelaAluguelControl tabelaAluguel;
+
+        private ContextoDados contexto;
 
         private ServicoAluguel servicoAluguel;
 
@@ -50,6 +53,8 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             this.repositorioTaxasEServico = repositorioTaxasEServico;
             this.repositorioCondutor = repositorioCondutor;
             this.servicoAluguel = servicoAluguel;
+
+            contexto = new ContextoDados();
         }
 
         public override void Inserir()
@@ -74,6 +79,21 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             {
                 CarregarAlugueis();
             }            
+        }
+
+        public override void Configurar()
+        {
+            contexto.CarregarDoArquivoJson();   
+
+            TelaAluguelConfiguracaoForm tela = new TelaAluguelConfiguracaoForm();
+
+            DialogResult resultado = tela.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                contexto.GravarEmArquivoJson();
+                CarregarAlugueis();
+            }
         }
 
         public override void Editar()
@@ -111,6 +131,68 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             }
         }
 
+        public override void Concluir()
+        {
+            Guid id = tabelaAluguel.ObtemIdSelecionado();
+
+            Aluguel aluguelSelecionado = repositorioAluguel.SelecionarPorId(id);
+
+            if (aluguelSelecionado == null)
+            {
+                MessageBox.Show("Selecione um aluguel primeiro",
+                "Conclusão de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (aluguelSelecionado.Fechado)
+            {
+                MessageBox.Show("Selecione um aluguel em aberto",
+                "Conclusão de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaAluguelDevolucaoForm tela = new TelaAluguelDevolucaoForm(
+                repositorioFuncionario.SelecionarTodos(),
+                repositorioCliente.SelecionarTodos(),
+                repositorioGrupoAutomoveis.SelecionarTodos(),
+                repositorioPlanoCobranca.SelecionarTodos(true),
+                repositorioAutomovel.SelecionarTodos(true),
+                repositorioCupom.SelecionarTodos(true),
+                repositorioTaxasEServico.SelecionarTodos(),
+                repositorioCondutor.SelecionarTodos(true));
+
+            tela.onGravarRegistro += servicoAluguel.Editar;
+
+            tela.ConfigurarAluguel(aluguelSelecionado);
+
+            DialogResult resultado = tela.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                TelaAluguelEmailForm telaEmail = new TelaAluguelEmailForm();
+
+                DialogResult resultadoEmail = telaEmail.ShowDialog();
+
+                if (resultadoEmail == DialogResult.OK)
+                {
+                    string email = telaEmail.ObterEmail();
+                    string senha = telaEmail.ObterSenha();
+                    try
+                    {
+                        PdfEmail.EnviarEmail(aluguelSelecionado, email, senha);
+                        MessageBox.Show($"Email enviado para {aluguelSelecionado.Cliente.Email}",
+                        "Conclusão de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } 
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Falha ao enviar email",
+                        "Conclusão de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            CarregarAlugueis();
+            }
+        }
+
         public override void Excluir()
         {
             Guid id = tabelaAluguel.ObtemIdSelecionado();
@@ -120,6 +202,13 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             if (aluguelSelecionado == null)
             {
                 MessageBox.Show("Selecione um aluguel primeiro",
+                "Exclusão de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (!aluguelSelecionado.Fechado)
+            {
+                MessageBox.Show("Selecione um aluguel fechado",
                 "Exclusão de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }

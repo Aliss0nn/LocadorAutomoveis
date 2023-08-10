@@ -119,6 +119,7 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
 
         public void ConfigurarAluguel(Aluguel aluguel)
         {
+            this.aluguel = aluguel;
             cmbFuncionario.SelectedItem = aluguel.Funcionario;
             cmbCliente.SelectedItem = aluguel.Cliente;
 
@@ -140,12 +141,15 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
 
             cmbCupom.SelectedItem = aluguel.Cupom;
 
-            for (int i = 0; i < listTaxas.Items.Count; i++)
+            if (aluguel.Taxas != null)
             {
-                TaxasEServico taxa = (TaxasEServico)listTaxas.Items[i];
+                for (int i = 0; i < listTaxas.Items.Count; i++)
+                {
+                    TaxasEServico taxa = (TaxasEServico)listTaxas.Items[i];
 
-                if (aluguel.Taxas.Contains(taxa))
-                    listTaxas.SetItemChecked(i, true);
+                    if (aluguel.Taxas.Contains(taxa))
+                        listTaxas.SetItemChecked(i, true);
+                }
             }
 
             if (aluguel.DataLocacao != new DateTime())
@@ -154,7 +158,8 @@ namespace LocadorAutomoveis.WinApp.ModuloAluguel
             if (aluguel.DataPrevisao != new DateTime())
                 txtPrevisao.Value = aluguel.DataPrevisao;
 
-            txtKmAutomovel.Text = aluguel.Automovel.Quilometragem + "";
+            if(aluguel.Automovel != null)
+                txtKmAutomovel.Text = aluguel.Automovel.Quilometragem + "";
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using LocadorAutomoveis.Aplicacao.ModuloAutomovel;
+﻿using LocadorAutomoveis.Aplicacao.ModuloAluguel;
+using LocadorAutomoveis.Aplicacao.ModuloAutomovel;
 using LocadorAutomoveis.Aplicacao.ModuloClientes;
 using LocadorAutomoveis.Aplicacao.ModuloCondutor;
 using LocadorAutomoveis.Aplicacao.ModuloCupom;
@@ -8,6 +9,7 @@ using LocadorAutomoveis.Aplicacao.ModuloParceiro;
 using LocadorAutomoveis.Aplicacao.ModuloPlanoCobranca;
 using LocadorAutomoveis.Aplicacao.ModuloTaxasEServicos;
 using LocadorAutomoveis.Dominio;
+using LocadorAutomoveis.Dominio.ModuloAluguel;
 using LocadorAutomoveis.Dominio.ModuloAutomovel;
 using LocadorAutomoveis.Dominio.ModuloClientes;
 using LocadorAutomoveis.Dominio.ModuloCondutor;
@@ -19,6 +21,7 @@ using LocadorAutomoveis.Dominio.ModuloPlanoCobranca;
 using LocadorAutomoveis.Dominio.ModuloTaxasEServicos;
 using LocadorAutomoveis.Infra.Orm.Compartilhado;
 using LocadorAutomoveis.Infra.Orm.ModiuloFuncionario;
+using LocadorAutomoveis.Infra.Orm.ModuloAluguel;
 using LocadorAutomoveis.Infra.Orm.ModuloAutomovel;
 using LocadorAutomoveis.Infra.Orm.ModuloClientes;
 using LocadorAutomoveis.Infra.Orm.ModuloCondutor;
@@ -27,6 +30,7 @@ using LocadorAutomoveis.Infra.Orm.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.Infra.Orm.ModuloParceiro;
 using LocadorAutomoveis.Infra.Orm.ModuloPlanoCobranca;
 using LocadorAutomoveis.Infra.Orm.ModuloTaxasEServicos;
+using LocadorAutomoveis.WinApp.ModuloAluguel;
 using LocadorAutomoveis.WinApp.ModuloAutomovel;
 using LocadorAutomoveis.WinApp.ModuloClientes;
 using LocadorAutomoveis.WinApp.ModuloCondutor;
@@ -105,6 +109,12 @@ namespace LocadorAutomoveis.WinApp.Compartilhado.IoC
             servicos.AddTransient<IValidadorCondutor, ValidadorCondutor>();
             servicos.AddTransient<ServicoCondutor>();
             servicos.AddTransient<ControladorCondutor>();
+
+
+            servicos.AddTransient<IRepositorioAluguel, RepositorioAluguelEmOrm>();
+            servicos.AddTransient<IValidadorAluguel, ValidadorAluguel>();
+            servicos.AddTransient<ServicoAluguel>();
+            servicos.AddTransient<ControladorAluguel>();
 
             container = servicos.BuildServiceProvider();
         }

@@ -7,6 +7,7 @@ using LocadorAutomoveis.WinApp.ModuloFuncionario;
 using LocadorAutomoveis.WinApp.ModuloGrupoAutomoveis;
 using LocadorAutomoveis.WinApp.ModuloParceiro;
 using LocadorAutomoveis.WinApp.ModuloTaxasEServicos;
+using LocadorAutomoveis.WinApp.ModuloAluguel;
 
 namespace LocadorAutomoveis.WinApp
 {
@@ -166,6 +167,21 @@ namespace LocadorAutomoveis.WinApp
         private void condutoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(ioc.Get<ControladorCondutor>());
+        }
+
+        private void aluguéisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(ioc.Get<ControladorAluguel>());
+        }
+
+        private void btnConcluir_Click(object sender, EventArgs e)
+        {
+            controlador.Concluir();
+        }
+
+        private void btnConfiguracao_Click(object sender, EventArgs e)
+        {
+            controlador.Configurar();
         }
     }
 }

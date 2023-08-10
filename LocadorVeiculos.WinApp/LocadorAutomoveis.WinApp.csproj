@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LocadorAutomoveis.Aplicacao\LocadorAutomoveis.Aplicacao.csproj" />
+    <ProjectReference Include="..\LocadorAutomoveis.Infra.Arquivos\LocadorAutomoveis.Infra.Arquivos.csproj" />
     <ProjectReference Include="..\LocadorVeiculos.Dominio\LocadorAutomoveis.Dominio.csproj" />
     <ProjectReference Include="..\LocadorVeiculos.Infra.Orm\LocadorAutomoveis.Infra.Orm.csproj" />
   </ItemGroup>
