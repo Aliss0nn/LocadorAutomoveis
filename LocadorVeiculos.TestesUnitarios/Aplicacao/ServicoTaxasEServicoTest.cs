@@ -22,6 +22,7 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
         {
             repositorioMoq = new Mock <IRepositorioTaxasServico>();
             validadorMoq = new Mock<IValidadorTaxasServico>();
+            contextoPersistenciaMoq = new Mock<IContextoPersistencia>();
             servicoTaxasEServicos = new ServicoTaxasEServicos(repositorioMoq.Object,validadorMoq.Object,contextoPersistenciaMoq.Object);
             taxasEServico = new TaxasEServico("TaxaServico",50,"Plano Diário");
         }

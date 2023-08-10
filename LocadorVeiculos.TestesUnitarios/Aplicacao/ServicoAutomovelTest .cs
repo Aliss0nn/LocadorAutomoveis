@@ -26,6 +26,7 @@ namespace LocadorAutomoveis.TestesUnitarios.Aplicacao
         {
             repositorioAutomovelMoq = new Mock<IRepositorioAutomovel>();
             validadorMoq = new Mock<IValidadorAutomovel>();
+            contextoPersistencia = new Mock<IContextoPersistencia>();
             servicoAutomovel = new ServicoAutomovel(repositorioAutomovelMoq.Object, validadorMoq.Object, contextoPersistencia.Object);
             grupo = new GrupoAutomoveis("Esportivo");
             automovel = new Automovel(

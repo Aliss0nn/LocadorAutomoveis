@@ -24,6 +24,7 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
         {
             repositorioCondutorMoq = new Mock<IRepositorioCondutor>();
             validadorCondutorMoq = new Mock<IValidadorCondutor>();
+            contextoPersistenciaMoq = new Mock<IContextoPersistencia>();
             servicoCondutor = new ServicoCondutor(repositorioCondutorMoq.Object,validadorCondutorMoq.Object,contextoPersistenciaMoq.Object);
             clientes = new Clientes();
             condutor = new Condutor("TesteNome","email@gmail.com","123456789","323222121","321312312314",DateTime.Today,condutor.ClienteEhCondutor,clientes);

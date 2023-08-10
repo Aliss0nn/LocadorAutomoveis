@@ -116,11 +116,11 @@ namespace LocadorAutomoveis.TestesIntegracao.Compartilhado
         }
 
         protected static void LimparTabelas(LocadorAutomoveisDbContext dbContext)
-        {           
+        {
+            LimparLista<PlanoCobranca>(dbContext);
             LimparLista<GrupoAutomoveis>(dbContext);
             LimparLista<Parceiro>(dbContext);
             LimparLista<Funcionario>(dbContext);
-            LimparLista<PlanoCobranca>(dbContext);
             LimparLista<TaxasEServico>(dbContext);
             LimparLista<Condutor>(dbContext);
             

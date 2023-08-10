@@ -19,6 +19,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloPlanoCobranca
 
             //action
             repositorioPlanoCobranca.Inserir(planoCobranca);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioPlanoCobranca.SelecionarPorId(planoCobranca.Id, true).Should().Be(planoCobranca);
@@ -34,6 +35,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloPlanoCobranca
             planoCobrancaInicial.Grupo = grupo;
 
             repositorioPlanoCobranca.Inserir(planoCobrancaInicial);
+            contextoPersistencia.GravarDados();
 
             var planoCobrancaId = planoCobrancaInicial.Id;
 
@@ -42,6 +44,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloPlanoCobranca
 
             //action
             repositorioPlanoCobranca.Editar(planoCobranca);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioPlanoCobranca.SelecionarPorId(planoCobranca.Id)
@@ -58,16 +61,18 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloPlanoCobranca
             planoCobranca.Grupo = grupo;
 
             repositorioPlanoCobranca.Inserir(planoCobranca);
+            contextoPersistencia.GravarDados();
 
             //action
             repositorioPlanoCobranca.Excluir(planoCobranca);
+            contextoPersistencia.GravarDados();
 
             //assert
             repositorioPlanoCobranca.SelecionarPorId(planoCobranca.Id).Should().BeNull();
         }
 
         [TestMethod]
-        public void Deve_selecionar_todas_planoCobrancas()
+        public void Deve_selecionar_todos_planoCobrancas()
         {
             //arrange
             var grupo = Builder<GrupoAutomoveis>.CreateNew().Persist();
@@ -76,10 +81,11 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloPlanoCobranca
             planoCobranca.Grupo = grupo;
 
             var planoCobranca2 = Builder<PlanoCobranca>.CreateNew().Build();
-            planoCobranca.Grupo = grupo;
+            planoCobranca2.Grupo = grupo;
 
             repositorioPlanoCobranca.Inserir(planoCobranca);
             repositorioPlanoCobranca.Inserir(planoCobranca2);
+            contextoPersistencia.GravarDados();
 
             //action
             var planoCobrancas = repositorioPlanoCobranca.SelecionarTodos(true);
@@ -101,6 +107,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloPlanoCobranca
             planoCobranca.TipoPlano = TipoPlanoEnum.Controlado;
 
             repositorioPlanoCobranca.Inserir(planoCobranca);
+            contextoPersistencia.GravarDados();
 
             //action
             var planoCobrancasEncontrado = repositorioPlanoCobranca.SelecionarPorGrupoTipo(planoCobranca.Grupo, planoCobranca.TipoPlano);
@@ -119,6 +126,7 @@ namespace LocadorAutomoveis.TestesIntegracao.ModuloPlanoCobranca
             planoCobranca.Grupo = grupo;
 
             repositorioPlanoCobranca.Inserir(planoCobranca);
+            contextoPersistencia.GravarDados();
 
             //action
             var planoCobrancasEncontrada = repositorioPlanoCobranca.SelecionarPorId(planoCobranca.Id);

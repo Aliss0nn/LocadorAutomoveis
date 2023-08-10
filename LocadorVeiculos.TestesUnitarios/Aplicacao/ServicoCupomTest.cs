@@ -24,6 +24,7 @@ namespace LocadorAutomoveisTestesUnitarios.Aplicacao
         {
             repositorioCupomMoq = new Mock<IRepositorioCupom>();
             validadorCupomMoq = new Mock<IValidadorCupom>();
+            contextoPersistenciaMoq = new Mock<IContextoPersistencia>();
             servicoCupom = new ServicoCupom(repositorioCupomMoq.Object, validadorCupomMoq.Object, contextoPersistenciaMoq.Object);
             parceiro = new Parceiro("Parceiro");
             cupom = new Cupom("cupom",100,DateTime.Today,parceiro);
