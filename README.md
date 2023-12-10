@@ -10,6 +10,7 @@ SQL Server como banco de dados.
 Biblioteca para geração de PDF iTextSharp para criar o PDF com informações de aluguel
 
 Participantes
+
 Bernardo Alves De Melo (https://github.com/bernardoalvesmelo)
 Alisson Branco Scopel (https://github.com/Aliss0nn)
 João Marcelo Alves (https://github.com/JoaoMarceloAW)
